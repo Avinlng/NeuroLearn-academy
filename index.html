@@ -1,55 +1,150 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>آکادمی نورولرن | ورود و ثبت‌نام</title>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آکادمی نورولرن | آوین لنگرودی</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap');
 
-        /* ===== CSS Variables ===== */
+        /* ===== CSS Variables for Theme ===== */
         :root {
+            /* Dark Mode (default) */
             --bg-body: #0a0806;
             --bg-body-radial: radial-gradient(ellipse at 30% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
                                radial-gradient(ellipse at 70% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
-            --bg-card: rgba(18, 15, 12, 0.92);
+            --bg-navbar: rgba(20, 16, 10, 0.85);
+            --border-navbar: rgba(212, 175, 55, 0.15);
+            --text-navbar: #f0e2c5;
+            --text-navbar-hover: #d4af37;
+            --bg-card: rgba(18, 15, 12, 0.7);
             --border-card: rgba(212, 175, 55, 0.15);
             --shadow-card: 0 30px 80px rgba(0, 0, 0, 0.8);
-            --text-gold: #d4af37;
+            --text-name: linear-gradient(135deg, #f6e27a, #d4af37, #b8962a, #f6e27a);
+            --text-subtitle: #b8962a;
             --text-white: #f0e2c5;
             --text-muted: #8a7a5a;
+            --text-gold: #d4af37;
+            --bg-badge: rgba(212, 175, 55, 0.08);
+            --border-badge: rgba(212, 175, 55, 0.15);
+            --text-badge: #c9a84c;
+            --bg-teaching: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(184, 150, 42, 0.08));
+            --border-teaching: rgba(212, 175, 55, 0.2);
+            --text-teaching: #f0e2c5;
+            --bg-education: rgba(212, 175, 55, 0.05);
+            --border-education: rgba(212, 175, 55, 0.1);
+            --text-education: #c9a84c;
+            --bg-stat: rgba(0, 0, 0, 0.3);
+            --border-stat: rgba(212, 175, 55, 0.08);
+            --text-stat-number: linear-gradient(135deg, #f6e27a, #d4af37);
+            --text-stat-label: #8a7a5a;
+            --bg-price: rgba(212, 175, 55, 0.12);
+            --text-price: #d4af37;
+            --bg-feature: rgba(0, 0, 0, 0.25);
+            --border-feature: rgba(212, 175, 55, 0.06);
+            --text-feature-title: #d4af37;
+            --text-feature-desc: #b8962a;
+            --text-feature-list: #d4c8b0;
+            --bg-subject: rgba(0, 0, 0, 0.2);
+            --border-subject: rgba(212, 175, 55, 0.06);
+            --text-subject-title: #d4af37;
+            --text-subject-item: #c9a84c;
+            --bg-action: rgba(212, 175, 55, 0.04);
+            --border-action: rgba(212, 175, 55, 0.08);
+            --text-action: #c9a84c;
+            --bg-action-hover: rgba(212, 175, 55, 0.08);
+            --border-action-hover: #d4af37;
+            --bg-contact: rgba(0, 0, 0, 0.25);
+            --border-contact: rgba(212, 175, 55, 0.06);
+            --text-contact: #8a7a5a;
+            --text-contact-hover: #d4af37;
+            --bg-cta: linear-gradient(135deg, #d4af37, #b8962a);
+            --text-cta: #0a0806;
+            --shadow-cta: 0 10px 40px rgba(212, 175, 55, 0.2);
+            --shadow-cta-hover: 0 15px 50px rgba(212, 175, 55, 0.4);
+            --glow-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+            --toggle-bg: #2a1a00;
+            --toggle-dot: #d4af37;
+            --toggle-border: #d4af37;
+
+            /* Modal (Auth) variables */
+            --bg-modal-overlay: rgba(0, 0, 0, 0.7);
+            --bg-modal: rgba(18, 15, 12, 0.95);
+            --border-modal: rgba(212, 175, 55, 0.15);
             --bg-input: rgba(255, 255, 255, 0.05);
             --border-input: rgba(212, 175, 55, 0.12);
             --bg-btn: linear-gradient(135deg, #d4af37, #b8962a);
             --text-btn: #0a0806;
-            --glow-shadow: 0 0 30px rgba(212, 175, 55, 0.12);
             --error-color: #ff6b6b;
             --success-color: #51cf66;
-            --bg-select: rgba(255, 255, 255, 0.05);
-            --text-select: #f0e2c5;
-            --toggle-bg: #2a1a00;
-            --toggle-dot: #d4af37;
-            --toggle-border: #d4af37;
         }
 
+        /* Light Mode */
         [data-theme="light"] {
             --bg-body: #f5f0e8;
             --bg-body-radial: radial-gradient(ellipse at 30% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
                                radial-gradient(ellipse at 70% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
-            --bg-card: rgba(255, 252, 245, 0.92);
+            --bg-navbar: rgba(255, 252, 245, 0.9);
+            --border-navbar: rgba(184, 150, 42, 0.15);
+            --text-navbar: #2a2418;
+            --text-navbar-hover: #b8962a;
+            --bg-card: rgba(255, 252, 245, 0.7);
             --border-card: rgba(184, 150, 42, 0.1);
-            --shadow-card: 0 30px 80px rgba(0, 0, 0, 0.06);
+            --shadow-card: 0 30px 80px rgba(0, 0, 0, 0.08);
+            --text-name: linear-gradient(135deg, #b8962a, #d4af37, #f6e27a, #b8962a);
+            --text-subtitle: #b8962a;
             --text-white: #2a2418;
             --text-muted: #6a5f4a;
-            --bg-input: rgba(0, 0, 0, 0.03);
-            --border-input: rgba(184, 150, 42, 0.1);
-            --text-btn: #ffffff;
-            --bg-select: rgba(0, 0, 0, 0.03);
-            --text-select: #2a2418;
+            --text-gold: #b8962a;
+            --bg-badge: rgba(184, 150, 42, 0.06);
+            --border-badge: rgba(184, 150, 42, 0.1);
+            --text-badge: #8a7a5a;
+            --bg-teaching: linear-gradient(135deg, rgba(184, 150, 42, 0.1), rgba(184, 150, 42, 0.04));
+            --border-teaching: rgba(184, 150, 42, 0.12);
+            --text-teaching: #2a2418;
+            --bg-education: rgba(184, 150, 42, 0.04);
+            --border-education: rgba(184, 150, 42, 0.08);
+            --text-education: #b8962a;
+            --bg-stat: rgba(255, 248, 235, 0.6);
+            --border-stat: rgba(184, 150, 42, 0.06);
+            --text-stat-number: linear-gradient(135deg, #b8962a, #d4af37);
+            --text-stat-label: #6a5f4a;
+            --bg-price: rgba(184, 150, 42, 0.08);
+            --text-price: #b8962a;
+            --bg-feature: rgba(255, 248, 235, 0.5);
+            --border-feature: rgba(184, 150, 42, 0.04);
+            --text-feature-title: #b8962a;
+            --text-feature-desc: #8a7a5a;
+            --text-feature-list: #4a3f2a;
+            --bg-subject: rgba(255, 248, 235, 0.4);
+            --border-subject: rgba(184, 150, 42, 0.04);
+            --text-subject-title: #b8962a;
+            --text-subject-item: #6a5f4a;
+            --bg-action: rgba(184, 150, 42, 0.04);
+            --border-action: rgba(184, 150, 42, 0.06);
+            --text-action: #8a7a5a;
+            --bg-action-hover: rgba(184, 150, 42, 0.06);
+            --border-action-hover: #b8962a;
+            --bg-contact: rgba(255, 248, 235, 0.4);
+            --border-contact: rgba(184, 150, 42, 0.04);
+            --text-contact: #6a5f4a;
+            --text-contact-hover: #b8962a;
+            --bg-cta: linear-gradient(135deg, #d4af37, #b8962a);
+            --text-cta: #ffffff;
+            --shadow-cta: 0 10px 40px rgba(184, 150, 42, 0.15);
+            --shadow-cta-hover: 0 15px 50px rgba(184, 150, 42, 0.25);
+            --glow-shadow: 0 0 30px rgba(184, 150, 42, 0.1);
             --toggle-bg: #e8ddd0;
             --toggle-dot: #b8962a;
             --toggle-border: #b8962a;
+
+            /* Modal light */
+            --bg-modal-overlay: rgba(0, 0, 0, 0.4);
+            --bg-modal: rgba(255, 252, 245, 0.95);
+            --border-modal: rgba(184, 150, 42, 0.1);
+            --bg-input: rgba(0, 0, 0, 0.03);
+            --border-input: rgba(184, 150, 42, 0.1);
+            --text-btn: #ffffff;
         }
 
         * {
@@ -63,19 +158,16 @@
             background: var(--bg-body);
             background-image: var(--bg-body-radial);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
             transition: all 0.5s ease;
         }
 
         /* ===== Theme Toggle ===== */
         .theme-toggle-wrapper {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
+            display: flex;
+            justify-content: flex-end;
+            max-width: 1200px;
+            margin: 0 auto 15px;
         }
 
         .theme-toggle {
@@ -90,6 +182,7 @@
             align-items: center;
             padding: 3px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: relative;
         }
 
         .theme-toggle:hover {
@@ -103,6 +196,7 @@
             border-radius: 50%;
             background: var(--toggle-dot);
             transition: all 0.4s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -114,27 +208,759 @@
             transform: translateX(28px);
         }
 
-        /* ===== Auth Container ===== */
-        .auth-container {
+        /* ===== Navbar ===== */
+        .navbar {
+            background: var(--bg-navbar);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--border-navbar);
+            border-radius: 50px;
+            padding: 10px 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            transition: all 0.5s ease;
+        }
+
+        .logo {
+            color: var(--text-gold);
+            font-size: 1.5rem;
+            font-weight: 900;
+            transition: color 0.5s ease;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            color: var(--text-navbar-hover);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-auth-btn {
+            padding: 8px 22px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-navbar);
+            background: transparent;
+            color: var(--text-navbar);
+        }
+
+        .nav-auth-btn:hover {
+            border-color: var(--text-gold);
+            color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .nav-auth-btn.register-btn {
+            background: var(--bg-cta);
+            border-color: var(--text-gold);
+            color: var(--text-cta);
+        }
+
+        .nav-auth-btn.register-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-cta);
+        }
+
+        .nav-auth-btn.login-btn {
+            border-color: var(--text-gold);
+            color: var(--text-gold);
+        }
+
+        .nav-auth-btn.login-btn:hover {
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        /* User info in navbar */
+        .user-nav-info {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-navbar);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .user-nav-info .user-avatar-small {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--text-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0806;
+            font-weight: 900;
+            font-size: 1rem;
+        }
+
+        .user-nav-info .logout-small {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            color: var(--error-color);
+            padding: 4px 14px;
+            border-radius: 60px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .user-nav-info .logout-small:hover {
+            background: rgba(255, 107, 107, 0.2);
+        }
+
+        /* ===== Menu ===== */
+        .menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .menu-item {
+            position: relative;
+            color: var(--text-navbar);
+            cursor: pointer;
+            padding: 10px 0;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            color: var(--text-navbar-hover);
+        }
+
+        .menu-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .menu-item a:hover {
+            color: var(--text-navbar-hover);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--bg-navbar);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--border-navbar);
+            border-radius: 15px;
+            padding: 10px 0;
+            min-width: 200px;
+            display: none;
+            z-index: 1000;
+            transition: all 0.5s ease;
+        }
+
+        .menu-item:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 8px 20px;
+            color: var(--text-navbar);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            background: rgba(212, 175, 55, 0.08);
+            color: var(--text-navbar-hover);
+        }
+
+        /* ============================================================ */
+        /* ===== PAGE 1: HOME ===== */
+        /* ============================================================ */
+
+        .showcase-card {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .card-glow {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #d4af37, #b8962a, #f6e27a, #d4af37);
+            border-radius: 40px;
+            filter: blur(20px);
+            opacity: 0.15;
+            animation: glow 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.1; filter: blur(20px); }
+            50% { opacity: 0.2; filter: blur(25px); }
+        }
+
+        .premium-card {
+            position: relative;
+            z-index: 2;
+            background: var(--bg-card);
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--border-card);
+            border-radius: 35px;
+            padding: 30px;
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.04), rgba(184, 150, 42, 0.02));
+            z-index: -1;
+        }
+
+        .consult-banner {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(184, 150, 42, 0.08));
+            border: 2px solid rgba(212, 175, 55, 0.12);
+            border-radius: 20px;
+            padding: 15px 25px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            transition: all 0.5s ease;
+        }
+
+        .consult-text {
+            color: var(--text-gold);
+            font-size: 1.3rem;
+            font-weight: 700;
+            transition: color 0.5s ease;
+        }
+
+        .consult-number {
+            background: rgba(212, 175, 55, 0.08);
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 2px solid var(--border-card);
+            color: var(--text-gold);
+            font-size: 1.2rem;
+            text-decoration: none;
+            direction: ltr;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .consult-number:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .card-header {
+            margin-bottom: 25px;
+        }
+
+        .title-section {
+            text-align: center;
+        }
+
+        .name {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: var(--text-name);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            transition: all 0.5s ease;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-subtitle);
+            margin-bottom: 15px;
+            transition: color 0.5s ease;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .badge {
+            background: var(--bg-badge);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-badge);
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: var(--text-badge);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .teaching-banner {
+            background: var(--bg-teaching);
+            border: 2px solid var(--border-teaching);
+            border-radius: 20px;
+            padding: 15px 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .teaching-banner:hover {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .teaching-text {
+            color: var(--text-teaching);
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            transition: color 0.5s ease;
+        }
+
+        .teaching-icon {
+            font-size: 2rem;
+            background: rgba(212, 175, 55, 0.08);
+            padding: 5px 15px;
+            border-radius: 50px;
+        }
+
+        .education-box {
+            background: var(--bg-education);
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--border-education);
+            border-radius: 20px;
+            padding: 15px 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.5s ease;
+        }
+
+        .education-box:hover {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .education-icon {
+            font-size: 2rem;
+            background: rgba(212, 175, 55, 0.08);
+            width: 55px;
+            height: 55px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .education-text {
+            color: var(--text-white);
+            font-size: 1rem;
+            line-height: 1.5;
+            transition: color 0.5s ease;
+        }
+
+        .highlight {
+            color: var(--text-gold);
+            font-weight: 700;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: var(--bg-stat);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-stat);
+            border-radius: 15px;
+            padding: 15px 5px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: var(--text-stat-number);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            transition: all 0.5s ease;
+        }
+
+        .stat-label {
+            color: var(--text-stat-label);
+            font-size: 0.8rem;
+            transition: color 0.5s ease;
+        }
+
+        .price-tag {
+            background: var(--bg-price);
+            color: var(--text-price);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            transition: all 0.5s ease;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: var(--bg-feature);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--border-feature);
+            border-radius: 20px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            background: rgba(212, 175, 55, 0.08);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-title {
+            font-size: 1rem;
+            color: var(--text-feature-title);
+            font-weight: 700;
+            transition: color 0.5s ease;
+        }
+
+        .feature-desc {
+            color: var(--text-feature-desc);
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            color: var(--text-feature-list);
+            margin-bottom: 5px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.5s ease;
+        }
+
+        .feature-list li::before {
+            content: '✦';
+            color: var(--text-gold);
+            font-size: 0.8rem;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .subject-category {
+            background: var(--bg-subject);
+            border: 2px solid var(--border-subject);
+            border-radius: 20px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .subject-category:hover {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .category-title {
+            color: var(--text-subject-title);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+            transition: color 0.5s ease;
+        }
+
+        .category-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .category-item {
+            color: var(--text-subject-item);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.5s ease;
+        }
+
+        .category-item::before {
+            content: '•';
+            color: var(--text-gold);
+            font-size: 1.2rem;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0 15px;
+        }
+
+        .action-btn {
+            background: var(--bg-action);
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--border-action);
+            border-radius: 15px;
+            padding: 12px 5px;
+            color: var(--text-action);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-decoration: none;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-action-hover);
+            box-shadow: var(--glow-shadow);
+            background: var(--bg-action-hover);
+            color: var(--text-gold);
+        }
+
+        .action-icon {
+            font-size: 1.5rem;
+        }
+
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--bg-contact);
+            backdrop-filter: blur(5px);
+            border-radius: 50px;
+            border: 1px solid var(--border-contact);
+            transition: all 0.5s ease;
+        }
+
+        .contact-bar:hover {
+            border-color: var(--text-gold);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-contact);
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--text-contact-hover);
+            transform: scale(1.05);
+        }
+
+        .contact-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(184, 150, 42, 0.08));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--bg-cta);
+            border: none;
+            border-radius: 50px;
+            color: var(--text-cta);
+            font-size: 1.2rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            margin-top: 15px;
+            box-shadow: var(--shadow-cta);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: var(--shadow-cta-hover);
+        }
+
+        /* ============================================================ */
+        /* ===== MODAL (AUTH) ===== */
+        /* ============================================================ */
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-modal-overlay);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeInModal 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeInModal {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .modal-box {
             max-width: 480px;
             width: 100%;
-            background: var(--bg-card);
+            background: var(--bg-modal);
             backdrop-filter: blur(20px);
-            border: 2px solid var(--border-card);
+            border: 2px solid var(--border-modal);
             border-radius: 40px;
             padding: 40px 35px;
             box-shadow: var(--shadow-card);
             transition: all 0.5s ease;
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        .auth-header {
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: var(--text-gold);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .auth-logo {
-            font-size: 2.8rem;
+        .modal-logo {
+            font-size: 2.2rem;
             font-weight: 900;
             background: linear-gradient(135deg, #f6e27a, #d4af37, #b8962a, #f6e27a);
             -webkit-background-clip: text;
@@ -142,28 +968,20 @@
             margin-bottom: 5px;
         }
 
-        .auth-subtitle {
+        .modal-subtitle {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
+            font-size: 0.9rem;
         }
 
-        .auth-logo-sub {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-        }
-
-        /* ===== Tabs ===== */
-        .auth-tabs {
+        .modal-tabs {
             display: flex;
             border-radius: 60px;
             overflow: hidden;
             margin-bottom: 25px;
-            border: 2px solid var(--border-card);
+            border: 2px solid var(--border-modal);
         }
 
-        .auth-tab {
+        .modal-tab {
             flex: 1;
             padding: 12px;
             text-align: center;
@@ -176,23 +994,22 @@
             border: none;
         }
 
-        .auth-tab.active {
+        .modal-tab.active {
             background: linear-gradient(135deg, #d4af37, #b8962a);
             color: #0a0806;
             box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
         }
 
-        .auth-tab:hover:not(.active) {
+        .modal-tab:hover:not(.active) {
             background: rgba(212, 175, 55, 0.05);
         }
 
-        /* ===== Forms ===== */
-        .auth-form {
+        .modal-form {
             display: none;
             animation: fadeIn 0.3s ease;
         }
 
-        .auth-form.active {
+        .modal-form.active {
             display: block;
         }
 
@@ -250,14 +1067,14 @@
         }
 
         .form-group select {
-            color: var(--text-select);
-            background: var(--bg-select);
+            color: var(--text-white);
+            background: var(--bg-input);
             appearance: none;
             cursor: pointer;
         }
 
         .form-group select option {
-            background: var(--bg-card);
+            background: var(--bg-modal);
             color: var(--text-white);
         }
 
@@ -314,7 +1131,6 @@
             transform: none;
         }
 
-        /* ===== Messages ===== */
         .auth-message {
             text-align: center;
             margin-top: 15px;
@@ -364,25 +1180,76 @@
         }
 
         /* ===== Responsive ===== */
-        @media (max-width: 480px) {
-            .auth-container {
-                padding: 25px 18px;
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
                 border-radius: 30px;
+                padding: 15px;
             }
 
-            .auth-logo {
+            .nav-left {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .nav-auth-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-bar {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .name {
                 font-size: 2.2rem;
             }
 
-            .auth-tab {
-                font-size: 0.85rem;
-                padding: 10px;
+            .subtitle {
+                font-size: 1.1rem;
             }
 
-            .form-group input,
-            .form-group select {
-                padding: 12px 15px;
-                font-size: 0.9rem;
+            .teaching-text {
+                font-size: 1.1rem;
+            }
+
+            .consult-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .theme-toggle-wrapper {
+                justify-content: center;
+            }
+
+            .modal-box {
+                padding: 30px 20px;
+                border-radius: 30px;
             }
 
             .form-row {
@@ -390,36 +1257,53 @@
                 gap: 0;
             }
 
-            .theme-toggle-wrapper {
-                top: 15px;
-                left: 15px;
-            }
-
-            .auth-btn {
-                padding: 14px;
-                font-size: 1rem;
+            .user-nav-info {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
             }
         }
 
-        @media (max-width: 380px) {
-            .auth-container {
-                padding: 20px 14px;
-                border-radius: 24px;
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .auth-logo {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .badge-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .name {
                 font-size: 1.8rem;
             }
 
-            .auth-tab {
-                font-size: 0.75rem;
-                padding: 8px;
+            .premium-card {
+                padding: 15px;
+                border-radius: 25px;
             }
 
-            .form-group input,
-            .form-group select {
-                padding: 10px 12px;
-                font-size: 0.85rem;
+            .modal-box {
+                padding: 25px 15px;
+                border-radius: 24px;
+            }
+
+            .modal-logo {
+                font-size: 1.8rem;
+            }
+
+            .modal-tab {
+                font-size: 0.8rem;
+                padding: 10px;
+            }
+
+            .nav-auth-btn {
+                padding: 6px 16px;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -433,115 +1317,321 @@
         </button>
     </div>
 
-    <!-- ===== Main Container ===== -->
-    <div class="auth-container" id="authContainer">
-
-        <!-- ===== Header ===== -->
-        <div class="auth-header" id="authHeader">
-            <div class="auth-logo">🧠 نورولرن</div>
-            <div class="auth-logo-sub">✦ NeuroLearn Academy ✦</div>
-            <div class="auth-subtitle">ورود و ثبت‌نام در آکادمی</div>
-        </div>
-
-        <!-- ===== Tabs ===== -->
-        <div class="auth-tabs" id="authTabs">
-            <button class="auth-tab active" data-tab="login" onclick="switchTab('login')">🔐 ورود</button>
-            <button class="auth-tab" data-tab="register" onclick="switchTab('register')">📝 ثبت‌نام</button>
-        </div>
-
-        <!-- ============================================================ -->
-        <!-- ===== FORM: LOGIN ===== -->
-        <!-- ============================================================ -->
-        <div id="loginForm" class="auth-form active">
-            <div class="form-group">
-                <label>📧 ایمیل <span class="required">*</span></label>
-                <input type="email" id="loginEmail" placeholder="example@gmail.com" />
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">آوین لنگرودی</div>
+            <div class="nav-auth-buttons" id="authButtons">
+                <button class="nav-auth-btn login-btn" onclick="openModal('login')">🔐 ورود</button>
+                <button class="nav-auth-btn register-btn" onclick="openModal('register')">📝 ثبت‌نام</button>
             </div>
-            <div class="form-group password-toggle">
-                <label>🔒 رمز عبور <span class="required">*</span></label>
-                <input type="password" id="loginPassword" placeholder="••••••••" />
-                <button type="button" class="toggle-btn" onclick="togglePassword('loginPassword', this)">👁️</button>
-            </div>
-            <button class="auth-btn" id="loginBtn" onclick="loginUser()">🚀 ورود</button>
-            <div class="auth-message" id="loginMessage"></div>
-            <div class="auth-footer">
-                حساب ندارید؟ <a onclick="switchTab('register')">ثبت‌نام کنید</a>
+            <div class="user-nav-info" id="userNavInfo">
+                <span class="user-avatar-small" id="navUserAvatar">👤</span>
+                <span id="navUserName">کاربر</span>
+                <button class="logout-small" onclick="logoutUser()">خروج</button>
             </div>
         </div>
-
-        <!-- ============================================================ -->
-        <!-- ===== FORM: REGISTER ===== -->
-        <!-- ============================================================ -->
-        <div id="registerForm" class="auth-form">
-            <!-- نام و نام خانوادگی -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label>👤 نام <span class="required">*</span></label>
-                    <input type="text" id="registerFirstName" placeholder="آوین" />
+        <ul class="menu">
+            <li class="menu-item">
+                صفحه اصلی
+            </li>
+            <li class="menu-item">
+                دوره‌ها
+                <div class="dropdown">
+                    <a href="#">📚 رزرو کلاس‌ها</a>
+                    <a href="#">🏆 دوره‌های طلایی مستر</a>
                 </div>
-                <div class="form-group">
-                    <label>👤 نام‌خانوادگی <span class="required">*</span></label>
-                    <input type="text" id="registerLastName" placeholder="لنگرودی" />
+            </li>
+            <li class="menu-item">
+                قرعه کشی ماهانه
+            </li>
+            <li class="menu-item">
+                تماس با من
+                <div class="dropdown">
+                    <a href="#">مشاوره رایگان</a>
+                    <a href="#">پشتیبانی</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- ===== HOME PAGE ===== -->
+    <!-- ============================================================ -->
+    <div class="showcase-card">
+        <div class="card-glow"></div>
+        <div class="premium-card">
+            <div class="consult-banner">
+                <span class="consult-text">📞 مشاوره رایگان</span>
+                <a href="tel:09174123428" class="consult-number">۰۹۱۷۴۱۲۳۴۲۸</a>
+            </div>
+
+            <div class="card-header">
+                <div class="title-section">
+                    <div class="name">آوین لنگرودی</div>
+                    <div class="subtitle">مدرس ریاضیات و کامپیوتر</div>
+                    <div class="badge-container">
+                        <span class="badge">🏆 مدرس تیزهوشان و نمونه دولتی</span>
+                        <span class="badge">🌍 تدریس در کانادا و ایران</span>
+                        <span class="badge">📝 امتحانات نهایی</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- سن -->
-            <div class="form-group">
-                <label>🎂 سن <span class="required">*</span></label>
-                <input type="number" id="registerAge" placeholder="مثال: ۲۵" min="10" max="80" />
+            <div class="teaching-banner">
+                <div class="teaching-text">
+                    <span class="teaching-icon">📚</span>
+                    <span>تدریس در تمام پایه‌ها - از اول تا دوازدهم</span>
+                    <span class="teaching-icon">🎓</span>
+                </div>
             </div>
 
-            <!-- دوره مورد نظر -->
-            <div class="form-group">
-                <label>📚 دوره مورد نظر <span class="required">*</span></label>
-                <select id="registerCourse">
-                    <option value="">انتخاب کنید...</option>
-                    <option value="ریاضیات دبستان">📐 ریاضیات دبستان</option>
-                    <option value="ریاضیات راهنمایی">📐 ریاضیات راهنمایی</option>
-                    <option value="ریاضیات دبیرستان">📐 ریاضیات دبیرستان</option>
-                    <option value="علوم دبستان">🔬 علوم دبستان</option>
-                    <option value="علوم راهنمایی">🔬 علوم راهنمایی</option>
-                    <option value="علوم دبیرستان">🔬 علوم دبیرستان</option>
-                    <option value="فیزیک">⚡ فیزیک</option>
-                    <option value="شیمی">🧪 شیمی</option>
-                    <option value="عربی">📖 عربی</option>
-                    <option value="ادبیات فارسی">📝 ادبیات فارسی</option>
-                    <option value="برنامه‌نویسی پایتون">🐍 برنامه‌نویسی پایتون</option>
-                    <option value="ICDL">💻 ICDL</option>
-                    <option value="زبان انگلیسی">🇺🇸 زبان انگلیسی</option>
-                    <option value="مدارس ایران (EN)">📚 مدارس ایران (EN)</option>
-                    <option value="Canadian K-12">🍁 Canadian K-12</option>
-                    <option value="سایر">📌 سایر</option>
-                </select>
+            <div class="education-box">
+                <div class="education-icon">🎓</div>
+                <div class="education-text">
+                    خودم هم <span class="highlight">دبیرستان نمونه دولتی</span> درس خوندم و کلی با بچه‌های تیزهوشان و نمونه دولتی خاطره دارم!
+                </div>
             </div>
 
-            <!-- ایمیل -->
-            <div class="form-group">
-                <label>📧 ایمیل <span class="required">*</span></label>
-                <input type="email" id="registerEmail" placeholder="example@gmail.com" />
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">۹۰٪</div>
+                    <div class="stat-label">قبولی</div>
+                    <div class="price-tag">تیزهوشان و نمونه دولتی</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">۹۸٪</div>
+                    <div class="stat-label">رضایت</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">۴.۵</div>
+                    <div class="stat-label">سال سابقه</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">۲</div>
+                    <div class="stat-label">کشور</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">💰</div>
+                    <div class="stat-label">قیمت</div>
+                    <div class="price-tag">استثنایی</div>
+                </div>
             </div>
 
-            <!-- رمز عبور -->
-            <div class="form-group password-toggle">
-                <label>🔒 رمز عبور <span class="required">*</span></label>
-                <input type="password" id="registerPassword" placeholder="حداقل ۶ کاراکتر" />
-                <button type="button" class="toggle-btn" onclick="togglePassword('registerPassword', this)">👁️</button>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">📐</div>
+                        <div class="feature-title">تخصصی</div>
+                    </div>
+                    <div class="feature-desc">دروس تخصصی</div>
+                    <ul class="feature-list">
+                        <li>ریاضیات همه پایه‌ها</li>
+                        <li>علوم تجربی</li>
+                        <li>فیزیک</li>
+                        <li>شیمی</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">📚</div>
+                        <div class="feature-title">عمومی</div>
+                    </div>
+                    <div class="feature-desc">دروس عمومی</div>
+                    <ul class="feature-list">
+                        <li>فارسی و نگارش</li>
+                        <li>دینی</li>
+                        <li>عربی</li>
+                        <li>مطالعات اجتماعی</li>
+                        <li>زبان انگلیسی</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">📝</div>
+                        <div class="feature-title">امتحانات نهایی</div>
+                    </div>
+                    <div class="feature-desc">آمادگی کامل</div>
+                    <ul class="feature-list">
+                        <li>نمونه سوال نهایی</li>
+                        <li>رفع اشکال</li>
+                        <li>خلاصه نویسی و آموزش تشریحی</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-title">گزارش ماهانه</div>
+                    </div>
+                    <div class="feature-desc">به والدین</div>
+                    <ul class="feature-list">
+                        <li>کارنامه پیشرفت</li>
+                        <li>نقاط قوت و ضعف</li>
+                        <li>برنامه ماه آینده</li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- تکرار رمز عبور -->
-            <div class="form-group password-toggle">
-                <label>🔒 تکرار رمز عبور <span class="required">*</span></label>
-                <input type="password" id="registerConfirmPassword" placeholder="دوباره وارد کنید" />
-                <button type="button" class="toggle-btn" onclick="togglePassword('registerConfirmPassword', this)">👁️</button>
+            <div class="subjects-grid">
+                <div class="subject-category">
+                    <div class="category-title">💻 کامپیوتر مبتدی تا پیشرفته</div>
+                    <div class="category-items">
+                        <span class="category-item">برنامه‌نویسی پایتون</span>
+                        <span class="category-item">HTML و طراحی وبسایت</span>
+                        <span class="category-item">ICDL</span>
+                    </div>
+                </div>
+
+                <div class="subject-category">
+                    <div class="category-title">🎯 خدمات ویژه</div>
+                    <div class="category-items">
+                        <span class="category-item">نمونه سوال نهایی</span>
+                        <span class="category-item">رفع اشکال</span>
+                        <span class="category-item">کارنامه پیشرفت</span>
+                    </div>
+                </div>
             </div>
 
-            <button class="auth-btn" id="registerBtn" onclick="registerUser()">✨ ثبت‌نام</button>
-            <div class="auth-message" id="registerMessage"></div>
-            <div class="auth-footer">
-                حساب دارید؟ <a onclick="switchTab('login')">وارد شوید</a>
+            <div class="action-buttons">
+                <a href="#" class="action-btn">
+                    <span class="action-icon">📝</span>
+                    <span>نظرات</span>
+                </a>
+                <a href="#" class="action-btn">
+                    <span class="action-icon">📅</span>
+                    <span>رزرو کلاس</span>
+                </a>
+            </div>
+
+            <div class="contact-bar">
+                <a href="tel:09174123428" class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <span>تماس</span>
+                </a>
+                <a href="sms:09174123428?body=سلام%2C%20من%20علاقه%E2%80%8Cمند%20به%20دریافت%20مشاوره%20تحصیلی%20هستم." class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <span>پیامک</span>
+                </a>
+                <a href="https://wa.me/989174123428?text=سلام%20من%20علاقه%E2%80%8Cمند%20به%20دریافت%20مشاوره%20تحصیلی%20هستم." target="_blank" class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <span>واتساپ</span>
+                </a>
+                <a href="#" id="emailLink" class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <span>جیمیل</span>
+                </a>
+            </div>
+
+            <a href="tel:09174123428" class="cta-button">
+                ⭐ جلسه اول رایگان - همین حالا تماس بگیر ⭐
+            </a>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== MODAL (AUTH) ===== -->
+    <!-- ============================================================ -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+
+            <div class="modal-header">
+                <div class="modal-logo">🧠 نورولرن</div>
+                <div class="modal-subtitle">✦ NeuroLearn Academy ✦</div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="modal-tabs">
+                <button class="modal-tab active" data-tab="login" onclick="switchModalTab('login')">🔐 ورود</button>
+                <button class="modal-tab" data-tab="register" onclick="switchModalTab('register')">📝 ثبت‌نام</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="modalLoginForm" class="modal-form active">
+                <div class="form-group">
+                    <label>📧 ایمیل <span class="required">*</span></label>
+                    <input type="email" id="modalLoginEmail" placeholder="example@gmail.com" />
+                </div>
+                <div class="form-group password-toggle">
+                    <label>🔒 رمز عبور <span class="required">*</span></label>
+                    <input type="password" id="modalLoginPassword" placeholder="••••••••" />
+                    <button type="button" class="toggle-btn" onclick="toggleModalPassword('modalLoginPassword', this)">👁️</button>
+                </div>
+                <button class="auth-btn" id="modalLoginBtn" onclick="modalLoginUser()">🚀 ورود</button>
+                <div class="auth-message" id="modalLoginMessage"></div>
+                <div class="auth-footer">
+                    حساب ندارید؟ <a onclick="switchModalTab('register')">ثبت‌نام کنید</a>
+                </div>
+            </div>
+
+            <!-- Register Form -->
+            <div id="modalRegisterForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>👤 نام <span class="required">*</span></label>
+                        <input type="text" id="modalRegisterFirstName" placeholder="آوین" />
+                    </div>
+                    <div class="form-group">
+                        <label>👤 نام‌خانوادگی <span class="required">*</span></label>
+                        <input type="text" id="modalRegisterLastName" placeholder="لنگرودی" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>🎂 سن <span class="required">*</span></label>
+                    <input type="number" id="modalRegisterAge" placeholder="مثال: ۲۵" min="10" max="80" />
+                </div>
+
+                <div class="form-group">
+                    <label>📚 دوره مورد نظر <span class="required">*</span></label>
+                    <select id="modalRegisterCourse">
+                        <option value="">انتخاب کنید...</option>
+                        <option value="ریاضیات دبستان">📐 ریاضیات دبستان</option>
+                        <option value="ریاضیات راهنمایی">📐 ریاضیات راهنمایی</option>
+                        <option value="ریاضیات دبیرستان">📐 ریاضیات دبیرستان</option>
+                        <option value="علوم دبستان">🔬 علوم دبستان</option>
+                        <option value="علوم راهنمایی">🔬 علوم راهنمایی</option>
+                        <option value="علوم دبیرستان">🔬 علوم دبیرستان</option>
+                        <option value="فیزیک">⚡ فیزیک</option>
+                        <option value="شیمی">🧪 شیمی</option>
+                        <option value="عربی">📖 عربی</option>
+                        <option value="ادبیات فارسی">📝 ادبیات فارسی</option>
+                        <option value="برنامه‌نویسی پایتون">🐍 برنامه‌نویسی پایتون</option>
+                        <option value="ICDL">💻 ICDL</option>
+                        <option value="زبان انگلیسی">🇺🇸 زبان انگلیسی</option>
+                        <option value="مدارس ایران (EN)">📚 مدارس ایران (EN)</option>
+                        <option value="Canadian K-12">🍁 Canadian K-12</option>
+                        <option value="سایر">📌 سایر</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>📧 ایمیل <span class="required">*</span></label>
+                    <input type="email" id="modalRegisterEmail" placeholder="example@gmail.com" />
+                </div>
+
+                <div class="form-group password-toggle">
+                    <label>🔒 رمز عبور <span class="required">*</span></label>
+                    <input type="password" id="modalRegisterPassword" placeholder="حداقل ۶ کاراکتر" />
+                    <button type="button" class="toggle-btn" onclick="toggleModalPassword('modalRegisterPassword', this)">👁️</button>
+                </div>
+
+                <div class="form-group password-toggle">
+                    <label>🔒 تکرار رمز عبور <span class="required">*</span></label>
+                    <input type="password" id="modalRegisterConfirmPassword" placeholder="دوباره وارد کنید" />
+                    <button type="button" class="toggle-btn" onclick="toggleModalPassword('modalRegisterConfirmPassword', this)">👁️</button>
+                </div>
+
+                <button class="auth-btn" id="modalRegisterBtn" onclick="modalRegisterUser()">✨ ثبت‌نام</button>
+                <div class="auth-message" id="modalRegisterMessage"></div>
+                <div class="auth-footer">
+                    حساب دارید؟ <a onclick="switchModalTab('login')">وارد شوید</a>
+                </div>
             </div>
         </div>
-
     </div>
 
     <!-- ============================================================ -->
@@ -578,25 +1668,63 @@
         });
 
         // ============================================================
-        // ===== TAB SWITCHING =====
+        // ===== MODAL FUNCTIONS =====
         // ============================================================
-        function switchTab(tab) {
-            document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
-            document.querySelector(`.auth-tab[data-tab="${tab}"]`).classList.add('active');
+        function openModal(tab) {
+            const modal = document.getElementById('authModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
 
-            document.getElementById('loginForm').classList.remove('active');
-            document.getElementById('registerForm').classList.remove('active');
+            // Reset messages
+            document.querySelectorAll('.auth-message').forEach(el => {
+                el.className = 'auth-message';
+                el.textContent = '';
+            });
 
-            if (tab === 'login') {
-                document.getElementById('loginForm').classList.add('active');
+            // Switch to correct tab
+            if (tab === 'register') {
+                switchModalTab('register');
             } else {
-                document.getElementById('registerForm').classList.add('active');
+                switchModalTab('login');
             }
-
-            clearMessages();
         }
 
-        function clearMessages() {
+        function closeModal() {
+            const modal = document.getElementById('authModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+
+            // Clear messages
+            document.querySelectorAll('.auth-message').forEach(el => {
+                el.className = 'auth-message';
+                el.textContent = '';
+            });
+        }
+
+        // Close modal on overlay click
+        document.getElementById('authModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // ============================================================
+        // ===== MODAL TAB SWITCHING =====
+        // ============================================================
+        function switchModalTab(tab) {
+            document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`.modal-tab[data-tab="${tab}"]`).classList.add('active');
+
+            document.getElementById('modalLoginForm').classList.remove('active');
+            document.getElementById('modalRegisterForm').classList.remove('active');
+
+            if (tab === 'login') {
+                document.getElementById('modalLoginForm').classList.add('active');
+            } else {
+                document.getElementById('modalRegisterForm').classList.add('active');
+            }
+
+            // Clear messages
             document.querySelectorAll('.auth-message').forEach(el => {
                 el.className = 'auth-message';
                 el.textContent = '';
@@ -606,7 +1734,7 @@
         // ============================================================
         // ===== TOGGLE PASSWORD VISIBILITY =====
         // ============================================================
-        function togglePassword(inputId, btn) {
+        function toggleModalPassword(inputId, btn) {
             const input = document.getElementById(inputId);
             if (input.type === 'password') {
                 input.type = 'text';
@@ -620,7 +1748,7 @@
         // ============================================================
         // ===== SHOW MESSAGE =====
         // ============================================================
-        function showMessage(element, text, type) {
+        function showModalMessage(element, text, type) {
             element.className = 'auth-message ' + type;
             element.textContent = text;
         }
@@ -628,56 +1756,56 @@
         // ============================================================
         // ===== REGISTER USER (Demo - No Database) =====
         // ============================================================
-        function registerUser() {
-            const firstName = document.getElementById('registerFirstName').value.trim();
-            const lastName = document.getElementById('registerLastName').value.trim();
-            const age = document.getElementById('registerAge').value.trim();
-            const course = document.getElementById('registerCourse').value;
-            const email = document.getElementById('registerEmail').value.trim();
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('registerConfirmPassword').value;
-            const message = document.getElementById('registerMessage');
-            const btn = document.getElementById('registerBtn');
+        function modalRegisterUser() {
+            const firstName = document.getElementById('modalRegisterFirstName').value.trim();
+            const lastName = document.getElementById('modalRegisterLastName').value.trim();
+            const age = document.getElementById('modalRegisterAge').value.trim();
+            const course = document.getElementById('modalRegisterCourse').value;
+            const email = document.getElementById('modalRegisterEmail').value.trim();
+            const password = document.getElementById('modalRegisterPassword').value;
+            const confirmPassword = document.getElementById('modalRegisterConfirmPassword').value;
+            const message = document.getElementById('modalRegisterMessage');
+            const btn = document.getElementById('modalRegisterBtn');
 
             // Validation
             if (!firstName) {
-                showMessage(message, 'لطفاً نام خود را وارد کنید.', 'error');
+                showModalMessage(message, 'لطفاً نام خود را وارد کنید.', 'error');
                 return;
             }
 
             if (!lastName) {
-                showMessage(message, 'لطفاً نام‌خانوادگی خود را وارد کنید.', 'error');
+                showModalMessage(message, 'لطفاً نام‌خانوادگی خود را وارد کنید.', 'error');
                 return;
             }
 
             if (!age) {
-                showMessage(message, 'لطفاً سن خود را وارد کنید.', 'error');
+                showModalMessage(message, 'لطفاً سن خود را وارد کنید.', 'error');
                 return;
             }
 
             const ageNum = parseInt(age);
             if (isNaN(ageNum) || ageNum < 10 || ageNum > 80) {
-                showMessage(message, 'سن باید بین ۱۰ تا ۸۰ باشد.', 'error');
+                showModalMessage(message, 'سن باید بین ۱۰ تا ۸۰ باشد.', 'error');
                 return;
             }
 
             if (!course) {
-                showMessage(message, 'لطفاً دوره مورد نظر خود را انتخاب کنید.', 'error');
+                showModalMessage(message, 'لطفاً دوره مورد نظر خود را انتخاب کنید.', 'error');
                 return;
             }
 
             if (!email) {
-                showMessage(message, 'لطفاً ایمیل خود را وارد کنید.', 'error');
+                showModalMessage(message, 'لطفاً ایمیل خود را وارد کنید.', 'error');
                 return;
             }
 
             if (password.length < 6) {
-                showMessage(message, 'رمز عبور باید حداقل ۶ کاراکتر باشد.', 'error');
+                showModalMessage(message, 'رمز عبور باید حداقل ۶ کاراکتر باشد.', 'error');
                 return;
             }
 
             if (password !== confirmPassword) {
-                showMessage(message, 'رمز عبور و تکرار آن مطابقت ندارند.', 'error');
+                showModalMessage(message, 'رمز عبور و تکرار آن مطابقت ندارند.', 'error');
                 return;
             }
 
@@ -686,7 +1814,7 @@
 
             // Simulate registration
             setTimeout(() => {
-                showMessage(message, '✅ ثبت‌نام با موفقیت انجام شد! (دمو - بدون دیتابیس)', 'success');
+                showModalMessage(message, '✅ ثبت‌نام با موفقیت انجام شد! (دمو - بدون دیتابیس)', 'success');
                 btn.disabled = false;
                 btn.textContent = '✨ ثبت‌نام';
 
@@ -697,20 +1825,28 @@
                 console.log('سن:', age);
                 console.log('دوره:', course);
                 console.log('ایمیل:', email);
+
+                // Update navbar with user info
+                updateNavUser(firstName + ' ' + lastName);
+
+                // Close modal after 2 seconds
+                setTimeout(() => {
+                    closeModal();
+                }, 2000);
             }, 1500);
         }
 
         // ============================================================
         // ===== LOGIN USER (Demo - No Database) =====
         // ============================================================
-        function loginUser() {
-            const email = document.getElementById('loginEmail').value.trim();
-            const password = document.getElementById('loginPassword').value;
-            const message = document.getElementById('loginMessage');
-            const btn = document.getElementById('loginBtn');
+        function modalLoginUser() {
+            const email = document.getElementById('modalLoginEmail').value.trim();
+            const password = document.getElementById('modalLoginPassword').value;
+            const message = document.getElementById('modalLoginMessage');
+            const btn = document.getElementById('modalLoginBtn');
 
             if (!email || !password) {
-                showMessage(message, 'لطفاً ایمیل و رمز عبور را وارد کنید.', 'error');
+                showModalMessage(message, 'لطفاً ایمیل و رمز عبور را وارد کنید.', 'error');
                 return;
             }
 
@@ -719,31 +1855,100 @@
 
             // Simulate login
             setTimeout(() => {
-                showMessage(message, '✅ خوش آمدید! (دمو - بدون دیتابیس)', 'success');
+                showModalMessage(message, '✅ خوش آمدید! (دمو - بدون دیتابیس)', 'success');
                 btn.disabled = false;
                 btn.textContent = '🚀 ورود';
 
                 console.log('🔐 ورود کاربر:');
                 console.log('ایمیل:', email);
+
+                // Update navbar with user info
+                const name = email.split('@')[0];
+                updateNavUser(name);
+
+                // Close modal after 1.5 seconds
+                setTimeout(() => {
+                    closeModal();
+                }, 1500);
             }, 1500);
+        }
+
+        // ============================================================
+        // ===== UPDATE NAVBAR WITH USER INFO =====
+        // ============================================================
+        function updateNavUser(name) {
+            document.getElementById('authButtons').style.display = 'none';
+            document.getElementById('userNavInfo').style.display = 'flex';
+            document.getElementById('navUserName').textContent = name || 'کاربر';
+            document.getElementById('navUserAvatar').textContent = name ? name.charAt(0).toUpperCase() : '👤';
+        }
+
+        // ============================================================
+        // ===== LOGOUT USER =====
+        // ============================================================
+        function logoutUser() {
+            document.getElementById('authButtons').style.display = 'flex';
+            document.getElementById('userNavInfo').style.display = 'none';
+            console.log('🚪 کاربر خارج شد');
         }
 
         // ============================================================
         // ===== KEYBOARD SUPPORT =====
         // ============================================================
         document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+
             if (e.key === 'Enter') {
-                const activeTab = document.querySelector('.auth-tab.active');
-                if (activeTab && activeTab.dataset.tab === 'login') {
-                    loginUser();
-                } else if (activeTab && activeTab.dataset.tab === 'register') {
-                    registerUser();
+                const modal = document.getElementById('authModal');
+                if (modal.classList.contains('active')) {
+                    const activeTab = document.querySelector('.modal-tab.active');
+                    if (activeTab && activeTab.dataset.tab === 'login') {
+                        modalLoginUser();
+                    } else if (activeTab && activeTab.dataset.tab === 'register') {
+                        modalRegisterUser();
+                    }
                 }
             }
         });
 
-        console.log('🧠 آکادمی نورولرن - صفحه ورود و ثبت‌نام (دمو - بدون دیتابیس)');
-        console.log('📌 این نسخه فقط برای نمایش رابط کاربری است.');
+        // ============================================================
+        // ===== EMAIL LINK =====
+        // ============================================================
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") ||
+                (navigator.userAgent.indexOf('IEMobile') !== -1) ||
+                (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+        }
+
+        function setEmailLink() {
+            const emailLink = document.getElementById('emailLink');
+            if (!emailLink) return;
+            const email = 'avinlangroodi4@gmail.com';
+            const subject = 'درخواست مشاوره تحصیلی';
+            const body = 'سلام، من علاقه‌مند به دریافت مشاوره تحصیلی هستم.';
+
+            if (isMobileDevice()) {
+                emailLink.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            } else {
+                emailLink.href =
+                `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                emailLink.target = '_blank';
+            }
+        }
+
+        window.onload = function() {
+            setEmailLink();
+        };
+
+        window.addEventListener('resize', function() {
+            clearTimeout(window.resizedFinished);
+            window.resizedFinished = setTimeout(setEmailLink, 100);
+        });
+
+        console.log('🧠 آکادمی نورولرن - صفحه اصلی با مودال ورود/ثبت‌نام');
+        console.log('📌 روی دکمه‌های "ورود" یا "ثبت‌نام" در بالای صفحه کلیک کنید.');
     </script>
 </body>
 </html>
