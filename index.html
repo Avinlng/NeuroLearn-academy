@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آوین لنگرودی | مدرس ریاضی و کامپیوتر</title>
+    <title>آکادمی نورولرن | آوین لنگرودی</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap');
 
@@ -70,6 +70,59 @@
             --toggle-bg: #2a1a00;
             --toggle-dot: #d4af37;
             --toggle-border: #d4af37;
+            /* Courses page variables */
+            --bg-container: rgba(18, 15, 12, 0.7);
+            --text-logo: linear-gradient(135deg, #f6e27a, #d4af37, #b8962a, #f6e27a);
+            --bg-category: linear-gradient(145deg, #2a1a00, #1a0f00);
+            --border-category: #ffd700;
+            --text-category: #ffd700;
+            --bg-category-active: linear-gradient(135deg, #ffd700, #ff8c00);
+            --text-category-active: #1a0f00;
+            --bg-dropdown-menu: linear-gradient(145deg, #2a1a00, #1a0f00);
+            --border-dropdown-menu: #ffd700;
+            --bg-level1: rgba(255, 215, 0, 0.1);
+            --border-level1: #ffd700;
+            --text-level1: #ffd700;
+            --bg-level2: rgba(0, 0, 0, 0.3);
+            --text-level2: #ffb347;
+            --bg-level2-title: linear-gradient(145deg, #3a2500, #2a1a00);
+            --border-level2-title: rgba(255, 215, 0, 0.3);
+            --bg-course: linear-gradient(145deg, #3a2500, #2a1a00);
+            --border-course: rgba(255, 215, 0, 0.3);
+            --text-course: #ffd700;
+            --text-price: #ff8c00;
+            --text-type: #ffb347;
+            --btn-reserve: linear-gradient(135deg, #ffd700, #ff8c00);
+            --text-btn: #1a0f00;
+            --bg-offer: linear-gradient(135deg, #2a1a00, #1a0f00);
+            --border-offer: #ffd700;
+            --text-offer-title: linear-gradient(135deg, #ffd700, #ff8c00, #ffd700);
+            --bg-check: linear-gradient(145deg, #3a2500, #2a1a00);
+            --border-check: #ffd700;
+            --text-check: #ffb347;
+            --bg-gift: linear-gradient(145deg, #4a3500, #3a2500);
+            --border-gift: #ffd700;
+            --text-gift-title: linear-gradient(135deg, #ffd700, #ff8c00, #ffd700);
+            --text-gift-desc: #ffb347;
+            --text-gift-highlight: #ffd700;
+            --bg-gift-highlight: linear-gradient(145deg, #2a1a00, #1a0f00);
+            --border-gift-highlight: #ffd700;
+            --text-gift-note: #ffb347;
+            --text-offer-message: #ffd700;
+            --btn-offer: linear-gradient(135deg, #ffd700, #ff8c00);
+            --text-btn-offer: #1a0f00;
+            --border-btn-offer: white;
+            --text-offer-footer: #ffb347;
+            --shadow-container: 0 0 50px rgba(255, 215, 0, 0.2);
+            --shadow-category: 0 5px 20px rgba(255, 215, 0, 0.2);
+            --shadow-dropdown-menu: 0 20px 60px rgba(255, 215, 0, 0.3);
+            --shadow-offer: 0 0 50px rgba(255, 215, 0, 0.3);
+            --shadow-gift: 0 10px 40px rgba(255, 215, 0, 0.3);
+            --shadow-btn-offer: 0 10px 40px rgba(255, 215, 0, 0.5);
+            --shadow-btn-offer-hover: 0 20px 60px rgba(255, 215, 0, 0.9);
+            --shadow-check-hover: 0 10px 30px rgba(255, 215, 0, 0.3);
+            --shadow-course-hover: 0 5px 15px rgba(255, 215, 0, 0.3);
+            --shadow-gift-highlight: 0 0 30px rgba(255, 215, 0, 0.3);
         }
 
         /* Light Mode */
@@ -134,6 +187,59 @@
             --toggle-bg: #e8ddd0;
             --toggle-dot: #b8962a;
             --toggle-border: #b8962a;
+            /* Courses page light mode */
+            --bg-container: rgba(255, 252, 245, 0.7);
+            --text-logo: linear-gradient(135deg, #b8962a, #d4af37, #f6e27a, #b8962a);
+            --bg-category: linear-gradient(145deg, #ffffff, #f5ede0);
+            --border-category: #d4af37;
+            --text-category: #8a7a5a;
+            --bg-category-active: linear-gradient(135deg, #d4af37, #b8962a);
+            --text-category-active: #ffffff;
+            --bg-dropdown-menu: linear-gradient(145deg, #ffffff, #f5ede0);
+            --border-dropdown-menu: #d4af37;
+            --bg-level1: rgba(212, 175, 55, 0.08);
+            --border-level1: #d4af37;
+            --text-level1: #b8962a;
+            --bg-level2: rgba(0, 0, 0, 0.03);
+            --text-level2: #8a7a5a;
+            --bg-level2-title: linear-gradient(145deg, #ffffff, #f5ede0);
+            --border-level2-title: rgba(212, 175, 55, 0.25);
+            --bg-course: linear-gradient(145deg, #ffffff, #f5ede0);
+            --border-course: rgba(212, 175, 55, 0.2);
+            --text-course: #b8962a;
+            --text-price: #8a6a2a;
+            --text-type: #8a7a5a;
+            --btn-reserve: linear-gradient(135deg, #d4af37, #b8962a);
+            --text-btn: #ffffff;
+            --bg-offer: linear-gradient(135deg, #ffffff, #f5ede0);
+            --border-offer: #d4af37;
+            --text-offer-title: linear-gradient(135deg, #b8962a, #d4af37, #f6e27a);
+            --bg-check: linear-gradient(145deg, #ffffff, #f5ede0);
+            --border-check: #d4af37;
+            --text-check: #8a7a5a;
+            --bg-gift: linear-gradient(145deg, #ffffff, #f5ede0);
+            --border-gift: #d4af37;
+            --text-gift-title: linear-gradient(135deg, #b8962a, #d4af37, #f6e27a);
+            --text-gift-desc: #8a7a5a;
+            --text-gift-highlight: #b8962a;
+            --bg-gift-highlight: linear-gradient(145deg, #ffffff, #f5ede0);
+            --border-gift-highlight: #d4af37;
+            --text-gift-note: #8a7a5a;
+            --text-offer-message: #b8962a;
+            --btn-offer: linear-gradient(135deg, #d4af37, #b8962a);
+            --text-btn-offer: #ffffff;
+            --border-btn-offer: #f6e27a;
+            --text-offer-footer: #8a7a5a;
+            --shadow-container: 0 0 60px rgba(212, 175, 55, 0.1);
+            --shadow-category: 0 5px 25px rgba(212, 175, 55, 0.08);
+            --shadow-dropdown-menu: 0 20px 60px rgba(212, 175, 55, 0.08);
+            --shadow-offer: 0 0 60px rgba(212, 175, 55, 0.06);
+            --shadow-gift: 0 10px 45px rgba(212, 175, 55, 0.06);
+            --shadow-btn-offer: 0 10px 45px rgba(212, 175, 55, 0.15);
+            --shadow-btn-offer-hover: 0 20px 70px rgba(212, 175, 55, 0.25);
+            --shadow-check-hover: 0 10px 35px rgba(212, 175, 55, 0.1);
+            --shadow-course-hover: 0 5px 20px rgba(212, 175, 55, 0.08);
+            --shadow-gift-highlight: 0 0 40px rgba(212, 175, 55, 0.1);
         }
 
         * {
@@ -197,6 +303,7 @@
             transform: translateX(28px);
         }
 
+        /* ===== Navbar ===== */
         .navbar {
             background: var(--bg-navbar);
             backdrop-filter: blur(10px);
@@ -217,6 +324,11 @@
             font-size: 1.5rem;
             font-weight: 900;
             transition: color 0.5s ease;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            color: var(--text-navbar-hover);
         }
 
         .menu {
@@ -235,6 +347,15 @@
         }
 
         .menu-item:hover {
+            color: var(--text-navbar-hover);
+        }
+
+        .menu-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .menu-item a:hover {
             color: var(--text-navbar-hover);
         }
 
@@ -270,6 +391,39 @@
             background: rgba(212, 175, 55, 0.08);
             color: var(--text-dropdown-hover);
         }
+
+        .nav-link {
+            color: var(--text-navbar);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-navbar-hover);
+        }
+
+        .active-page {
+            color: var(--text-gold) !important;
+        }
+
+        /* ===== Page Container ===== */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================================ */
+        /* ===== PAGE 1: HOME (آوین لنگرودی) ===== */
+        /* ============================================================ */
 
         .showcase-card {
             max-width: 1000px;
@@ -773,6 +927,663 @@
             box-shadow: var(--shadow-cta-hover);
         }
 
+        /* ============================================================ */
+        /* ===== PAGE 2: COURSES (رزرو کلاس‌ها - نورولرن) ===== */
+        /* ============================================================ */
+
+        .neuro-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            background: var(--bg-container);
+            backdrop-filter: blur(10px);
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #ffd700, #ffb347, #ff8c00, #ffd700) 1;
+            border-radius: 40px;
+            padding: 40px;
+            box-shadow: var(--shadow-container);
+            transition: all 0.5s ease;
+        }
+
+        .header-courses {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo-courses {
+            font-size: 5rem;
+            font-weight: 900;
+            background: var(--text-logo);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            transition: all 0.5s ease;
+        }
+
+        .logo-sub-courses {
+            font-size: 1.5rem;
+            color: var(--text-subtitle);
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+
+        .subtitle-courses {
+            color: var(--text-subtitle);
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+            transition: color 0.5s ease;
+        }
+
+        .subtitle-courses::before,
+        .subtitle-courses::after {
+            content: "✦";
+            margin: 0 15px;
+            color: #ffd700;
+            font-size: 1.5rem;
+        }
+
+        .categories-courses {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .category-item-courses {
+            background: var(--bg-category);
+            border: 2px solid var(--border-category);
+            border-radius: 60px;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-category);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-category);
+            position: relative;
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .category-item-courses:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-category-hover), var(--glow-shadow);
+            background: var(--bg-category-hover);
+            border-color: var(--glow-color);
+        }
+
+        .category-item-courses.active {
+            background: var(--bg-category-active);
+            color: var(--text-category-active);
+            border-color: white;
+            box-shadow: var(--shadow-category-active), 0 0 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .dropdown-icon-courses {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .category-item-courses.active .dropdown-icon-courses {
+            transform: rotate(180deg);
+        }
+
+        .main-dropdown-courses {
+            background: var(--bg-dropdown-menu);
+            border: 2px solid var(--border-dropdown-menu);
+            border-radius: 30px;
+            margin-top: 15px;
+            padding: 20px;
+            display: none;
+            animation: slideDown 0.3s ease;
+            box-shadow: var(--shadow-dropdown-menu);
+            transition: all 0.5s ease;
+        }
+
+        .main-dropdown-courses.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-level-1-courses {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .level-1-item-courses {
+            flex: 1;
+            min-width: 200px;
+            background: var(--bg-level1);
+            border-radius: 20px;
+            padding: 15px;
+            border: 1px solid var(--border-level1);
+            transition: all 0.3s ease;
+        }
+
+        .level-1-item-courses:hover {
+            box-shadow: var(--glow-shadow);
+            border-color: var(--glow-color);
+        }
+
+        .level-1-title-courses {
+            color: var(--text-level1);
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-level1);
+            margin-bottom: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .level-1-title-courses:hover {
+            transform: scale(1.05);
+            color: var(--text-level1);
+            text-shadow: 0 0 20px var(--glow-color);
+        }
+
+        .level-1-title-courses i {
+            margin-left: 10px;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .level-1-title-courses.active i {
+            transform: rotate(180deg);
+        }
+
+        .menu-level-2-courses {
+            display: none;
+            margin-top: 15px;
+            padding-right: 15px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .menu-level-2-courses.show {
+            display: block;
+        }
+
+        .level-2-item-courses {
+            background: var(--bg-level2);
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .level-2-item-courses:hover {
+            box-shadow: var(--shadow-level2);
+        }
+
+        .level-2-title-courses {
+            color: var(--text-level2);
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 8px;
+            border-radius: 10px;
+            background: var(--bg-level2-title);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-level2-title);
+        }
+
+        .level-2-title-courses:hover {
+            transform: translateX(-5px);
+            border-color: var(--border-category);
+            color: var(--text-level1);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .level-2-title-courses i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .level-2-title-courses.active i {
+            transform: rotate(180deg);
+        }
+
+        .menu-level-3-courses {
+            display: none;
+            margin-top: 10px;
+            padding-right: 15px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .menu-level-3-courses.show {
+            display: block;
+        }
+
+        .course-item-courses {
+            background: var(--bg-course);
+            border-radius: 12px;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid var(--border-course);
+            transition: all 0.3s ease;
+        }
+
+        .course-item-courses:hover {
+            transform: translateX(-5px);
+            border-color: var(--border-category);
+            box-shadow: var(--shadow-course-hover), var(--glow-shadow);
+        }
+
+        .course-item-courses:active {
+            transform: scale(0.97);
+            box-shadow: 0 0 30px var(--glow-color);
+        }
+
+        .course-header-courses {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .course-name-courses {
+            color: var(--text-course);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .course-price-courses {
+            color: var(--text-price);
+            font-weight: 900;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .course-type-courses {
+            color: var(--text-type);
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .reserve-btn-courses {
+            background: var(--btn-reserve);
+            border: none;
+            color: var(--text-btn);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid var(--border-category);
+            width: 100%;
+        }
+
+        .reserve-btn-courses:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px var(--glow-color);
+        }
+
+        .reserve-btn-courses:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 50px var(--glow-color);
+        }
+
+        .offer-section-courses {
+            background: var(--bg-offer);
+            border-radius: 30px;
+            padding: 40px 30px;
+            margin: 40px 0;
+            border: 3px solid var(--border-offer);
+            text-align: center;
+            box-shadow: var(--shadow-offer);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .offer-section-courses:hover {
+            box-shadow: var(--shadow-offer), var(--glow-shadow);
+        }
+
+        .offer-section-courses::before {
+            content: "🎁🎁🎁";
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            font-size: 5rem;
+            opacity: 0.1;
+            transform: rotate(-5deg);
+            white-space: nowrap;
+        }
+
+        .offer-title-courses {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: var(--text-offer-title);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            position: relative;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transition: all 0.5s ease;
+        }
+
+        .offer-checklist-courses {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 30px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        [data-theme="light"] .offer-checklist-courses {
+            background: rgba(255, 248, 235, 0.5);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .check-item-courses {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px 25px;
+            background: var(--bg-check);
+            border-radius: 50px;
+            border: 1px solid var(--border-check);
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            color: var(--text-check);
+            text-align: right;
+        }
+
+        .check-item-courses:hover {
+            transform: translateX(-10px) scale(1.02);
+            box-shadow: var(--shadow-check-hover), var(--glow-shadow);
+            background: var(--bg-check);
+            border-color: var(--glow-color);
+        }
+
+        .check-item-courses:active {
+            transform: scale(0.97);
+            box-shadow: 0 0 40px var(--glow-color);
+        }
+
+        .check-icon-courses {
+            font-size: 2rem;
+            background: var(--btn-reserve);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-btn);
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .check-text-courses {
+            line-height: 1.6;
+        }
+
+        .highlight-courses {
+            color: var(--text-course);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .special-gift-courses {
+            background: var(--bg-gift);
+            border: 2px solid var(--border-gift);
+            border-radius: 30px;
+            padding: 30px 25px;
+            margin: 30px 0 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-gift);
+            transition: all 0.5s ease;
+        }
+
+        .special-gift-courses:hover {
+            box-shadow: var(--shadow-gift), var(--glow-shadow);
+            border-color: var(--glow-color);
+        }
+
+        .special-gift-courses::before {
+            content: "👥🎁";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            opacity: 0.08;
+            transform: rotate(-10deg);
+            white-space: nowrap;
+        }
+
+        .gift-title-courses {
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--text-gift-title);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .gift-description-courses {
+            font-size: 1.4rem;
+            color: var(--text-gift-desc);
+            line-height: 2;
+            position: relative;
+            transition: color 0.5s ease;
+        }
+
+        .gift-highlight-courses {
+            color: var(--text-gift-highlight);
+            font-weight: 900;
+            font-size: 1.8rem;
+            background: var(--bg-gift-highlight);
+            padding: 10px 30px;
+            border-radius: 60px;
+            display: inline-block;
+            margin: 15px 0 10px;
+            border: 2px solid var(--border-gift-highlight);
+            box-shadow: var(--shadow-gift-highlight);
+            transition: all 0.5s ease;
+        }
+
+        .gift-highlight-courses:hover {
+            box-shadow: var(--shadow-gift-highlight), var(--glow-shadow);
+        }
+
+        .gift-note-courses {
+            font-size: 1.2rem;
+            color: var(--text-gift-note);
+            margin-top: 20px;
+            font-style: italic;
+            transition: color 0.5s ease;
+        }
+
+        .offer-message-courses {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-offer-message);
+            margin: 30px 0 20px;
+            text-shadow: 0 0 15px #ff8c00;
+            transition: color 0.5s ease;
+        }
+
+        .offer-contact-courses {
+            background: var(--btn-offer);
+            color: var(--text-btn-offer);
+            font-size: 2rem;
+            font-weight: 900;
+            padding: 20px 40px;
+            border-radius: 100px;
+            display: inline-block;
+            margin: 20px 0;
+            direction: ltr;
+            border: 3px solid var(--border-btn-offer);
+            box-shadow: var(--shadow-btn-offer);
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .offer-contact-courses:hover {
+            transform: scale(1.08);
+            box-shadow: var(--shadow-btn-offer-hover), var(--glow-shadow);
+        }
+
+        .offer-contact-courses:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 70px var(--glow-color);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: var(--shadow-btn-offer-hover);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .offer-footer-courses {
+            font-size: 1.3rem;
+            color: var(--text-offer-footer);
+            margin-top: 20px;
+            transition: color 0.5s ease;
+        }
+
+        .stats-courses {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item-courses {
+            text-align: center;
+        }
+
+        .stat-number-courses {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--text-logo);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.5s ease;
+        }
+
+        .stat-label-courses {
+            color: var(--text-subtitle);
+            font-size: 1rem;
+            transition: color 0.5s ease;
+        }
+
+        .contact-info-courses {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            background: var(--bg-contact);
+            padding: 25px;
+            border-radius: 50px;
+            border: 1px solid var(--border-contact);
+            transition: all 0.5s ease;
+        }
+
+        .contact-info-courses:hover {
+            box-shadow: var(--glow-shadow);
+            border-color: var(--glow-color);
+        }
+
+        .contact-item-courses {
+            color: var(--text-contact);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 15px;
+            background: var(--bg-contact-hover);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .contact-item-courses:hover {
+            transform: translateY(-3px);
+            border: 1px solid var(--border-contact-hover);
+            box-shadow: var(--shadow-contact-hover), var(--glow-shadow);
+            color: var(--text-contact-hover);
+        }
+
+        .contact-item-courses:active {
+            transform: scale(0.95);
+        }
+
+        .contact-item-courses span {
+            color: var(--text-course);
+            font-size: 1.5rem;
+        }
+
+        .contact-item-courses .ltr {
+            direction: ltr;
+            unicode-bidi: embed;
+        }
+
+        .footer-courses {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-footer);
+            color: var(--text-footer);
+            transition: all 0.5s ease;
+        }
+
+        .watermark-courses {
+            font-size: 0.9rem;
+            color: var(--text-watermark);
+            margin-top: 10px;
+            transition: color 0.5s ease;
+        }
+
+        /* ============================================================ */
+        /* ===== Responsive ===== */
+        /* ============================================================ */
+
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -828,6 +1639,70 @@
             .theme-toggle-wrapper {
                 justify-content: center;
             }
+
+            /* Courses page responsive */
+            .neuro-container {
+                padding: 20px;
+            }
+
+            .logo-courses {
+                font-size: 3.5rem;
+            }
+
+            .category-item-courses {
+                font-size: 1.2rem;
+                padding: 12px 25px;
+                min-width: 140px;
+            }
+
+            .menu-level-1-courses {
+                flex-direction: column;
+            }
+
+            .stats-courses {
+                gap: 40px;
+            }
+
+            .contact-info-courses {
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .contact-item-courses {
+                font-size: 0.9rem;
+                padding: 5px 10px;
+            }
+
+            .offer-title-courses {
+                font-size: 1.8rem;
+            }
+
+            .offer-contact-courses {
+                font-size: 1.5rem;
+                padding: 15px 30px;
+            }
+
+            .check-item-courses {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+
+            .gift-title-courses {
+                font-size: 1.6rem;
+            }
+
+            .gift-description-courses {
+                font-size: 1.2rem;
+            }
+
+            .gift-highlight-courses {
+                font-size: 1.5rem;
+                padding: 8px 20px;
+            }
+
+            .gift-note-courses {
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -852,6 +1727,56 @@
                 padding: 15px;
                 border-radius: 25px;
             }
+
+            /* Courses page responsive */
+            .logo-courses {
+                font-size: 2.8rem;
+            }
+
+            .category-item-courses {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+                min-width: 100px;
+            }
+
+            .course-header-courses {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .offer-section-courses {
+                padding: 20px 15px;
+            }
+
+            .offer-contact-courses {
+                font-size: 1.2rem;
+                padding: 12px 24px;
+            }
+
+            .check-item-courses {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+        }
+
+        /* ============================================================ */
+        /* ===== Utility ===== */
+        /* ============================================================ */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glow-color {
+            --glow-color: rgba(212, 175, 55, 0.5);
+            --glow-shadow: 0 0 40px rgba(212, 175, 55, 0.25);
         }
     </style>
 </head>
@@ -863,15 +1788,17 @@
         </button>
     </div>
 
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
-        <div class="logo">آوین لنگرودی</div>
+        <div class="logo" onclick="showPage('home')">آوین لنگرودی</div>
         <ul class="menu">
             <li class="menu-item">
-                صفحه اصلی
+                <a href="#" onclick="showPage('home')" id="nav-home" class="nav-link active-page">صفحه اصلی</a>
             </li>
             <li class="menu-item">
-                دوره‌ها
+                <a href="#" onclick="showPage('courses')" id="nav-courses" class="nav-link">دوره‌ها</a>
                 <div class="dropdown">
+                    <a href="#" onclick="showPage('courses')">📚 رزرو کلاس‌ها</a>
                     <a href="https://avinlng.github.io/master-golden-courses/" target="_blank">🏆 دوره‌های طلایی مستر</a>
                 </div>
             </li>
@@ -888,181 +1815,1052 @@
         </ul>
     </nav>
 
-    <div class="showcase-card">
-        <div class="card-glow"></div>
-        <div class="premium-card">
-            <div class="consult-banner">
-                <span class="consult-text">📞 مشاوره رایگان</span>
-                <a href="tel:09174123428" class="consult-number">۰۹۱۷۴۱۲۳۴۲۸</a>
-            </div>
-
-            <div class="card-header">
-                <div class="title-section">
-                    <div class="name">آوین لنگرودی</div>
-                    <div class="subtitle">مدرس ریاضیات و کامپیوتر</div>
-                    <div class="badge-container">
-                        <span class="badge">🏆 مدرس تیزهوشان و نمونه دولتی</span>
-                        <span class="badge">🌍 تدریس در کانادا و ایران</span>
-                        <span class="badge">📝 امتحانات نهایی</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="teaching-banner">
-                <div class="teaching-text">
-                    <span class="teaching-icon">📚</span>
-                    <span>تدریس در تمام پایه‌ها - از اول تا دوازدهم</span>
-                    <span class="teaching-icon">🎓</span>
-                </div>
-            </div>
-
-            <div class="education-box">
-                <div class="education-icon">🎓</div>
-                <div class="education-text">
-                    خودم هم <span class="highlight">دبیرستان نمونه دولتی</span> درس خوندم و کلی با بچه‌های تیزهوشان و نمونه دولتی خاطره دارم!
-                </div>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-number">۹۰٪</div>
-                    <div class="stat-label">قبولی</div>
-                    <div class="price-tag">تیزهوشان و نمونه دولتی</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">۹۸٪</div>
-                    <div class="stat-label">رضایت</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">۴.۵</div>
-                    <div class="stat-label">سال سابقه</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">۲</div>
-                    <div class="stat-label">کشور</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">💰</div>
-                    <div class="stat-label">قیمت</div>
-                    <div class="price-tag">استثنایی</div>
-                </div>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon">📐</div>
-                        <div class="feature-title">تخصصی</div>
-                    </div>
-                    <div class="feature-desc">دروس تخصصی</div>
-                    <ul class="feature-list">
-                        <li>ریاضیات همه پایه‌ها</li>
-                        <li>علوم تجربی</li>
-                        <li>فیزیک</li>
-                        <li>شیمی</li>
-                    </ul>
+    <!-- ============================================================ -->
+    <!-- ===== PAGE 1: HOME ===== -->
+    <!-- ============================================================ -->
+    <div id="page-home" class="page active">
+        <div class="showcase-card">
+            <div class="card-glow"></div>
+            <div class="premium-card">
+                <div class="consult-banner">
+                    <span class="consult-text">📞 مشاوره رایگان</span>
+                    <a href="tel:09174123428" class="consult-number">۰۹۱۷۴۱۲۳۴۲۸</a>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon">📚</div>
-                        <div class="feature-title">عمومی</div>
-                    </div>
-                    <div class="feature-desc">دروس عمومی</div>
-                    <ul class="feature-list">
-                        <li>فارسی و نگارش</li>
-                        <li>دینی</li>
-                        <li>عربی</li>
-                        <li>مطالعات اجتماعی</li>
-                        <li>زبان انگلیسی</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon">📝</div>
-                        <div class="feature-title">امتحانات نهایی</div>
-                    </div>
-                    <div class="feature-desc">آمادگی کامل</div>
-                    <ul class="feature-list">
-                        <li>نمونه سوال نهایی</li>
-                        <li>رفع اشکال</li>
-                        <li>خلاصه نویسی و آموزش تشریحی</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-header">
-                        <div class="feature-icon">📊</div>
-                        <div class="feature-title">گزارش ماهانه</div>
-                    </div>
-                    <div class="feature-desc">به والدین</div>
-                    <ul class="feature-list">
-                        <li>کارنامه پیشرفت</li>
-                        <li>نقاط قوت و ضعف</li>
-                        <li>برنامه ماه آینده</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="subjects-grid">
-                <div class="subject-category">
-                    <div class="category-title">💻 کامپیوتر مبتدی تا پیشرفته</div>
-                    <div class="category-items">
-                        <span class="category-item">برنامه‌نویسی پایتون</span>
-                        <span class="category-item">HTML و طراحی وبسایت</span>
-                        <span class="category-item">ICDL</span>
+                <div class="card-header">
+                    <div class="title-section">
+                        <div class="name">آوین لنگرودی</div>
+                        <div class="subtitle">مدرس ریاضیات و کامپیوتر</div>
+                        <div class="badge-container">
+                            <span class="badge">🏆 مدرس تیزهوشان و نمونه دولتی</span>
+                            <span class="badge">🌍 تدریس در کانادا و ایران</span>
+                            <span class="badge">📝 امتحانات نهایی</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="subject-category">
-                    <div class="category-title">🎯 خدمات ویژه</div>
-                    <div class="category-items">
-                        <span class="category-item">نمونه سوال نهایی</span>
-                        <span class="category-item">رفع اشکال</span>
-                        <span class="category-item">کارنامه پیشرفت</span>
+                <div class="teaching-banner">
+                    <div class="teaching-text">
+                        <span class="teaching-icon">📚</span>
+                        <span>تدریس در تمام پایه‌ها - از اول تا دوازدهم</span>
+                        <span class="teaching-icon">🎓</span>
                     </div>
                 </div>
-            </div>
 
-            <div class="action-buttons">
-                <a href="#" class="action-btn">
-                    <span class="action-icon">📝</span>
-                    <span>نظرات</span>
+                <div class="education-box">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-text">
+                        خودم هم <span class="highlight">دبیرستان نمونه دولتی</span> درس خوندم و کلی با بچه‌های تیزهوشان و نمونه دولتی خاطره دارم!
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-number">۹۰٪</div>
+                        <div class="stat-label">قبولی</div>
+                        <div class="price-tag">تیزهوشان و نمونه دولتی</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">۹۸٪</div>
+                        <div class="stat-label">رضایت</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">۴.۵</div>
+                        <div class="stat-label">سال سابقه</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">۲</div>
+                        <div class="stat-label">کشور</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">💰</div>
+                        <div class="stat-label">قیمت</div>
+                        <div class="price-tag">استثنایی</div>
+                    </div>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">📐</div>
+                            <div class="feature-title">تخصصی</div>
+                        </div>
+                        <div class="feature-desc">دروس تخصصی</div>
+                        <ul class="feature-list">
+                            <li>ریاضیات همه پایه‌ها</li>
+                            <li>علوم تجربی</li>
+                            <li>فیزیک</li>
+                            <li>شیمی</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">📚</div>
+                            <div class="feature-title">عمومی</div>
+                        </div>
+                        <div class="feature-desc">دروس عمومی</div>
+                        <ul class="feature-list">
+                            <li>فارسی و نگارش</li>
+                            <li>دینی</li>
+                            <li>عربی</li>
+                            <li>مطالعات اجتماعی</li>
+                            <li>زبان انگلیسی</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">📝</div>
+                            <div class="feature-title">امتحانات نهایی</div>
+                        </div>
+                        <div class="feature-desc">آمادگی کامل</div>
+                        <ul class="feature-list">
+                            <li>نمونه سوال نهایی</li>
+                            <li>رفع اشکال</li>
+                            <li>خلاصه نویسی و آموزش تشریحی</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon">📊</div>
+                            <div class="feature-title">گزارش ماهانه</div>
+                        </div>
+                        <div class="feature-desc">به والدین</div>
+                        <ul class="feature-list">
+                            <li>کارنامه پیشرفت</li>
+                            <li>نقاط قوت و ضعف</li>
+                            <li>برنامه ماه آینده</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subjects-grid">
+                    <div class="subject-category">
+                        <div class="category-title">💻 کامپیوتر مبتدی تا پیشرفته</div>
+                        <div class="category-items">
+                            <span class="category-item">برنامه‌نویسی پایتون</span>
+                            <span class="category-item">HTML و طراحی وبسایت</span>
+                            <span class="category-item">ICDL</span>
+                        </div>
+                    </div>
+
+                    <div class="subject-category">
+                        <div class="category-title">🎯 خدمات ویژه</div>
+                        <div class="category-items">
+                            <span class="category-item">نمونه سوال نهایی</span>
+                            <span class="category-item">رفع اشکال</span>
+                            <span class="category-item">کارنامه پیشرفت</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="#" class="action-btn">
+                        <span class="action-icon">📝</span>
+                        <span>نظرات</span>
+                    </a>
+                    <a href="#" onclick="showPage('courses')" class="action-btn">
+                        <span class="action-icon">📅</span>
+                        <span>رزرو کلاس</span>
+                    </a>
+                </div>
+
+                <div class="contact-bar">
+                    <a href="tel:09174123428" class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <span>تماس</span>
+                    </a>
+                    <a href="sms:09174123428?body=سلام%2C%20من%20علاقه%E2%80%8Cمند%20به%20دریافت%20مشاوره%20تحصیلی%20هستم." class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <span>پیامک</span>
+                    </a>
+                    <a href="https://wa.me/989174123428?text=سلام%20من%20علاقه%E2%80%8Cمند%20به%20دریافت%20مشاوره%20تحصیلی%20هستم." target="_blank" class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <span>واتساپ</span>
+                    </a>
+                    <a href="#" id="emailLink" class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <span>جیمیل</span>
+                    </a>
+                </div>
+
+                <a href="tel:09174123428" class="cta-button">
+                    ⭐ جلسه اول رایگان - همین حالا تماس بگیر ⭐
                 </a>
-                <a href="#" class="action-btn">
-                    <span class="action-icon">📅</span>
-                    <span>رزرو کلاس</span>
-                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== PAGE 2: COURSES (رزرو کلاس‌ها - نورولرن) ===== -->
+    <!-- ============================================================ -->
+    <div id="page-courses" class="page">
+        <div class="neuro-container">
+            <div class="header-courses">
+                <div class="logo-courses">آکادمی نورولرن</div>
+                <div class="logo-sub-courses">✨ NeuroLearn Academy ✨</div>
+                <div class="subtitle-courses">آموزش با رویکرد علوم شناختی</div>
             </div>
 
-            <div class="contact-bar">
-                <a href="tel:09174123428" class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <span>تماس</span>
-                </a>
-                <a href="sms:09174123428?body=سلام%2C%20من%20علاقه%E2%80%8Cمند%20به%20دریافت%20مشاوره%20تحصیلی%20هستم." class="contact-item">
-                    <div class="contact-icon">💬</div>
-                    <span>پیامک</span>
-                </a>
-                <a href="https://wa.me/989174123428?text=سلام%20من%20علاقه%E2%80%8Cمند%20به%20دریافت%20مشاوره%20تحصیلی%20هستم." target="_blank" class="contact-item">
-                    <div class="contact-icon">📱</div>
-                    <span>واتساپ</span>
-                </a>
-                <a href="#" id="emailLink" class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <span>جیمیل</span>
-                </a>
+            <div class="stats-courses">
+                <div class="stat-item-courses">
+                    <div class="stat-number-courses">۹۸٪</div>
+                    <div class="stat-label-courses">رضایت دانش‌آموزان</div>
+                </div>
+                <div class="stat-item-courses">
+                    <div class="stat-number-courses">۲۰۰+</div>
+                    <div class="stat-label-courses">دانش‌آموز موفق</div>
+                </div>
             </div>
 
-            <a href="tel:09174123428" class="cta-button">
-                ⭐ جلسه اول رایگان - همین حالا تماس بگیر ⭐
-            </a>
+            <div class="categories-courses">
+                <div class="category-item-courses" onclick="toggleMainDropdown('specialized')">
+                    <span>📐 دروس اختصاصی</span>
+                    <span class="dropdown-icon-courses">▼</span>
+                </div>
+                <div class="category-item-courses" onclick="toggleMainDropdown('general')">
+                    <span>📚 دروس عمومی</span>
+                    <span class="dropdown-icon-courses">▼</span>
+                </div>
+                <div class="category-item-courses" onclick="toggleMainDropdown('computer')">
+                    <span>💻 کامپیوتر</span>
+                    <span class="dropdown-icon-courses">▼</span>
+                </div>
+                <div class="category-item-courses" onclick="toggleMainDropdown('english')">
+                    <span>🇺🇸🇨🇦 آموزش انگلیسی</span>
+                    <span class="dropdown-icon-courses">▼</span>
+                </div>
+                <div class="category-item-courses" onclick="toggleMainDropdown('iranSchoolSubjects')">
+                    <span>📚 مدارس ایران (EN)</span>
+                    <span class="dropdown-icon-courses">▼</span>
+                </div>
+                <div class="category-item-courses" onclick="toggleMainDropdown('canada')">
+                    <span>🍁 Canadian K-12</span>
+                    <span class="dropdown-icon-courses">▼</span>
+                </div>
+            </div>
+
+            <!-- 1️⃣ دروس اختصاصی -->
+            <div id="specialized-dropdown" class="main-dropdown-courses">
+                <div class="menu-level-1-courses">
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('math-levels', this)">
+                            <span>📐 ریاضیات</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="math-levels" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('primary-math', this)">
+                                    <span>🔢 دبستان</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="primary-math" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">ریاضیات دبستان</span>
+                                            <span class="course-price-courses">۱,۱۱۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">اول تا ششم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">نیازهای ویژه</span>
+                                            <span class="course-price-courses">۱,۱۲۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">اول تا ششم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('guidance-math', this)">
+                                    <span>📚 راهنمایی</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="guidance-math" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">تشریحی</span>
+                                            <span class="course-price-courses">۱,۱۲۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">هفتم - نهم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">تستی</span>
+                                            <span class="course-price-courses">۱,۱۳۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">هفتم - نهم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">نمونه دولتی + تیزهوشان</span>
+                                            <span class="course-price-courses">۱,۱۸۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">هفتم - نهم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('highschool-math', this)">
+                                    <span>🏫 دبیرستان</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="highschool-math" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">حسابان</span>
+                                            <span class="course-price-courses">۱,۱۵۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">دبیرستان</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">هندسه</span>
+                                            <span class="course-price-courses">۱,۱۵۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">دبیرستان</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">ریاضی دهم</span>
+                                            <span class="course-price-courses">۱,۱۵۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">دبیرستان</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">آمار و احتمال</span>
+                                            <span class="course-price-courses">۱,۱۳۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">دبیرستان</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('science-levels', this)">
+                            <span>🔬 علوم تجربی</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="science-levels" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('primary-science', this)">
+                                    <span>🔢 دبستان</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="primary-science" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">تستی</span>
+                                            <span class="course-price-courses">۱,۰۷۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">اول تا ششم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">تشریحی</span>
+                                            <span class="course-price-courses">۱,۰۲۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">اول تا ششم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('guidance-science', this)">
+                                    <span>📚 راهنمایی</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="guidance-science" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">تستی</span>
+                                            <span class="course-price-courses">۱,۰۵۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">هفتم - نهم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">تشریحی</span>
+                                            <span class="course-price-courses">۱,۰۳۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">هفتم - نهم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">نمونه دولتی + تیزهوشان</span>
+                                            <span class="course-price-courses">۱,۰۷۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">هفتم - نهم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('highschool-science', this)">
+                                    <span>🏫 دبیرستان</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="highschool-science" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">فیزیک</span>
+                                            <span class="course-price-courses">۱,۱۳۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">دبیرستان</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">شیمی</span>
+                                            <span class="course-price-courses">۱,۱۳۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">دبیرستان</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2️⃣ دروس عمومی -->
+            <div id="general-dropdown" class="main-dropdown-courses">
+                <div class="menu-level-1-courses">
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('arabic-levels', this)">
+                            <span>📖 عربی</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="arabic-levels" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('highschool-arabic', this)">
+                                    <span>🏫 دبیرستان</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="highschool-arabic" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">عربی دبیرستان</span>
+                                            <span class="course-price-courses">۱,۰۳۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">دبیرستان</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('persian-levels', this)">
+                            <span>📝 ادبیات فارسی</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="persian-levels" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('primary-persian', this)">
+                                    <span>🔢 دبستان</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="primary-persian" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">ادبیات فارسی</span>
+                                            <span class="course-price-courses">۱,۰۱۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">اول تا ششم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('guidance-persian', this)">
+                                    <span>📚 راهنمایی</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="guidance-persian" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">ادبیات فارسی</span>
+                                            <span class="course-price-courses">۱,۰۴۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">هفتم - نهم</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('highschool-persian', this)">
+                                    <span>🏫 دبیرستان</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="highschool-persian" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">تستی</span>
+                                            <span class="course-price-courses">۱,۰۶۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">دبیرستان</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">تشریحی</span>
+                                            <span class="course-price-courses">۱,۰۵۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">دبیرستان</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3️⃣ کامپیوتر -->
+            <div id="computer-dropdown" class="main-dropdown-courses">
+                <div class="menu-level-1-courses">
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('programming-levels', this)">
+                            <span>💻 برنامه‌نویسی</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="programming-levels" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('python-course', this)">
+                                    <span>🐍 پایتون</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="python-course" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">پایتون حرفه‌ای</span>
+                                            <span class="course-price-courses">۱,۲۰۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">مقدماتی تا پیشرفته</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('icdl-levels', this)">
+                            <span>💻 ICDL</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="icdl-levels" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('icdl-course', this)">
+                                    <span>🖥️ مهارت‌های هفتگانه</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="icdl-course" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">ICDL کامل</span>
+                                            <span class="course-price-courses">۱,۱۵۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">ویندوز، ورد، اکسل، اکسس، پاورپوینت، اینترنت</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4️⃣ آموزش انگلیسی -->
+            <div id="english-dropdown" class="main-dropdown-courses">
+                <div class="menu-level-1-courses">
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('english-levels', this)">
+                            <span>🇺🇸🇨🇦 زبان انگلیسی</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="english-levels" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('konkur-english', this)">
+                                    <span>📖 کنکور</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="konkur-english" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">زبان تخصصی کنکور</span>
+                                            <span class="course-price-courses">۱,۱۱۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">کنکور سراسری</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('language-class-english', this)">
+                                    <span>🎓 کلاس عمومی</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="language-class-english" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">زبان عمومی</span>
+                                            <span class="course-price-courses">۱,۱۱۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">مکالمه، اصطلاحات، کتاب‌های معتبر</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5️⃣ مدارس ایران به انگلیسی -->
+            <div id="iranSchoolSubjects-dropdown" class="main-dropdown-courses">
+                <div class="menu-level-1-courses">
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('elementaryIranSubjects', this)">
+                            <span>📚 دبستان (GR 1-6)</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="elementaryIranSubjects" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('scienceElementaryIran', this)">
+                                    <span>🔬 علوم</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="scienceElementaryIran" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">علوم دبستان</span>
+                                            <span class="course-price-courses">۱,۱۱۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 1-6</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('mathElementaryIran', this)">
+                                    <span>📐 ریاضی</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="mathElementaryIran" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">ریاضی دبستان</span>
+                                            <span class="course-price-courses">۱,۱۵۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 1-6</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('guidanceIranSubjects', this)">
+                            <span>📚 راهنمایی (GR 7-9)</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="guidanceIranSubjects" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('scienceGuidanceIran', this)">
+                                    <span>🔬 علوم</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="scienceGuidanceIran" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">علوم راهنمایی</span>
+                                            <span class="course-price-courses">۱,۱۶۵,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 7-9</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('mathGuidanceIran', this)">
+                                    <span>📐 ریاضی</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="mathGuidanceIran" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">ریاضی راهنمایی</span>
+                                            <span class="course-price-courses">۱,۲۱۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 7-9</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('highschoolIranSubjects', this)">
+                            <span>🏫 دبیرستان (GR 10-12)</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="highschoolIranSubjects" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('allSubjectsHighschoolIran', this)">
+                                    <span>📖 کلیه دروس</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="allSubjectsHighschoolIran" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">دروس تخصصی</span>
+                                            <span class="course-price-courses">۱,۲۵۰,۰۰۰</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 10-12</div>
+                                        <button class="reserve-btn-courses" onclick="alert('شماره تماس: ۰۹۱۷۴۱۲۳۴۲۸')">رزرو</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6️⃣ Canadian School -->
+            <div id="canada-dropdown" class="main-dropdown-courses">
+                <div class="menu-level-1-courses">
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('canadaPrimary', this)">
+                            <span>🍁 Primary (JK - GR 3)</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="canadaPrimary" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaPrimaryLanguage', this)">
+                                    <span>📖 Language Arts</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaPrimaryLanguage" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Reading & Writing</span>
+                                            <span class="course-price-courses">CAD $6</span>
+                                        </div>
+                                        <div class="course-type-courses">JK - GR 3</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaPrimaryMath', this)">
+                                    <span>📐 Mathematics</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaPrimaryMath" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Number Sense</span>
+                                            <span class="course-price-courses">CAD $8</span>
+                                        </div>
+                                        <div class="course-type-courses">JK - GR 3</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaPrimaryScience', this)">
+                                    <span>🔬 Science</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaPrimaryScience" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Exploring Our World</span>
+                                            <span class="course-price-courses">CAD $8</span>
+                                        </div>
+                                        <div class="course-type-courses">JK - GR 3</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('canadaJunior', this)">
+                            <span>📚 Junior (GR 4-6)</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="canadaJunior" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaJuniorLanguage', this)">
+                                    <span>📖 Language Arts</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaJuniorLanguage" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Reading & Writing</span>
+                                            <span class="course-price-courses">CAD $7</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 4-6</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaJuniorMath', this)">
+                                    <span>📐 Mathematics</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaJuniorMath" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Operations & Reasoning</span>
+                                            <span class="course-price-courses">CAD $9</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 4-6</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaJuniorScience', this)">
+                                    <span>🔬 Science</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaJuniorScience" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Life Systems</span>
+                                            <span class="course-price-courses">CAD $9</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 4-6</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('canadaIntermediate', this)">
+                            <span>📚 Intermediate (GR 7-8)</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="canadaIntermediate" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaIntermediateLanguage', this)">
+                                    <span>📖 Language Arts</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaIntermediateLanguage" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Critical Literacy</span>
+                                            <span class="course-price-courses">CAD $8</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 7-8</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaIntermediateMath', this)">
+                                    <span>📐 Mathematics</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaIntermediateMath" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Pre-Algebra</span>
+                                            <span class="course-price-courses">CAD $10</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 7-8</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaIntermediateScience', this)">
+                                    <span>🔬 Science</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaIntermediateScience" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Cells & Environment</span>
+                                            <span class="course-price-courses">CAD $10</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 7-8</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-1-item-courses">
+                        <div class="level-1-title-courses" onclick="toggleLevel2('canadaHighSchool', this)">
+                            <span>🏫 High School (GR 9-12)</span>
+                            <i>▼</i>
+                        </div>
+                        <div id="canadaHighSchool" class="menu-level-2-courses">
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaHighSchoolEnglish', this)">
+                                    <span>📖 English</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaHighSchoolEnglish" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Academic & Applied</span>
+                                            <span class="course-price-courses">CAD $12</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 9-12</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaHighSchoolMath', this)">
+                                    <span>📐 Mathematics</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaHighSchoolMath" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Functions & Calculus</span>
+                                            <span class="course-price-courses">CAD $12</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 9-12</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaHighSchoolScience', this)">
+                                    <span>🔬 Sciences</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaHighSchoolScience" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">Biology, Chemistry, Physics</span>
+                                            <span class="course-price-courses">CAD $12</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 9-12</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level-2-item-courses">
+                                <div class="level-2-title-courses" onclick="toggleLevel3('canadaHighSchoolSocial', this)">
+                                    <span>🌍 Social Studies</span>
+                                    <i>▼</i>
+                                </div>
+                                <div id="canadaHighSchoolSocial" class="menu-level-3-courses">
+                                    <div class="course-item-courses">
+                                        <div class="course-header-courses">
+                                            <span class="course-name-courses">History, Civics, Geography</span>
+                                            <span class="course-price-courses">CAD $11</span>
+                                        </div>
+                                        <div class="course-type-courses">GR 9-12</div>
+                                        <button class="reserve-btn-courses" onclick="alert('Contact: 09174123428')">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== OFFER SECTION ===== -->
+            <div class="offer-section-courses">
+                <div class="offer-title-courses">🎁 پیشنهاد ویژه نورولرن 🎁</div>
+
+                <div class="offer-checklist-courses">
+                    <div class="check-item-courses">
+                        <div class="check-icon-courses">✅</div>
+                        <div class="check-text-courses"><span class="highlight-courses">دو فرزند</span> (خواهر یا برادر)</div>
+                    </div>
+                    <div class="check-item-courses">
+                        <div class="check-icon-courses">✅</div>
+                        <div class="check-text-courses"><span class="highlight-courses">۳ جلسه یا بیشتر</span> رزرو</div>
+                    </div>
+                    <div class="check-item-courses">
+                        <div class="check-icon-courses">✅</div>
+                        <div class="check-text-courses">برنده <span class="highlight-courses">قرعه‌کشی ماهانه</span></div>
+                    </div>
+                    <div class="check-item-courses">
+                        <div class="check-icon-courses">✅</div>
+                        <div class="check-text-courses"><span class="highlight-courses">۲ دوره یا بیشتر</span> ثبت‌نام</div>
+                    </div>
+                    <div class="check-item-courses">
+                        <div class="check-icon-courses">?</div>
+                        <div class="check-text-courses"><span class="highlight-courses">اولین جلسه</span> شماست؟</div>
+                    </div>
+                </div>
+
+                <div class="special-gift-courses">
+                    <div class="gift-title-courses">✨ هدیه همراهان وفادار ✨</div>
+                    <div class="gift-description-courses">
+                        اگر دوست یا آشنای شما پس از معرفی شما،
+                        <span class="gift-highlight-courses">۳ جلسه</span>
+                        ثبت نام کند،
+                        <div class="gift-highlight-courses">۲ جلسه رایگان</div>
+                        هدیه می‌گیرید.
+                    </div>
+                    <div class="gift-note-courses">💫 تقدیر از اعتماد شما 💫</div>
+                </div>
+
+                <div class="offer-message-courses">✨ حتی اگر فقط یکی از موارد بالا صدق کند ✨</div>
+
+                <a href="sms:09174123428?body=سلام%20من%20واجد%20شرایط%20تخفیف%20ویژه%20هستم." class="offer-contact-courses">
+                    📱 ۰۹۱۷۴۱۲۳۴۲۸
+                </a>
+
+                <div class="offer-footer-courses">👈 با کلیک روی شماره، پیامک تخفیف ارسال می‌شود</div>
+            </div>
+
+            <!-- ===== CONTACT INFO ===== -->
+            <div class="contact-info-courses">
+                <a href="sms:09174123428?body=سلام%20مایل%20به%20رزرو%20کلاس%20هستم." class="contact-item-courses">
+                    <span>📱</span> <span class="ltr">۰۹۱۷۴۱۲۳۴۲۸</span>
+                </a>
+                <a href="mailto:avinlangroodi4@gmail.com?subject=رزرو%20کلاس" class="contact-item-courses">
+                    <span>📧</span> <span class="ltr">avinlangroodi4@gmail.com</span>
+                </a>
+                <div class="contact-item-courses"><span>⏰</span> ۲۴ ساعته</div>
+            </div>
+
+            <!-- ===== FOOTER ===== -->
+            <div class="footer-courses">
+                <div>🧠 NeuroLearn Academy</div>
+                <div class="watermark-courses">Science Meets Education</div>
+            </div>
         </div>
     </div>
 
     <script>
-        // ===== Theme Toggle =====
+        // ============================================================
+        // ===== THEME TOGGLE =====
+        // ============================================================
         const themeToggle = document.getElementById('themeToggle');
         const toggleDot = document.getElementById('toggleDot');
 
@@ -1097,7 +2895,115 @@
             }
         });
 
-        // ===== Email Link =====
+        // ============================================================
+        // ===== PAGE NAVIGATION =====
+        // ============================================================
+        function showPage(page) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            
+            // Show target page
+            const target = document.getElementById('page-' + page);
+            if (target) {
+                target.classList.add('active');
+            }
+            
+            // Update nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-page');
+            });
+            
+            const navLink = document.getElementById('nav-' + page);
+            if (navLink) {
+                navLink.classList.add('active-page');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ============================================================
+        // ===== COURSES DROPDOWN FUNCTIONS =====
+        // ============================================================
+        function toggleMainDropdown(category) {
+            const dropdowns = {
+                specialized: document.getElementById('specialized-dropdown'),
+                general: document.getElementById('general-dropdown'),
+                computer: document.getElementById('computer-dropdown'),
+                english: document.getElementById('english-dropdown'),
+                iranSchoolSubjects: document.getElementById('iranSchoolSubjects-dropdown'),
+                canada: document.getElementById('canada-dropdown')
+            };
+            const allItems = document.querySelectorAll('.category-item-courses');
+
+            Object.values(dropdowns).forEach(d => d.classList.remove('show'));
+            allItems.forEach(item => item.classList.remove('active'));
+            closeAllLevels();
+
+            const target = dropdowns[category];
+            if (target) {
+                target.classList.add('show');
+                const btns = document.querySelectorAll('.category-item-courses');
+                btns.forEach(btn => {
+                    if (btn.textContent.includes(category === 'specialized' ? 'اختصاصی' :
+                            category === 'general' ? 'عمومی' :
+                            category === 'computer' ? 'کامپیوتر' :
+                            category === 'english' ? 'انگلیسی' :
+                            category === 'iranSchoolSubjects' ? 'مدارس ایران' :
+                            'Canadian')) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+        }
+
+        function toggleLevel2(level2Id, element) {
+            const level2 = document.getElementById(level2Id);
+            const isActive = element.classList.contains('active');
+
+            const parent = element.closest('.level-1-item-courses');
+            parent.querySelectorAll('.menu-level-2-courses').forEach(m => m.classList.remove('show'));
+            parent.querySelectorAll('.level-1-title-courses').forEach(t => t.classList.remove('active'));
+
+            if (!isActive) {
+                level2.classList.add('show');
+                element.classList.add('active');
+            }
+            level2.querySelectorAll('.menu-level-3-courses').forEach(l3 => l3.classList.remove('show'));
+            level2.querySelectorAll('.level-2-title-courses').forEach(t => t.classList.remove('active'));
+        }
+
+        function toggleLevel3(level3Id, element) {
+            const level3 = document.getElementById(level3Id);
+            const isActive = element.classList.contains('active');
+
+            const parent = element.closest('.level-2-item-courses');
+            parent.querySelectorAll('.menu-level-3-courses').forEach(m => m.classList.remove('show'));
+            parent.querySelectorAll('.level-2-title-courses').forEach(t => t.classList.remove('active'));
+
+            if (!isActive) {
+                level3.classList.add('show');
+                element.classList.add('active');
+            }
+        }
+
+        function closeAllLevels() {
+            document.querySelectorAll('.menu-level-2-courses, .menu-level-3-courses').forEach(el => el.classList.remove('show'));
+            document.querySelectorAll('.level-1-title-courses, .level-2-title-courses').forEach(el => el.classList.remove('active'));
+        }
+
+        document.addEventListener('click', function(e) {
+            const container = document.querySelector('.neuro-container');
+            if (container && !container.contains(e.target)) {
+                document.querySelectorAll('.main-dropdown-courses').forEach(d => d.classList.remove('show'));
+                document.querySelectorAll('.category-item-courses').forEach(i => i.classList.remove('active'));
+                closeAllLevels();
+            }
+        });
+
+        // ============================================================
+        // ===== EMAIL LINK =====
+        // ============================================================
         function isMobileDevice() {
             return (typeof window.orientation !== "undefined") || 
                    (navigator.userAgent.indexOf('IEMobile') !== -1) ||
@@ -1106,6 +3012,7 @@
 
         function setEmailLink() {
             const emailLink = document.getElementById('emailLink');
+            if (!emailLink) return;
             const email = 'avinlangroodi4@gmail.com';
             const subject = 'درخواست مشاوره تحصیلی';
             const body = 'سلام، من علاقه‌مند به دریافت مشاوره تحصیلی هستم.';
@@ -1118,7 +3025,11 @@
             }
         }
 
-        window.onload = setEmailLink;
+        window.onload = function() {
+            setEmailLink();
+            // Set default page
+            showPage('home');
+        };
         
         window.addEventListener('resize', function() {
             clearTimeout(window.resizedFinished);
