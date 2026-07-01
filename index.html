@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>آکادمی نورولرن | ورود و ثبت‌نام</title>
     
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap');
 
@@ -368,77 +363,6 @@
             text-decoration: underline;
         }
 
-        /* ===== User Info ===== */
-        #userInfo {
-            display: none;
-        }
-
-        .user-info {
-            text-align: center;
-            padding: 25px;
-            background: rgba(212, 175, 55, 0.05);
-            border-radius: 20px;
-            border: 1px solid var(--border-card);
-            margin-bottom: 20px;
-        }
-
-        .user-info .user-avatar {
-            font-size: 4rem;
-            margin-bottom: 10px;
-        }
-
-        .user-info .user-name {
-            color: var(--text-gold);
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-
-        .user-info .user-email {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 3px;
-        }
-
-        .user-info .user-details {
-            color: var(--text-white);
-            font-size: 0.85rem;
-            margin-top: 8px;
-            opacity: 0.7;
-        }
-
-        .logout-btn {
-            background: rgba(255, 107, 107, 0.1);
-            border: 2px solid rgba(255, 107, 107, 0.2);
-            color: var(--error-color);
-            padding: 10px 30px;
-            border-radius: 60px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            margin-top: 12px;
-            font-size: 0.9rem;
-        }
-
-        .logout-btn:hover {
-            background: rgba(255, 107, 107, 0.2);
-            transform: scale(1.02);
-        }
-
-        .redirect-home {
-            display: block;
-            text-align: center;
-            margin-top: 15px;
-            color: var(--text-gold);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-        }
-
-        .redirect-home:hover {
-            text-decoration: underline;
-        }
-
         /* ===== Responsive ===== */
         @media (max-width: 480px) {
             .auth-container {
@@ -618,44 +542,12 @@
             </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- ===== USER INFO (After Login) ===== -->
-        <!-- ============================================================ -->
-        <div id="userInfo">
-            <div class="user-info">
-                <div class="user-avatar">🧑‍🎓</div>
-                <div class="user-name" id="displayName">کاربر</div>
-                <div class="user-email" id="displayEmail">email@example.com</div>
-                <div class="user-details" id="displayDetails">سن: -- | دوره: --</div>
-                <button class="logout-btn" onclick="logoutUser()">🚪 خروج از حساب</button>
-            </div>
-            <a class="redirect-home" onclick="goToHome()">🏠 بازگشت به صفحه اصلی</a>
-        </div>
-
     </div>
 
     <!-- ============================================================ -->
     <!-- ===== JAVASCRIPT ===== -->
     <!-- ============================================================ -->
     <script>
-        // ============================================================
-        // ===== FIREBASE CONFIGURATION =====
-        // ============================================================
-        // 🔴 IMPORTANT: Replace these with YOUR Firebase project config
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-
         // ============================================================
         // ===== THEME TOGGLE =====
         // ============================================================
@@ -734,9 +626,9 @@
         }
 
         // ============================================================
-        // ===== REGISTER USER =====
+        // ===== REGISTER USER (Demo - No Database) =====
         // ============================================================
-        async function registerUser() {
+        function registerUser() {
             const firstName = document.getElementById('registerFirstName').value.trim();
             const lastName = document.getElementById('registerLastName').value.trim();
             const age = document.getElementById('registerAge').value.trim();
@@ -792,59 +684,26 @@
             btn.disabled = true;
             btn.textContent = '⏳ در حال ثبت‌نام...';
 
-            try {
-                // Create user in Firebase Auth
-                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-                const user = userCredential.user;
-
-                const fullName = firstName + ' ' + lastName;
-
-                // Update profile with name
-                await user.updateProfile({
-                    displayName: fullName
-                });
-
-                // Save user data to Firestore
-                await db.collection('users').doc(user.uid).set({
-                    firstName: firstName,
-                    lastName: lastName,
-                    fullName: fullName,
-                    age: ageNum,
-                    course: course,
-                    email: email,
-                    role: 'user',
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                    lastLogin: firebase.firestore.FieldValue.serverTimestamp()
-                });
-
-                showMessage(message, '✅ ثبت‌نام با موفقیت انجام شد!', 'success');
-
-                // Show user info
-                showUserInfo(user, firstName, lastName, ageNum, course);
-
-                setTimeout(() => {
-                    window.location.href = 'index.html';
-                }, 2000);
-
-            } catch (error) {
-                let errorMsg = error.message;
-                if (error.code === 'auth/email-already-in-use') {
-                    errorMsg = 'این ایمیل قبلاً ثبت‌نام کرده است.';
-                } else if (error.code === 'auth/invalid-email') {
-                    errorMsg = 'لطفاً یک ایمیل معتبر وارد کنید.';
-                } else if (error.code === 'auth/weak-password') {
-                    errorMsg = 'رمز عبور ضعیف است. حداقل ۶ کاراکتر وارد کنید.';
-                }
-                showMessage(message, '❌ ' + errorMsg, 'error');
+            // Simulate registration
+            setTimeout(() => {
+                showMessage(message, '✅ ثبت‌نام با موفقیت انجام شد! (دمو - بدون دیتابیس)', 'success');
                 btn.disabled = false;
                 btn.textContent = '✨ ثبت‌نام';
-            }
+
+                // Show user info in console
+                console.log('📝 اطلاعات ثبت‌نام:');
+                console.log('نام:', firstName);
+                console.log('نام‌خانوادگی:', lastName);
+                console.log('سن:', age);
+                console.log('دوره:', course);
+                console.log('ایمیل:', email);
+            }, 1500);
         }
 
         // ============================================================
-        // ===== LOGIN USER =====
+        // ===== LOGIN USER (Demo - No Database) =====
         // ============================================================
-        async function loginUser() {
+        function loginUser() {
             const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value;
             const message = document.getElementById('loginMessage');
@@ -858,125 +717,15 @@
             btn.disabled = true;
             btn.textContent = '⏳ در حال ورود...';
 
-            try {
-                const userCredential = await auth.signInWithEmailAndPassword(email, password);
-                const user = userCredential.user;
-
-                // Get user data from Firestore
-                const doc = await db.collection('users').doc(user.uid).get();
-                const userData = doc.data();
-
-                // Update last login
-                await db.collection('users').doc(user.uid).update({
-                    lastLogin: firebase.firestore.FieldValue.serverTimestamp()
-                });
-
-                showMessage(message, '✅ خوش آمدید! در حال انتقال...', 'success');
-
-                // Show user info
-                if (userData) {
-                    showUserInfo(user, userData.firstName, userData.lastName, userData.age, userData.course);
-                } else {
-                    showUserInfo(user);
-                }
-
-                setTimeout(() => {
-                    window.location.href = 'index.html';
-                }, 1500);
-
-            } catch (error) {
-                let errorMsg = error.message;
-                if (error.code === 'auth/user-not-found') {
-                    errorMsg = 'کاربری با این ایمیل یافت نشد.';
-                } else if (error.code === 'auth/wrong-password') {
-                    errorMsg = 'رمز عبور اشتباه است.';
-                } else if (error.code === 'auth/invalid-email') {
-                    errorMsg = 'لطفاً یک ایمیل معتبر وارد کنید.';
-                } else if (error.code === 'auth/too-many-requests') {
-                    errorMsg = 'تعداد تلاش‌های ناموفق زیاد بود. لطفاً بعداً امتحان کنید.';
-                }
-                showMessage(message, '❌ ' + errorMsg, 'error');
+            // Simulate login
+            setTimeout(() => {
+                showMessage(message, '✅ خوش آمدید! (دمو - بدون دیتابیس)', 'success');
                 btn.disabled = false;
                 btn.textContent = '🚀 ورود';
-            }
-        }
 
-        // ============================================================
-        // ===== LOGOUT USER =====
-        // ============================================================
-        async function logoutUser() {
-            try {
-                await auth.signOut();
-                document.getElementById('userInfo').style.display = 'none';
-                document.getElementById('authHeader').style.display = 'block';
-                document.getElementById('authTabs').style.display = 'flex';
-                document.getElementById('loginForm').style.display = 'block';
-                document.getElementById('registerForm').style.display = 'none';
-                document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
-                document.querySelector('.auth-tab[data-tab="login"]').classList.add('active');
-                document.getElementById('loginForm').classList.add('active');
-                document.getElementById('registerForm').classList.remove('active');
-                clearMessages();
-            } catch (error) {
-                console.error('Logout error:', error);
-            }
-        }
-
-        // ============================================================
-        // ===== SHOW USER INFO =====
-        // ============================================================
-        function showUserInfo(user, firstName, lastName, age, course) {
-            const fullName = user.displayName || (firstName + ' ' + lastName) || 'کاربر';
-            document.getElementById('displayName').textContent = '👤 ' + fullName;
-            document.getElementById('displayEmail').textContent = user.email || '';
-
-            let details = '';
-            if (age) details += 'سن: ' + age + ' سال';
-            if (course) details += (details ? ' | ' : '') + 'دوره: ' + course;
-            if (details) {
-                document.getElementById('displayDetails').textContent = details;
-                document.getElementById('displayDetails').style.display = 'block';
-            } else {
-                document.getElementById('displayDetails').style.display = 'none';
-            }
-
-            document.getElementById('userInfo').style.display = 'block';
-            document.getElementById('authHeader').style.display = 'none';
-            document.getElementById('authTabs').style.display = 'none';
-            document.getElementById('loginForm').classList.remove('active');
-            document.getElementById('registerForm').classList.remove('active');
-            document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
-        }
-
-        // ============================================================
-        // ===== CHECK AUTH STATE =====
-        // ============================================================
-        auth.onAuthStateChanged(async (user) => {
-            if (user) {
-                try {
-                    const doc = await db.collection('users').doc(user.uid).get();
-                    const userData = doc.data();
-                    if (userData) {
-                        showUserInfo(user, userData.firstName, userData.lastName, userData.age, userData.course);
-                    } else {
-                        showUserInfo(user);
-                    }
-                } catch (error) {
-                    showUserInfo(user);
-                }
-            } else {
-                document.getElementById('userInfo').style.display = 'none';
-                document.getElementById('authHeader').style.display = 'block';
-                document.getElementById('authTabs').style.display = 'flex';
-                switchTab('login');
-            }
-        });
-
-        // ============================================================
-        // ===== GO TO HOME =====
-        // ============================================================
-        function goToHome() {
-            window.location.href = 'index.html';
+                console.log('🔐 ورود کاربر:');
+                console.log('ایمیل:', email);
+            }, 1500);
         }
 
         // ============================================================
@@ -993,8 +742,8 @@
             }
         });
 
-        console.log('🧠 آکادمی نورولرن - سیستم احراز هویت فعال شد!');
-        console.log('📌 برای استفاده، کلیدهای Firebase را در const firebaseConfig تنظیم کنید.');
+        console.log('🧠 آکادمی نورولرن - صفحه ورود و ثبت‌نام (دمو - بدون دیتابیس)');
+        console.log('📌 این نسخه فقط برای نمایش رابط کاربری است.');
     </script>
 </body>
 </html>
