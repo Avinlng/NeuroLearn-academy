@@ -1524,7 +1524,7 @@
             }
 
             showMessage(message, '✅ ورود با موفقیت انجام شد!', 'success');
-            setTimeout(() => {
+            setTimeout(function() {
                 closeModal();
                 alert('🔐 خوش آمدید!\nشماره تلفن: ' + phone);
             }, 1000);
@@ -1532,13 +1532,13 @@
 
         // ===== REGISTER =====
         function registerUser() {
-            const firstName = document.getElementById('registerFirstName').value.trim();
-            const lastName = document.getElementById('registerLastName').value.trim();
-            const age = document.getElementById('registerAge').value.trim();
-            const phone = document.getElementById('registerPhone').value.trim();
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('registerConfirmPassword').value;
-            const message = document.getElementById('registerMessage');
+            var firstName = document.getElementById('registerFirstName').value.trim();
+            var lastName = document.getElementById('registerLastName').value.trim();
+            var age = document.getElementById('registerAge').value.trim();
+            var phone = document.getElementById('registerPhone').value.trim();
+            var password = document.getElementById('registerPassword').value;
+            var confirmPassword = document.getElementById('registerConfirmPassword').value;
+            var message = document.getElementById('registerMessage');
 
             if (!firstName) {
                 showMessage(message, 'لطفاً نام خود را وارد کنید.', 'error');
@@ -1552,7 +1552,7 @@
                 showMessage(message, 'لطفاً سن خود را وارد کنید.', 'error');
                 return;
             }
-            const ageNum = parseInt(age);
+            var ageNum = parseInt(age);
             if (isNaN(ageNum) || ageNum < 6 || ageNum > 100) {
                 showMessage(message, 'سن باید بین ۶ تا ۱۰۰ سال باشد.', 'error');
                 return;
@@ -1576,9 +1576,9 @@
 
             showMessage(message, '✅ ثبت‌نام با موفقیت انجام شد!', 'success');
 
-            const fullName = firstName + ' ' + lastName;
+            var fullName = firstName + ' ' + lastName;
 
-            setTimeout(() => {
+            setTimeout(function() {
                 closeModal();
                 alert('📝 ثبت‌نام شما با موفقیت انجام شد!\n\n👤 نام: ' + fullName + '\n🎂 سن: ' + age +
                     '\n📱 تلفن: ' + phone);
@@ -1593,16 +1593,18 @@
         }
 
         function setEmailLink() {
-            const emailLink = document.getElementById('emailLink');
+            var emailLink = document.getElementById('emailLink');
             if (!emailLink) return;
-            const email = 'avinlangroodi4@gmail.com';
-            const subject = 'درخواست مشاوره تحصیلی';
-            const body = 'سلام، من علاقه‌مند به دریافت مشاوره تحصیلی هستم.';
+            var email = 'avinlangroodi4@gmail.com';
+            var subject = 'درخواست مشاوره تحصیلی';
+            var body = 'سلام، من علاقه‌مند به دریافت مشاوره تحصیلی هستم.';
             if (isMobileDevice()) {
-                emailLink.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                emailLink.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(
+                    body);
             } else {
                 emailLink.href =
-                    `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    'https://mail.google.com/mail/?view=cm&fs=1&to=' + email + '&su=' + encodeURIComponent(subject) +
+                    '&body=' + encodeURIComponent(body);
                 emailLink.target = '_blank';
             }
         }
@@ -1617,14 +1619,14 @@
         });
 
         // ===== KEYBOARD SUPPORT =====
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
             }
             if (e.key === 'Enter') {
-                const modal = document.getElementById('authModal');
+                var modal = document.getElementById('authModal');
                 if (modal.classList.contains('active')) {
-                    const activeTab = document.querySelector('.modal-tab.active');
+                    var activeTab = document.querySelector('.modal-tab.active');
                     if (activeTab && activeTab.dataset.tab === 'login') {
                         loginUser();
                     } else if (activeTab && activeTab.dataset.tab === 'register') {
