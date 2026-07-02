@@ -985,9 +985,8 @@
             direction: rtl;
         }
 
-        .form-group input[type="email"],
-        .form-group input[type="password"],
-        .form-group input[type="tel"] {
+        .form-group input[type="tel"],
+        .form-group input[type="password"] {
             direction: ltr;
         }
 
@@ -1411,11 +1410,14 @@
     </div>
 
     <script>
-        const themeToggle = document.getElementById('themeToggle');
-        const toggleDot = document.getElementById('toggleDot');
+        // ============================================================
+        // ===== THEME TOGGLE =====
+        // ============================================================
+        var themeToggle = document.getElementById('themeToggle');
+        var toggleDot = document.getElementById('toggleDot');
 
         function getInitialTheme() {
-            const saved = localStorage.getItem('neurolearn-theme');
+            var saved = localStorage.getItem('neurolearn-theme');
             if (saved) return saved;
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
                 return 'light';
@@ -1429,17 +1431,19 @@
             toggleDot.textContent = theme === 'dark' ? '🌙' : '☀️';
         }
 
-        const initialTheme = getInitialTheme();
+        var initialTheme = getInitialTheme();
         setTheme(initialTheme);
 
-        themeToggle.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme');
+        themeToggle.addEventListener('click', function() {
+            var current = document.documentElement.getAttribute('data-theme');
             setTheme(current === 'dark' ? 'light' : 'dark');
         });
 
+        // ============================================================
         // ===== MODAL FUNCTIONS =====
+        // ============================================================
         function openModal(tab) {
-            const modal = document.getElementById('authModal');
+            var modal = document.getElementById('authModal');
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             clearMessages();
@@ -1451,7 +1455,8 @@
         }
 
         function closeModal() {
-            document.getElementById('authModal').classList.remove('active');
+            var modal = document.getElementById('authModal');
+            modal.classList.remove('active');
             document.body.style.overflow = 'auto';
             clearMessages();
         }
@@ -1463,15 +1468,19 @@
         });
 
         function clearMessages() {
-            document.querySelectorAll('.auth-message').forEach(el => {
-                el.className = 'auth-message';
-                el.textContent = '';
-            });
+            var messages = document.querySelectorAll('.auth-message');
+            for (var i = 0; i < messages.length; i++) {
+                messages[i].className = 'auth-message';
+                messages[i].textContent = '';
+            }
         }
 
         function switchModalTab(tab) {
-            document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
-            document.querySelector(`.modal-tab[data-tab="${tab}"]`).classList.add('active');
+            var tabs = document.querySelectorAll('.modal-tab');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            document.querySelector('.modal-tab[data-tab="' + tab + '"]').classList.add('active');
 
             document.getElementById('modalLoginForm').classList.remove('active');
             document.getElementById('modalRegisterForm').classList.remove('active');
@@ -1485,7 +1494,7 @@
         }
 
         function togglePassword(inputId, btn) {
-            const input = document.getElementById(inputId);
+            var input = document.getElementById(inputId);
             if (input.type === 'password') {
                 input.type = 'text';
                 btn.textContent = '🙈';
@@ -1500,11 +1509,13 @@
             element.textContent = text;
         }
 
+        // ============================================================
         // ===== LOGIN =====
+        // ============================================================
         function loginUser() {
-            const phone = document.getElementById('loginPhone').value.trim();
-            const password = document.getElementById('loginPassword').value;
-            const message = document.getElementById('loginMessage');
+            var phone = document.getElementById('loginPhone').value.trim();
+            var password = document.getElementById('loginPassword').value;
+            var message = document.getElementById('loginMessage');
 
             if (!phone) {
                 showMessage(message, 'لطفاً شماره تلفن را وارد کنید.', 'error');
@@ -1530,7 +1541,9 @@
             }, 1000);
         }
 
+        // ============================================================
         // ===== REGISTER =====
+        // ============================================================
         function registerUser() {
             var firstName = document.getElementById('registerFirstName').value.trim();
             var lastName = document.getElementById('registerLastName').value.trim();
@@ -1585,7 +1598,9 @@
             }, 1000);
         }
 
+        // ============================================================
         // ===== EMAIL LINK =====
+        // ============================================================
         function isMobileDevice() {
             return (typeof window.orientation !== "undefined") ||
                 (navigator.userAgent.indexOf('IEMobile') !== -1) ||
@@ -1618,7 +1633,9 @@
             window.resizedFinished = setTimeout(setEmailLink, 100);
         });
 
+        // ============================================================
         // ===== KEYBOARD SUPPORT =====
+        // ============================================================
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
