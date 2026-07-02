@@ -1523,11 +1523,11 @@
                 return;
             }
 
-            showMessage(message, '✅ ورود با موفقیت انجام شد! (دمو)', 'success');
+            showMessage(message, '✅ ورود با موفقیت انجام شد!', 'success');
             setTimeout(() => {
                 closeModal();
                 alert('🔐 خوش آمدید!\nشماره تلفن: ' + phone);
-            }, 1500);
+            }, 1000);
         }
 
         // ===== REGISTER =====
@@ -1574,7 +1574,7 @@
                 return;
             }
 
-            showMessage(message, '✅ ثبت‌نام با موفقیت انجام شد! (دمو)', 'success');
+            showMessage(message, '✅ ثبت‌نام با موفقیت انجام شد!', 'success');
 
             const fullName = firstName + ' ' + lastName;
 
@@ -1582,7 +1582,7 @@
                 closeModal();
                 alert('📝 ثبت‌نام شما با موفقیت انجام شد!\n\n👤 نام: ' + fullName + '\n🎂 سن: ' + age +
                     '\n📱 تلفن: ' + phone);
-            }, 1500);
+            }, 1000);
         }
 
         // ===== EMAIL LINK =====
@@ -1634,9 +1634,9 @@
             }
         });
 
-        console.log('🧠 آموزشگاه مجازی نورولرن - صفحه اصلی با مودال ورود/ثبت‌نام');
-        console.log('📌 ورود با شماره تلفن و رمز عبور');
-        console.log('📌 ثبت‌نام با نام، نام‌خانوادگی، سن (۶ تا ۱۰۰ سال)، شماره تلفن و رمز عبور');
+        console.log('🧠 آموزشگاه مجازی نورولرن - صفحه اصلی');
+        console.log('📌 دکمه‌های ورود و ثبت‌نام در صفحه اصلی کار می‌کنند.');
+        console.log('📌 بدون نیاز به ورود، می‌توانید به صفحه رزرو کلاس‌ها بروید.');
     </script>
 </body>
 </html>
