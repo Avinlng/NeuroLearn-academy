@@ -1157,8 +1157,8 @@
         </ul>
 
         <div class="nav-auth-buttons">
-            <button class="nav-auth-btn login-btn" onclick="openModal('login')">🔐 ورود</button>
-            <button class="nav-auth-btn register-btn" onclick="openModal('register')">📝 ثبت‌نام</button>
+            <button class="nav-auth-btn login-btn" onclick="document.getElementById('authModal').classList.add('active'); document.getElementById('modalLoginForm').classList.add('active'); document.getElementById('modalRegisterForm').classList.remove('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.add('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.remove('active');">🔐 ورود</button>
+            <button class="nav-auth-btn register-btn" onclick="document.getElementById('authModal').classList.add('active'); document.getElementById('modalRegisterForm').classList.add('active'); document.getElementById('modalLoginForm').classList.remove('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.add('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.remove('active');">📝 ثبت‌نام</button>
         </div>
     </nav>
 
@@ -1335,7 +1335,7 @@
     <!-- ===== MODAL ===== -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box">
-            <button class="modal-close" onclick="closeModal()">✕</button>
+            <button class="modal-close" onclick="document.getElementById('authModal').classList.remove('active')">✕</button>
 
             <div class="modal-header">
                 <div class="modal-logo">🧠 نورولرن</div>
@@ -1343,8 +1343,8 @@
             </div>
 
             <div class="modal-tabs">
-                <button class="modal-tab active" data-tab="login" onclick="switchModalTab('login')">🔐 ورود</button>
-                <button class="modal-tab" data-tab="register" onclick="switchModalTab('register')">📝 ثبت‌نام</button>
+                <button class="modal-tab active" data-tab="login" onclick="document.getElementById('modalLoginForm').classList.add('active'); document.getElementById('modalRegisterForm').classList.remove('active'); this.classList.add('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.remove('active');">🔐 ورود</button>
+                <button class="modal-tab" data-tab="register" onclick="document.getElementById('modalRegisterForm').classList.add('active'); document.getElementById('modalLoginForm').classList.remove('active'); this.classList.add('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.remove('active');">📝 ثبت‌نام</button>
             </div>
 
             <!-- ===== LOGIN FORM ===== -->
@@ -1356,12 +1356,12 @@
                 <div class="form-group password-toggle">
                     <label>🔒 رمز عبور <span class="required">*</span></label>
                     <input type="password" id="loginPassword" placeholder="••••••••" />
-                    <button type="button" class="toggle-btn" onclick="togglePassword('loginPassword', this)">👁️</button>
+                    <button type="button" class="toggle-btn" onclick="var input=document.getElementById('loginPassword'); if(input.type==='password'){input.type='text';this.textContent='🙈'}else{input.type='password';this.textContent='👁️'}">👁️</button>
                 </div>
                 <button class="auth-btn" onclick="loginUser()">🚀 ورود</button>
                 <div class="auth-message" id="loginMessage"></div>
                 <div class="auth-footer">
-                    حساب ندارید؟ <a onclick="switchModalTab('register')">ثبت‌نام کنید</a>
+                    حساب ندارید؟ <a onclick="document.getElementById('modalRegisterForm').classList.add('active'); document.getElementById('modalLoginForm').classList.remove('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.add('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.remove('active');">ثبت‌نام کنید</a>
                 </div>
             </div>
 
@@ -1391,19 +1391,19 @@
                 <div class="form-group password-toggle">
                     <label>🔒 رمز عبور <span class="required">*</span></label>
                     <input type="password" id="registerPassword" placeholder="حداقل ۶ کاراکتر" />
-                    <button type="button" class="toggle-btn" onclick="togglePassword('registerPassword', this)">👁️</button>
+                    <button type="button" class="toggle-btn" onclick="var input=document.getElementById('registerPassword'); if(input.type==='password'){input.type='text';this.textContent='🙈'}else{input.type='password';this.textContent='👁️'}">👁️</button>
                 </div>
 
                 <div class="form-group password-toggle">
                     <label>🔒 تکرار رمز عبور <span class="required">*</span></label>
                     <input type="password" id="registerConfirmPassword" placeholder="دوباره وارد کنید" />
-                    <button type="button" class="toggle-btn" onclick="togglePassword('registerConfirmPassword', this)">👁️</button>
+                    <button type="button" class="toggle-btn" onclick="var input=document.getElementById('registerConfirmPassword'); if(input.type==='password'){input.type='text';this.textContent='🙈'}else{input.type='password';this.textContent='👁️'}">👁️</button>
                 </div>
 
                 <button class="auth-btn" onclick="registerUser()">✨ ثبت‌نام</button>
                 <div class="auth-message" id="registerMessage"></div>
                 <div class="auth-footer">
-                    حساب دارید؟ <a onclick="switchModalTab('login')">وارد شوید</a>
+                    حساب دارید؟ <a onclick="document.getElementById('modalLoginForm').classList.add('active'); document.getElementById('modalRegisterForm').classList.remove('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.add('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.remove('active');">وارد شوید</a>
                 </div>
             </div>
         </div>
@@ -1440,76 +1440,6 @@
         });
 
         // ============================================================
-        // ===== MODAL FUNCTIONS =====
-        // ============================================================
-        function openModal(tab) {
-            var modal = document.getElementById('authModal');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            clearMessages();
-            if (tab === 'register') {
-                switchModalTab('register');
-            } else {
-                switchModalTab('login');
-            }
-        }
-
-        function closeModal() {
-            var modal = document.getElementById('authModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            clearMessages();
-        }
-
-        document.getElementById('authModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        function clearMessages() {
-            var messages = document.querySelectorAll('.auth-message');
-            for (var i = 0; i < messages.length; i++) {
-                messages[i].className = 'auth-message';
-                messages[i].textContent = '';
-            }
-        }
-
-        function switchModalTab(tab) {
-            var tabs = document.querySelectorAll('.modal-tab');
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove('active');
-            }
-            document.querySelector('.modal-tab[data-tab="' + tab + '"]').classList.add('active');
-
-            document.getElementById('modalLoginForm').classList.remove('active');
-            document.getElementById('modalRegisterForm').classList.remove('active');
-
-            if (tab === 'login') {
-                document.getElementById('modalLoginForm').classList.add('active');
-            } else {
-                document.getElementById('modalRegisterForm').classList.add('active');
-            }
-            clearMessages();
-        }
-
-        function togglePassword(inputId, btn) {
-            var input = document.getElementById(inputId);
-            if (input.type === 'password') {
-                input.type = 'text';
-                btn.textContent = '🙈';
-            } else {
-                input.type = 'password';
-                btn.textContent = '👁️';
-            }
-        }
-
-        function showMessage(element, text, type) {
-            element.className = 'auth-message ' + type;
-            element.textContent = text;
-        }
-
-        // ============================================================
         // ===== LOGIN =====
         // ============================================================
         function loginUser() {
@@ -1518,25 +1448,31 @@
             var message = document.getElementById('loginMessage');
 
             if (!phone) {
-                showMessage(message, 'لطفاً شماره تلفن را وارد کنید.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً شماره تلفن را وارد کنید.';
                 return;
             }
             if (phone.length < 11) {
-                showMessage(message, 'شماره تلفن باید ۱۱ رقم باشد.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'شماره تلفن باید ۱۱ رقم باشد.';
                 return;
             }
             if (!password) {
-                showMessage(message, 'لطفاً رمز عبور را وارد کنید.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً رمز عبور را وارد کنید.';
                 return;
             }
             if (password.length < 6) {
-                showMessage(message, 'رمز عبور باید حداقل ۶ کاراکتر باشد.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
                 return;
             }
 
-            showMessage(message, '✅ ورود با موفقیت انجام شد!', 'success');
+            message.className = 'auth-message success';
+            message.textContent = '✅ ورود با موفقیت انجام شد!';
+
             setTimeout(function() {
-                closeModal();
+                document.getElementById('authModal').classList.remove('active');
                 alert('🔐 خوش آمدید!\nشماره تلفن: ' + phone);
             }, 1000);
         }
@@ -1554,45 +1490,54 @@
             var message = document.getElementById('registerMessage');
 
             if (!firstName) {
-                showMessage(message, 'لطفاً نام خود را وارد کنید.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً نام خود را وارد کنید.';
                 return;
             }
             if (!lastName) {
-                showMessage(message, 'لطفاً نام‌خانوادگی خود را وارد کنید.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً نام‌خانوادگی خود را وارد کنید.';
                 return;
             }
             if (!age) {
-                showMessage(message, 'لطفاً سن خود را وارد کنید.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً سن خود را وارد کنید.';
                 return;
             }
             var ageNum = parseInt(age);
             if (isNaN(ageNum) || ageNum < 6 || ageNum > 100) {
-                showMessage(message, 'سن باید بین ۶ تا ۱۰۰ سال باشد.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'سن باید بین ۶ تا ۱۰۰ سال باشد.';
                 return;
             }
             if (!phone) {
-                showMessage(message, 'لطفاً شماره تلفن را وارد کنید.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً شماره تلفن را وارد کنید.';
                 return;
             }
             if (phone.length < 11) {
-                showMessage(message, 'شماره تلفن باید ۱۱ رقم باشد.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'شماره تلفن باید ۱۱ رقم باشد.';
                 return;
             }
             if (password.length < 6) {
-                showMessage(message, 'رمز عبور باید حداقل ۶ کاراکتر باشد.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
                 return;
             }
             if (password !== confirmPassword) {
-                showMessage(message, 'رمز عبور و تکرار آن مطابقت ندارند.', 'error');
+                message.className = 'auth-message error';
+                message.textContent = 'رمز عبور و تکرار آن مطابقت ندارند.';
                 return;
             }
 
-            showMessage(message, '✅ ثبت‌نام با موفقیت انجام شد!', 'success');
+            message.className = 'auth-message success';
+            message.textContent = '✅ ثبت‌نام با موفقیت انجام شد!';
 
             var fullName = firstName + ' ' + lastName;
 
             setTimeout(function() {
-                closeModal();
+                document.getElementById('authModal').classList.remove('active');
                 alert('📝 ثبت‌نام شما با موفقیت انجام شد!\n\n👤 نام: ' + fullName + '\n🎂 سن: ' + age +
                     '\n📱 تلفن: ' + phone);
             }, 1000);
@@ -1638,18 +1583,7 @@
         // ============================================================
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                closeModal();
-            }
-            if (e.key === 'Enter') {
-                var modal = document.getElementById('authModal');
-                if (modal.classList.contains('active')) {
-                    var activeTab = document.querySelector('.modal-tab.active');
-                    if (activeTab && activeTab.dataset.tab === 'login') {
-                        loginUser();
-                    } else if (activeTab && activeTab.dataset.tab === 'register') {
-                        registerUser();
-                    }
-                }
+                document.getElementById('authModal').classList.remove('active');
             }
         });
 
