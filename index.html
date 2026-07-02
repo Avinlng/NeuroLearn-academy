@@ -1157,8 +1157,8 @@
         </ul>
 
         <div class="nav-auth-buttons">
-            <button class="nav-auth-btn login-btn" onclick="document.getElementById('authModal').classList.add('active'); document.getElementById('modalLoginForm').classList.add('active'); document.getElementById('modalRegisterForm').classList.remove('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.add('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.remove('active');">🔐 ورود</button>
-            <button class="nav-auth-btn register-btn" onclick="document.getElementById('authModal').classList.add('active'); document.getElementById('modalRegisterForm').classList.add('active'); document.getElementById('modalLoginForm').classList.remove('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.add('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.remove('active');">📝 ثبت‌نام</button>
+            <button class="nav-auth-btn login-btn" onclick="handleAuthClick('login')">🔐 ورود</button>
+            <button class="nav-auth-btn register-btn" onclick="handleAuthClick('register')">📝 ثبت‌نام</button>
         </div>
     </nav>
 
@@ -1440,6 +1440,33 @@
         });
 
         // ============================================================
+        // ===== HANDLE AUTH CLICK (NEW - SMART) =====
+        // ============================================================
+        function handleAuthClick(type) {
+            // بررسی کنید که کاربر لاگین است یا نه (با استفاده از localStorage)
+            var isLoggedIn = localStorage.getItem('neurolearn-user');
+            
+            if (isLoggedIn) {
+                // اگر لاگین است، مودال را باز کن
+                document.getElementById('authModal').classList.add('active');
+                if (type === 'login') {
+                    document.getElementById('modalLoginForm').classList.add('active');
+                    document.getElementById('modalRegisterForm').classList.remove('active');
+                    document.querySelector('.modal-tab[data-tab="login"]').classList.add('active');
+                    document.querySelector('.modal-tab[data-tab="register"]').classList.remove('active');
+                } else {
+                    document.getElementById('modalRegisterForm').classList.add('active');
+                    document.getElementById('modalLoginForm').classList.remove('active');
+                    document.querySelector('.modal-tab[data-tab="register"]').classList.add('active');
+                    document.querySelector('.modal-tab[data-tab="login"]').classList.remove('active');
+                }
+            } else {
+                // اگر مهمان است، به صفحه کلاس‌ها برو
+                window.location.href = 'courses.html';
+            }
+        }
+
+        // ============================================================
         // ===== LOGIN =====
         // ============================================================
         function loginUser() {
@@ -1467,6 +1494,9 @@
                 message.textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
                 return;
             }
+
+            // ذخیره اطلاعات کاربر در localStorage
+            localStorage.setItem('neurolearn-user', JSON.stringify({ phone: phone }));
 
             message.className = 'auth-message success';
             message.textContent = '✅ ورود با موفقیت انجام شد!';
@@ -1531,10 +1561,17 @@
                 return;
             }
 
+            // ذخیره اطلاعات کاربر در localStorage
+            var fullName = firstName + ' ' + lastName;
+            localStorage.setItem('neurolearn-user', JSON.stringify({ 
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                phone: phone
+            }));
+
             message.className = 'auth-message success';
             message.textContent = '✅ ثبت‌نام با موفقیت انجام شد!';
-
-            var fullName = firstName + ' ' + lastName;
 
             setTimeout(function() {
                 document.getElementById('authModal').classList.remove('active');
@@ -1588,8 +1625,9 @@
         });
 
         console.log('🧠 آموزشگاه مجازی نورولرن - صفحه اصلی');
-        console.log('📌 دکمه‌های ورود و ثبت‌نام در صفحه اصلی کار می‌کنند.');
-        console.log('📌 بدون نیاز به ورود، می‌توانید به صفحه رزرو کلاس‌ها بروید.');
+        console.log('📌 دکمه‌های ورود و ثبت‌نام هوشمند شدند!');
+        console.log('📌 کاربران مهمان به صفحه کلاس‌ها میروند.');
+        console.log('📌 کاربران لاگین شده مودال را میبینند.');
     </script>
 </body>
 </html>
