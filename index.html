@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>آموزشگاه مجازی نورولرن</title>
     <style>
+        /* ===== تمام استایل‌های قبلی ===== */
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap');
 
-        /* ===== CSS Variables for Theme ===== */
         :root {
             --bg-body: #0a0806;
             --bg-body-radial: radial-gradient(ellipse at 30% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
@@ -81,7 +81,6 @@
             --btn-register-text: #0a0806;
         }
 
-        /* Light Mode */
         [data-theme="light"] {
             --bg-body: #f5f0e8;
             --bg-body-radial: radial-gradient(ellipse at 30% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
@@ -172,7 +171,6 @@
             transition: all 0.5s ease;
         }
 
-        /* ===== Theme Toggle ===== */
         .theme-toggle-wrapper {
             display: flex;
             justify-content: flex-end;
@@ -218,7 +216,6 @@
             transform: translateX(25px);
         }
 
-        /* ===== Navbar ===== */
         .navbar {
             background: var(--bg-navbar);
             backdrop-filter: blur(10px);
@@ -288,7 +285,6 @@
             color: var(--text-navbar-hover);
         }
 
-        /* ===== Auth Buttons ===== */
         .nav-auth-buttons {
             display: flex;
             gap: 8px;
@@ -378,9 +374,6 @@
             background: rgba(255, 107, 107, 0.2);
         }
 
-        /* ============================================================ */
-        /* ===== PAGE CONTAINER ===== */
-        /* ============================================================ */
         .page {
             display: none;
             animation: fadePage 0.5s ease;
@@ -395,10 +388,7 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ============================================================ */
-        /* ===== HOME PAGE ===== */
-        /* ============================================================ */
-
+        /* ===== HOME PAGE STYLES ===== */
         .showcase-card {
             max-width: 1000px;
             width: 100%;
@@ -904,9 +894,7 @@
             box-shadow: var(--shadow-cta-hover);
         }
 
-        /* ============================================================ */
-        /* ===== TOAST NOTIFICATION ===== */
-        /* ============================================================ */
+        /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -959,10 +947,7 @@
             transform: scale(1.05);
         }
 
-        /* ============================================================ */
-        /* ===== MODAL (AUTH) ===== */
-        /* ============================================================ */
-
+        /* ===== MODAL ===== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -1228,42 +1213,33 @@
             cursor: pointer;
         }
 
-        /* ============================================================ */
         /* ===== RESPONSIVE ===== */
-        /* ============================================================ */
-
         @media (max-width: 768px) {
             body { padding: 8px; }
-            
             .navbar {
                 flex-direction: column;
                 gap: 10px;
                 border-radius: 30px;
                 padding: 12px 16px;
             }
-
             .logo {
                 font-size: 0.95rem;
                 width: 100%;
                 text-align: center;
             }
             .logo span { font-size: 0.55rem; }
-
             .nav-auth-buttons {
                 width: 100%;
                 justify-content: center;
                 margin-right: 0;
             }
-
             .menu {
                 justify-content: center;
                 gap: 12px;
                 width: 100%;
             }
             .menu-item { font-size: 0.75rem; padding: 4px 0; }
-
             .nav-auth-btn { padding: 4px 14px; font-size: 0.7rem; }
-
             .premium-card { padding: 18px; border-radius: 24px; }
             .name { font-size: 1.6rem; }
             .subtitle { font-size: 0.85rem; }
@@ -1312,19 +1288,14 @@
                 <a href="courses.html">📚 رزرو کلاس‌ها</a>
             </li>
             <li class="menu-item">قرعه کشی ماهانه</li>
-            <li class="menu-item">
-                تماس با من
-                <div class="dropdown" style="display:none;"></div>
-            </li>
+            <li class="menu-item">تماس با من</li>
         </ul>
 
-        <!-- ===== Auth Buttons ===== -->
         <div class="nav-auth-buttons" id="authButtons">
             <button class="nav-auth-btn login-btn" onclick="openModal('login')">🔐 ورود</button>
             <button class="nav-auth-btn register-btn" onclick="openModal('register')">📝 ثبت‌نام</button>
         </div>
 
-        <!-- ===== User Info ===== -->
         <div class="user-nav-info" id="userNavInfo">
             <span class="user-avatar-small" id="navUserAvatar">👤</span>
             <span class="user-name-display" id="navUserName">کاربر</span>
@@ -1508,7 +1479,7 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- ===== TOAST NOTIFICATION ===== -->
+    <!-- ===== TOAST ===== -->
     <!-- ============================================================ -->
     <div class="toast" id="toast">
         <div class="toast-title" id="toastTitle">🔒 نیاز به ورود</div>
@@ -1517,7 +1488,7 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- ===== MODAL (AUTH) ===== -->
+    <!-- ===== MODAL ===== -->
     <!-- ============================================================ -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box">
@@ -1600,7 +1571,7 @@
     <!-- ============================================================ -->
     <script>
         // ============================================================
-        // ===== THEME TOGGLE =====
+        // ===== THEME TOGGLE (Shared via localStorage) =====
         // ============================================================
         const themeToggle = document.getElementById('themeToggle');
         const toggleDot = document.getElementById('toggleDot');
@@ -1629,16 +1600,40 @@
         });
 
         // ============================================================
-        // ===== SHOW PAGE =====
+        // ===== AUTH (Shared via localStorage) =====
         // ============================================================
-        function showPage(page) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById('page-' + page).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Check if user is logged in on page load
+        function checkAuthState() {
+            const userData = localStorage.getItem('neurolearn-user');
+            if (userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    updateNavUser(user.name);
+                } catch (e) {
+                    console.warn('Invalid user data in localStorage');
+                }
+            }
+        }
+
+        function updateNavUser(name) {
+            document.getElementById('authButtons').style.display = 'none';
+            document.getElementById('userNavInfo').style.display = 'flex';
+            document.getElementById('navUserName').textContent = name || 'کاربر';
+            document.getElementById('navUserAvatar').textContent = name ? name.charAt(0).toUpperCase() : '👤';
+            // Save to localStorage
+            localStorage.setItem('neurolearn-user', JSON.stringify({ name: name || 'کاربر' }));
+        }
+
+        function logoutUser() {
+            document.getElementById('authButtons').style.display = 'flex';
+            document.getElementById('userNavInfo').style.display = 'none';
+            localStorage.removeItem('neurolearn-user');
+            console.log('🚪 کاربر خارج شد');
         }
 
         // ============================================================
-        // ===== TOAST NOTIFICATION =====
+        // ===== TOAST =====
         // ============================================================
         let toastTimeout;
 
@@ -1658,7 +1653,7 @@
         }
 
         // ============================================================
-        // ===== MODAL FUNCTIONS =====
+        // ===== MODAL =====
         // ============================================================
         function openModal(tab) {
             const modal = document.getElementById('authModal');
@@ -1694,9 +1689,6 @@
             }
         });
 
-        // ============================================================
-        // ===== MODAL TAB SWITCHING =====
-        // ============================================================
         function switchModalTab(tab) {
             document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
             document.querySelector(`.modal-tab[data-tab="${tab}"]`).classList.add('active');
@@ -1716,9 +1708,6 @@
             });
         }
 
-        // ============================================================
-        // ===== TOGGLE PASSWORD =====
-        // ============================================================
         function toggleModalPassword(inputId, btn) {
             const input = document.getElementById(inputId);
             if (input.type === 'password') {
@@ -1730,16 +1719,13 @@
             }
         }
 
-        // ============================================================
-        // ===== SHOW MESSAGE =====
-        // ============================================================
         function showModalMessage(element, text, type) {
             element.className = 'auth-message ' + type;
             element.textContent = text;
         }
 
         // ============================================================
-        // ===== REGISTER USER (Demo) =====
+        // ===== REGISTER =====
         // ============================================================
         function modalRegisterUser() {
             const firstName = document.getElementById('modalRegisterFirstName').value.trim();
@@ -1785,26 +1771,21 @@
             btn.textContent = '⏳ در حال ثبت‌نام...';
 
             setTimeout(() => {
-                showModalMessage(message, '✅ ثبت‌نام با موفقیت انجام شد! (دمو)', 'success');
+                showModalMessage(message, '✅ ثبت‌نام با موفقیت انجام شد!', 'success');
                 btn.disabled = false;
                 btn.textContent = '✨ ثبت‌نام';
 
-                console.log('📝 اطلاعات ثبت‌نام:');
-                console.log('نام:', firstName);
-                console.log('نام‌خانوادگی:', lastName);
-                console.log('سن:', age);
-                console.log('ایمیل:', email);
-
-                updateNavUser(firstName + ' ' + lastName);
+                const fullName = firstName + ' ' + lastName;
+                updateNavUser(fullName);
 
                 setTimeout(() => {
                     closeModal();
-                }, 2000);
+                }, 1500);
             }, 1500);
         }
 
         // ============================================================
-        // ===== LOGIN USER (Demo) =====
+        // ===== LOGIN =====
         // ============================================================
         function modalLoginUser() {
             const email = document.getElementById('modalLoginEmail').value.trim();
@@ -1821,11 +1802,9 @@
             btn.textContent = '⏳ در حال ورود...';
 
             setTimeout(() => {
-                showModalMessage(message, '✅ خوش آمدید! (دمو)', 'success');
+                showModalMessage(message, '✅ خوش آمدید!', 'success');
                 btn.disabled = false;
                 btn.textContent = '🚀 ورود';
-
-                console.log('🔐 ورود کاربر:', email);
 
                 const name = email.split('@')[0];
                 updateNavUser(name);
@@ -1835,46 +1814,6 @@
                 }, 1500);
             }, 1500);
         }
-
-        // ============================================================
-        // ===== UPDATE NAVBAR =====
-        // ============================================================
-        function updateNavUser(name) {
-            document.getElementById('authButtons').style.display = 'none';
-            document.getElementById('userNavInfo').style.display = 'flex';
-            document.getElementById('navUserName').textContent = name || 'کاربر';
-            document.getElementById('navUserAvatar').textContent = name ? name.charAt(0).toUpperCase() : '👤';
-        }
-
-        // ============================================================
-        // ===== LOGOUT =====
-        // ============================================================
-        function logoutUser() {
-            document.getElementById('authButtons').style.display = 'flex';
-            document.getElementById('userNavInfo').style.display = 'none';
-            console.log('🚪 کاربر خارج شد');
-        }
-
-        // ============================================================
-        // ===== KEYBOARD SUPPORT =====
-        // ============================================================
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeModal();
-                closeToast();
-            }
-            if (e.key === 'Enter') {
-                const modal = document.getElementById('authModal');
-                if (modal.classList.contains('active')) {
-                    const activeTab = document.querySelector('.modal-tab.active');
-                    if (activeTab && activeTab.dataset.tab === 'login') {
-                        modalLoginUser();
-                    } else if (activeTab && activeTab.dataset.tab === 'register') {
-                        modalRegisterUser();
-                    }
-                }
-            }
-        });
 
         // ============================================================
         // ===== EMAIL LINK =====
@@ -1902,10 +1841,32 @@
         }
 
         // ============================================================
+        // ===== KEYBOARD SUPPORT =====
+        // ============================================================
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeToast();
+            }
+            if (e.key === 'Enter') {
+                const modal = document.getElementById('authModal');
+                if (modal.classList.contains('active')) {
+                    const activeTab = document.querySelector('.modal-tab.active');
+                    if (activeTab && activeTab.dataset.tab === 'login') {
+                        modalLoginUser();
+                    } else if (activeTab && activeTab.dataset.tab === 'register') {
+                        modalRegisterUser();
+                    }
+                }
+            }
+        });
+
+        // ============================================================
         // ===== PAGE LOAD =====
         // ============================================================
         window.onload = function() {
             setEmailLink();
+            checkAuthState();
             showPage('home');
         };
 
@@ -1915,7 +1876,7 @@
         });
 
         console.log('🧠 آموزشگاه مجازی نورولرن - صفحه اصلی');
-        console.log('📌 کشورها: ایران، کانادا، آمریکا، استرالیا');
+        console.log('📌 وضعیت کاربر:', localStorage.getItem('neurolearn-user') || 'خارج');
     </script>
 </body>
 </html>
