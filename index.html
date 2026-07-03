@@ -1157,8 +1157,8 @@
         </ul>
 
         <div class="nav-auth-buttons">
-            <button class="nav-auth-btn login-btn" onclick="handleAuthClick('login')">🔐 ورود</button>
-            <button class="nav-auth-btn register-btn" onclick="handleAuthClick('register')">📝 ثبت‌نام</button>
+            <button class="nav-auth-btn login-btn" onclick="openLoginModal()">🔐 ورود</button>
+            <button class="nav-auth-btn register-btn" onclick="openRegisterModal()">📝 ثبت‌نام</button>
         </div>
     </nav>
 
@@ -1343,12 +1343,12 @@
             </div>
 
             <div class="modal-tabs">
-                <button class="modal-tab active" data-tab="login" onclick="document.getElementById('modalLoginForm').classList.add('active'); document.getElementById('modalRegisterForm').classList.remove('active'); this.classList.add('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.remove('active');">🔐 ورود</button>
+                <button class="modal-tab" data-tab="login" onclick="document.getElementById('modalLoginForm').classList.add('active'); document.getElementById('modalRegisterForm').classList.remove('active'); this.classList.add('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.remove('active');">🔐 ورود</button>
                 <button class="modal-tab" data-tab="register" onclick="document.getElementById('modalRegisterForm').classList.add('active'); document.getElementById('modalLoginForm').classList.remove('active'); this.classList.add('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.remove('active');">📝 ثبت‌نام</button>
             </div>
 
             <!-- ===== LOGIN FORM ===== -->
-            <div id="modalLoginForm" class="modal-form active">
+            <div id="modalLoginForm" class="modal-form">
                 <div class="form-group">
                     <label>📱 شماره تلفن <span class="required">*</span></label>
                     <input type="tel" id="loginPhone" placeholder="مثال: 09123456789" />
@@ -1440,30 +1440,35 @@
         });
 
         // ============================================================
-        // ===== HANDLE AUTH CLICK (NEW - SMART) =====
+        // ===== OPEN LOGIN MODAL =====
         // ============================================================
-        function handleAuthClick(type) {
-            // بررسی کنید که کاربر لاگین است یا نه (با استفاده از localStorage)
-            var isLoggedIn = localStorage.getItem('neurolearn-user');
+        function openLoginModal() {
+            // نمایش مودال
+            document.getElementById('authModal').classList.add('active');
             
-            if (isLoggedIn) {
-                // اگر لاگین است، مودال را باز کن
-                document.getElementById('authModal').classList.add('active');
-                if (type === 'login') {
-                    document.getElementById('modalLoginForm').classList.add('active');
-                    document.getElementById('modalRegisterForm').classList.remove('active');
-                    document.querySelector('.modal-tab[data-tab="login"]').classList.add('active');
-                    document.querySelector('.modal-tab[data-tab="register"]').classList.remove('active');
-                } else {
-                    document.getElementById('modalRegisterForm').classList.add('active');
-                    document.getElementById('modalLoginForm').classList.remove('active');
-                    document.querySelector('.modal-tab[data-tab="register"]').classList.add('active');
-                    document.querySelector('.modal-tab[data-tab="login"]').classList.remove('active');
-                }
-            } else {
-                // اگر مهمان است، به صفحه کلاس‌ها برو
-                window.location.href = 'courses.html';
-            }
+            // نمایش فرم ورود
+            document.getElementById('modalLoginForm').classList.add('active');
+            document.getElementById('modalRegisterForm').classList.remove('active');
+            
+            // تنظیم تب‌ها
+            document.querySelector('.modal-tab[data-tab="login"]').classList.add('active');
+            document.querySelector('.modal-tab[data-tab="register"]').classList.remove('active');
+        }
+
+        // ============================================================
+        // ===== OPEN REGISTER MODAL =====
+        // ============================================================
+        function openRegisterModal() {
+            // نمایش مودال
+            document.getElementById('authModal').classList.add('active');
+            
+            // نمایش فرم ثبت‌نام
+            document.getElementById('modalRegisterForm').classList.add('active');
+            document.getElementById('modalLoginForm').classList.remove('active');
+            
+            // تنظیم تب‌ها
+            document.querySelector('.modal-tab[data-tab="register"]').classList.add('active');
+            document.querySelector('.modal-tab[data-tab="login"]').classList.remove('active');
         }
 
         // ============================================================
@@ -1504,6 +1509,11 @@
             setTimeout(function() {
                 document.getElementById('authModal').classList.remove('active');
                 alert('🔐 خوش آمدید!\nشماره تلفن: ' + phone);
+                // پاک کردن فرم
+                document.getElementById('loginPhone').value = '';
+                document.getElementById('loginPassword').value = '';
+                message.className = 'auth-message';
+                message.textContent = '';
             }, 1000);
         }
 
@@ -1577,6 +1587,15 @@
                 document.getElementById('authModal').classList.remove('active');
                 alert('📝 ثبت‌نام شما با موفقیت انجام شد!\n\n👤 نام: ' + fullName + '\n🎂 سن: ' + age +
                     '\n📱 تلفن: ' + phone);
+                // پاک کردن فرم
+                document.getElementById('registerFirstName').value = '';
+                document.getElementById('registerLastName').value = '';
+                document.getElementById('registerAge').value = '';
+                document.getElementById('registerPhone').value = '';
+                document.getElementById('registerPassword').value = '';
+                document.getElementById('registerConfirmPassword').value = '';
+                message.className = 'auth-message';
+                message.textContent = '';
             }, 1000);
         }
 
@@ -1625,9 +1644,8 @@
         });
 
         console.log('🧠 آموزشگاه مجازی نورولرن - صفحه اصلی');
-        console.log('📌 دکمه‌های ورود و ثبت‌نام هوشمند شدند!');
-        console.log('📌 کاربران مهمان به صفحه کلاس‌ها میروند.');
-        console.log('📌 کاربران لاگین شده مودال را میبینند.');
+        console.log('📌 دکمه ورود → فرم ورود (شماره تلفن و رمز عبور)');
+        console.log('📌 دکمه ثبت‌نام → فرم ثبت‌نام کامل');
     </script>
 </body>
 </html>
