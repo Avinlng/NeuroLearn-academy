@@ -1467,6 +1467,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label>تاریخ تولد (شمسی) <span style="color:var(--text-muted);font-size:0.75rem;">(اختیاری)</span></label>
+                    <input type="text" id="registerBirthDatePersian" placeholder="مثال: ۱۳۷۰/۰۱/۰۱" />
+                </div>
+
+                <div class="form-group">
                     <label>شماره تلفن <span class="required">*</span></label>
                     <input type="tel" id="registerPhone" placeholder="مثال: 09123456789" />
                 </div>
@@ -1538,7 +1543,7 @@
 
             for (var d = 1; d <= 31; d++) {
                 var option = document.createElement('option');
-                option.value = d;
+                option.value = String(d).padStart(2, '0');
                 option.textContent = d;
                 daySelect.appendChild(option);
             }
@@ -1639,6 +1644,7 @@
             var day = document.getElementById('registerBirthDay').value;
             var month = document.getElementById('registerBirthMonth').value;
             var year = document.getElementById('registerBirthYear').value;
+            var birthDatePersian = document.getElementById('registerBirthDatePersian').value.trim();
             var phone = document.getElementById('registerPhone').value.trim();
             var password = document.getElementById('registerPassword').value;
             var confirmPassword = document.getElementById('registerConfirmPassword').value;
@@ -1650,7 +1656,7 @@
                 return;
             }
 
-            var birthDate = year + '-' + String(month).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+            var birthDate = year + '-' + String(month).padStart(2, '0') + '-' + day;
             var birthDateObj = new Date(birthDate);
             if (isNaN(birthDateObj.getTime())) {
                 message.className = 'auth-message error';
@@ -1662,18 +1668,6 @@
             if (birthDateObj > today) {
                 message.className = 'auth-message error';
                 message.textContent = 'تاریخ تولد نمی‌تواند در آینده باشد.';
-                return;
-            }
-
-            var age = today.getFullYear() - birthDateObj.getFullYear();
-            var monthDiff = today.getMonth() - birthDateObj.getMonth();
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
-                age--;
-            }
-
-            if (age < 6 || age > 100) {
-                message.className = 'auth-message error';
-                message.textContent = 'سن باید بین ۶ تا ۱۰۰ سال باشد.';
                 return;
             }
 
@@ -1711,16 +1705,20 @@
                     return;
                 }
 
+                const fullName = firstName + ' ' + lastName;
+
                 const { data, error } = await supabase
                     .from('users')
                     .insert([
                         {
                             first_name: firstName,
                             last_name: lastName,
-                            full_name: firstName + ' ' + lastName,
+                            full_name: fullName,
                             birth_date: birthDate,
+                            birth_date_persian: birthDatePersian || null,
                             phone: phone,
-                            password: password
+                            password: password,
+                            is_active: true
                         }
                     ])
                     .select();
@@ -1734,6 +1732,7 @@
                     id: data[0].id,
                     firstName: firstName,
                     lastName: lastName,
+                    fullName: fullName,
                     birthDate: birthDate,
                     phone: phone
                 }));
@@ -1744,7 +1743,7 @@
                 setTimeout(function() {
                     document.getElementById('authModal').classList.remove('active');
                     alert('ثبت‌نام شما با موفقیت انجام شد!\n\n' +
-                          'نام: ' + firstName + ' ' + lastName + '\n' +
+                          'نام: ' + fullName + '\n' +
                           'تاریخ تولد: ' + birthDate + '\n' +
                           'تلفن: ' + phone);
                     document.getElementById('registerFirstName').value = '';
@@ -1752,6 +1751,7 @@
                     document.getElementById('registerBirthDay').value = '';
                     document.getElementById('registerBirthMonth').value = '';
                     document.getElementById('registerBirthYear').value = '';
+                    document.getElementById('registerBirthDatePersian').value = '';
                     document.getElementById('registerPhone').value = '';
                     document.getElementById('registerPassword').value = '';
                     document.getElementById('registerConfirmPassword').value = '';
@@ -1790,6 +1790,7 @@
                     .select('*')
                     .eq('phone', phone)
                     .eq('password', password)
+                    .eq('is_active', true)
                     .maybeSingle();
 
                 if (error || !data) {
@@ -1802,6 +1803,7 @@
                     id: data.id,
                     firstName: data.first_name,
                     lastName: data.last_name,
+                    fullName: data.full_name,
                     birthDate: data.birth_date,
                     phone: data.phone
                 }));
@@ -1876,6 +1878,7 @@
 
         console.log('🧠 آموزشگاه مجازی نورولرن - صفحه اصلی متصل به Supabase');
         console.log('📌 ثبت‌نام و ورود با دیتابیس ابری');
+        console.log('📌 جدول users با تمام فیلدهای مورد نیاز');
     </script>
 </body>
 </html>
