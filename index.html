@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>آموزشگاه مجازی نورولرن | رزرو کلاس‌ها</title>
+    <title>آموزشگاه مجازی نورولرن | صفحه اصلی</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap');
@@ -15,69 +15,55 @@
             --border-navbar: rgba(212, 175, 55, 0.15);
             --text-navbar: #f0e2c5;
             --text-navbar-hover: #d4af37;
-            --bg-container: rgba(18, 15, 12, 0.7);
-            --border-container: rgba(212, 175, 55, 0.15);
-            --shadow-container: 0 30px 80px rgba(0, 0, 0, 0.8);
-            --text-gold: #d4af37;
+            --bg-card: rgba(18, 15, 12, 0.7);
+            --border-card: rgba(212, 175, 55, 0.15);
+            --shadow-card: 0 30px 80px rgba(0, 0, 0, 0.8);
+            --text-name: linear-gradient(135deg, #f6e27a, #d4af37, #b8962a, #f6e27a);
             --text-subtitle: #b8962a;
-            --text-muted: #8a7a5a;
             --text-white: #f0e2c5;
-            --bg-category: linear-gradient(145deg, #2a1a00, #1a0f00);
-            --border-category: #ffd700;
-            --text-category: #ffd700;
-            --bg-category-active: linear-gradient(135deg, #ffd700, #ff8c00);
-            --text-category-active: #1a0f00;
-            --bg-dropdown-menu: linear-gradient(145deg, #2a1a00, #1a0f00);
-            --border-dropdown-menu: #ffd700;
-            --bg-course: linear-gradient(145deg, #3a2500, #2a1a00);
-            --border-course: rgba(255, 215, 0, 0.3);
-            --text-course: #ffd700;
-            --text-type: #ffb347;
-            --btn-reserve: linear-gradient(135deg, #ffd700, #ff8c00);
-            --text-btn: #1a0f00;
-            --bg-offer: linear-gradient(135deg, #2a1a00, #1a0f00);
-            --border-offer: #ffd700;
-            --text-offer-title: linear-gradient(135deg, #ffd700, #ff8c00, #ffd700);
-            --bg-check: linear-gradient(145deg, #3a2500, #2a1a00);
-            --border-check: #ffd700;
-            --text-check: #ffb347;
-            --bg-gift: linear-gradient(145deg, #4a3500, #3a2500);
-            --border-gift: #ffd700;
-            --text-gift-title: linear-gradient(135deg, #ffd700, #ff8c00, #ffd700);
-            --text-gift-desc: #ffb347;
-            --text-gift-highlight: #ffd700;
-            --bg-gift-highlight: linear-gradient(145deg, #2a1a00, #1a0f00);
-            --border-gift-highlight: #ffd700;
-            --text-gift-note: #ffb347;
-            --text-offer-message: #ffd700;
-            --btn-offer: linear-gradient(135deg, #ffd700, #ff8c00);
-            --text-btn-offer: #1a0f00;
-            --border-btn-offer: white;
-            --text-offer-footer: #ffb347;
-            --shadow-category: 0 5px 20px rgba(255, 215, 0, 0.2);
-            --shadow-dropdown-menu: 0 20px 60px rgba(255, 215, 0, 0.3);
-            --shadow-offer: 0 0 50px rgba(255, 215, 0, 0.3);
-            --shadow-gift: 0 10px 40px rgba(255, 215, 0, 0.3);
-            --shadow-btn-offer: 0 10px 40px rgba(255, 215, 0, 0.5);
-            --shadow-btn-offer-hover: 0 20px 60px rgba(255, 215, 0, 0.9);
-            --shadow-check-hover: 0 10px 30px rgba(255, 215, 0, 0.3);
-            --shadow-course-hover: 0 5px 15px rgba(255, 215, 0, 0.3);
-            --shadow-gift-highlight: 0 0 30px rgba(255, 215, 0, 0.3);
-            --glow-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
-            --toggle-bg: #2a1a00;
-            --toggle-dot: #d4af37;
-            --toggle-border: #d4af37;
+            --text-muted: #8a7a5a;
+            --text-gold: #d4af37;
+            --bg-badge: rgba(212, 175, 55, 0.08);
+            --border-badge: rgba(212, 175, 55, 0.15);
+            --text-badge: #c9a84c;
+            --bg-teaching: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(184, 150, 42, 0.08));
+            --border-teaching: rgba(212, 175, 55, 0.2);
+            --text-teaching: #f0e2c5;
+            --bg-education: rgba(212, 175, 55, 0.05);
+            --border-education: rgba(212, 175, 55, 0.1);
+            --text-education: #c9a84c;
+            --bg-stat: rgba(0, 0, 0, 0.3);
+            --border-stat: rgba(212, 175, 55, 0.08);
+            --text-stat-number: linear-gradient(135deg, #f6e27a, #d4af37);
+            --text-stat-label: #8a7a5a;
+            --bg-price: rgba(212, 175, 55, 0.12);
+            --text-price: #d4af37;
+            --bg-feature: rgba(0, 0, 0, 0.25);
+            --border-feature: rgba(212, 175, 55, 0.06);
+            --text-feature-title: #d4af37;
+            --text-feature-desc: #b8962a;
+            --text-feature-list: #d4c8b0;
+            --bg-subject: rgba(0, 0, 0, 0.2);
+            --border-subject: rgba(212, 175, 55, 0.06);
+            --text-subject-title: #d4af37;
+            --text-subject-item: #c9a84c;
+            --bg-action: rgba(212, 175, 55, 0.04);
+            --border-action: rgba(212, 175, 55, 0.08);
+            --text-action: #c9a84c;
+            --bg-action-hover: rgba(212, 175, 55, 0.08);
+            --border-action-hover: #d4af37;
             --bg-contact: rgba(0, 0, 0, 0.25);
             --border-contact: rgba(212, 175, 55, 0.06);
             --text-contact: #8a7a5a;
             --text-contact-hover: #d4af37;
-            --bg-contact-hover: rgba(0, 0, 0, 0.3);
-            --border-contact-hover: #d4af37;
-            --shadow-contact-hover: 0 5px 15px rgba(212, 175, 55, 0.2);
-            --bg-footer: rgba(0, 0, 0, 0.2);
-            --border-footer: rgba(212, 175, 55, 0.06);
-            --text-footer: #8a7a5a;
-            --text-watermark: rgba(212, 175, 55, 0.3);
+            --bg-cta: linear-gradient(135deg, #d4af37, #b8962a);
+            --text-cta: #0a0806;
+            --shadow-cta: 0 10px 40px rgba(212, 175, 55, 0.2);
+            --shadow-cta-hover: 0 15px 50px rgba(212, 175, 55, 0.4);
+            --glow-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+            --toggle-bg: #2a1a00;
+            --toggle-dot: #d4af37;
+            --toggle-border: #d4af37;
             --btn-login-bg: transparent;
             --btn-login-border: #d4af37;
             --btn-login-text: #d4af37;
@@ -89,7 +75,7 @@
             --bg-input: rgba(255, 255, 255, 0.05);
             --border-input: rgba(212, 175, 55, 0.12);
             --bg-btn: linear-gradient(135deg, #d4af37, #b8962a);
-            --text-btn-modal: #0a0806;
+            --text-btn: #0a0806;
             --error-color: #ff6b6b;
             --success-color: #51cf66;
         }
@@ -101,68 +87,55 @@
             --border-navbar: rgba(184, 150, 42, 0.15);
             --text-navbar: #2a2418;
             --text-navbar-hover: #b8962a;
-            --bg-container: rgba(255, 252, 245, 0.7);
-            --border-container: rgba(184, 150, 42, 0.1);
-            --shadow-container: 0 30px 80px rgba(0, 0, 0, 0.08);
+            --bg-card: rgba(255, 252, 245, 0.7);
+            --border-card: rgba(184, 150, 42, 0.1);
+            --shadow-card: 0 30px 80px rgba(0, 0, 0, 0.08);
+            --text-name: linear-gradient(135deg, #b8962a, #d4af37, #f6e27a, #b8962a);
+            --text-subtitle: #b8962a;
             --text-white: #2a2418;
             --text-muted: #6a5f4a;
             --text-gold: #b8962a;
-            --bg-category: linear-gradient(145deg, #ffffff, #f5ede0);
-            --border-category: #d4af37;
-            --text-category: #8a7a5a;
-            --bg-category-active: linear-gradient(135deg, #d4af37, #b8962a);
-            --text-category-active: #ffffff;
-            --bg-dropdown-menu: linear-gradient(145deg, #ffffff, #f5ede0);
-            --border-dropdown-menu: #d4af37;
-            --bg-course: linear-gradient(145deg, #ffffff, #f5ede0);
-            --border-course: rgba(212, 175, 55, 0.2);
-            --text-course: #b8962a;
-            --text-type: #8a7a5a;
-            --btn-reserve: linear-gradient(135deg, #d4af37, #b8962a);
-            --text-btn: #ffffff;
-            --bg-offer: linear-gradient(135deg, #ffffff, #f5ede0);
-            --border-offer: #d4af37;
-            --text-offer-title: linear-gradient(135deg, #b8962a, #d4af37, #f6e27a);
-            --bg-check: linear-gradient(145deg, #ffffff, #f5ede0);
-            --border-check: #d4af37;
-            --text-check: #8a7a5a;
-            --bg-gift: linear-gradient(145deg, #ffffff, #f5ede0);
-            --border-gift: #d4af37;
-            --text-gift-title: linear-gradient(135deg, #b8962a, #d4af37, #f6e27a);
-            --text-gift-desc: #8a7a5a;
-            --text-gift-highlight: #b8962a;
-            --bg-gift-highlight: linear-gradient(145deg, #ffffff, #f5ede0);
-            --border-gift-highlight: #d4af37;
-            --text-gift-note: #8a7a5a;
-            --text-offer-message: #b8962a;
-            --btn-offer: linear-gradient(135deg, #d4af37, #b8962a);
-            --text-btn-offer: #ffffff;
-            --border-btn-offer: #f6e27a;
-            --text-offer-footer: #8a7a5a;
-            --shadow-category: 0 5px 25px rgba(212, 175, 55, 0.08);
-            --shadow-dropdown-menu: 0 20px 60px rgba(212, 175, 55, 0.08);
-            --shadow-offer: 0 0 60px rgba(212, 175, 55, 0.06);
-            --shadow-gift: 0 10px 45px rgba(212, 175, 55, 0.06);
-            --shadow-btn-offer: 0 10px 45px rgba(212, 175, 55, 0.15);
-            --shadow-btn-offer-hover: 0 20px 70px rgba(212, 175, 55, 0.25);
-            --shadow-check-hover: 0 10px 35px rgba(212, 175, 55, 0.1);
-            --shadow-course-hover: 0 5px 20px rgba(212, 175, 55, 0.08);
-            --shadow-gift-highlight: 0 0 40px rgba(212, 175, 55, 0.1);
-            --glow-shadow: 0 0 30px rgba(184, 150, 42, 0.1);
-            --toggle-bg: #e8ddd0;
-            --toggle-dot: #b8962a;
-            --toggle-border: #b8962a;
+            --bg-badge: rgba(184, 150, 42, 0.06);
+            --border-badge: rgba(184, 150, 42, 0.1);
+            --text-badge: #8a7a5a;
+            --bg-teaching: linear-gradient(135deg, rgba(184, 150, 42, 0.1), rgba(184, 150, 42, 0.04));
+            --border-teaching: rgba(184, 150, 42, 0.12);
+            --text-teaching: #2a2418;
+            --bg-education: rgba(184, 150, 42, 0.04);
+            --border-education: rgba(184, 150, 42, 0.08);
+            --text-education: #b8962a;
+            --bg-stat: rgba(255, 248, 235, 0.6);
+            --border-stat: rgba(184, 150, 42, 0.06);
+            --text-stat-number: linear-gradient(135deg, #b8962a, #d4af37);
+            --text-stat-label: #6a5f4a;
+            --bg-price: rgba(184, 150, 42, 0.08);
+            --text-price: #b8962a;
+            --bg-feature: rgba(255, 248, 235, 0.5);
+            --border-feature: rgba(184, 150, 42, 0.04);
+            --text-feature-title: #b8962a;
+            --text-feature-desc: #8a7a5a;
+            --text-feature-list: #4a3f2a;
+            --bg-subject: rgba(255, 248, 235, 0.4);
+            --border-subject: rgba(184, 150, 42, 0.04);
+            --text-subject-title: #b8962a;
+            --text-subject-item: #6a5f4a;
+            --bg-action: rgba(184, 150, 42, 0.04);
+            --border-action: rgba(184, 150, 42, 0.06);
+            --text-action: #8a7a5a;
+            --bg-action-hover: rgba(184, 150, 42, 0.06);
+            --border-action-hover: #b8962a;
             --bg-contact: rgba(255, 248, 235, 0.4);
             --border-contact: rgba(184, 150, 42, 0.04);
             --text-contact: #6a5f4a;
             --text-contact-hover: #b8962a;
-            --bg-contact-hover: rgba(0, 0, 0, 0.03);
-            --border-contact-hover: #b8962a;
-            --shadow-contact-hover: 0 5px 15px rgba(184, 150, 42, 0.1);
-            --bg-footer: rgba(0, 0, 0, 0.03);
-            --border-footer: rgba(184, 150, 42, 0.04);
-            --text-footer: #6a5f4a;
-            --text-watermark: rgba(184, 150, 42, 0.3);
+            --bg-cta: linear-gradient(135deg, #d4af37, #b8962a);
+            --text-cta: #ffffff;
+            --shadow-cta: 0 10px 40px rgba(184, 150, 42, 0.15);
+            --shadow-cta-hover: 0 15px 50px rgba(184, 150, 42, 0.25);
+            --glow-shadow: 0 0 30px rgba(184, 150, 42, 0.1);
+            --toggle-bg: #e8ddd0;
+            --toggle-dot: #b8962a;
+            --toggle-border: #b8962a;
             --btn-login-bg: rgba(184, 150, 42, 0.08);
             --btn-login-border: #b8962a;
             --btn-login-text: #b8962a;
@@ -173,7 +146,7 @@
             --border-modal: rgba(184, 150, 42, 0.1);
             --bg-input: rgba(0, 0, 0, 0.03);
             --border-input: rgba(184, 150, 42, 0.1);
-            --text-btn-modal: #ffffff;
+            --text-btn: #ffffff;
         }
         * {
             margin: 0;
@@ -328,513 +301,450 @@
             transform: translateY(-3px) scale(1.03);
             box-shadow: 0 12px 40px rgba(212, 175, 55, 0.4);
         }
-        .neuro-container {
-            max-width: 1200px;
+        .showcase-card {
+            max-width: 1000px;
             width: 100%;
             margin: 0 auto;
-            background: var(--bg-container);
-            backdrop-filter: blur(10px);
-            border: 2px solid;
-            border-image: linear-gradient(45deg, #ffd700, #ffb347, #ff8c00, #ffd700) 1;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .card-glow {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #d4af37, #b8962a, #f6e27a, #d4af37);
+            border-radius: 40px;
+            filter: blur(20px);
+            opacity: 0.15;
+            animation: glow 4s ease-in-out infinite;
+            z-index: 1;
+        }
+        @keyframes glow {
+            0%, 100% { opacity: 0.1; filter: blur(20px); }
+            50% { opacity: 0.2; filter: blur(25px); }
+        }
+        .premium-card {
+            position: relative;
+            z-index: 2;
+            background: var(--bg-card);
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--border-card);
             border-radius: 30px;
-            padding: 25px 20px;
-            box-shadow: var(--shadow-container);
+            padding: 25px;
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
             transition: all 0.5s ease;
         }
-        .header-courses {
-            text-align: center;
-            margin-bottom: 30px;
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.04), rgba(184, 150, 42, 0.02));
+            z-index: -1;
         }
-        .logo-courses {
-            font-size: 3.5rem;
+        .consult-banner {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(184, 150, 42, 0.08));
+            border: 2px solid rgba(212, 175, 55, 0.12);
+            border-radius: 16px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            transition: all 0.5s ease;
+        }
+        .consult-text {
+            color: var(--text-gold);
+            font-size: 1rem;
+            font-weight: 700;
+            transition: color 0.5s ease;
+        }
+        .consult-number {
+            background: rgba(212, 175, 55, 0.08);
+            padding: 6px 18px;
+            border-radius: 50px;
+            border: 2px solid var(--border-card);
+            color: var(--text-gold);
+            font-size: 0.95rem;
+            text-decoration: none;
+            direction: ltr;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .consult-number:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+        .card-header {
+            margin-bottom: 20px;
+        }
+        .title-section {
+            text-align: center;
+        }
+        .name {
+            font-size: 2.2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #f6e27a, #d4af37, #b8962a, #f6e27a);
+            background: var(--text-name);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
             margin-bottom: 8px;
-            letter-spacing: 2px;
+            line-height: 1.2;
             transition: all 0.5s ease;
         }
-        .logo-sub-courses {
-            font-size: 1.1rem;
+        .subtitle-home {
+            font-size: 1rem;
             color: var(--text-subtitle);
             margin-bottom: 12px;
             transition: color 0.5s ease;
         }
-        .subtitle-courses {
-            color: var(--text-subtitle);
-            font-size: 0.95rem;
-            position: relative;
-            display: inline-block;
-            transition: color 0.5s ease;
-        }
-        .subtitle-courses::before,
-        .subtitle-courses::after {
-            content: "✦";
-            margin: 0 10px;
-            color: #ffd700;
-            font-size: 1.2rem;
-        }
-        .stats-courses {
+        .badge-container {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        .stat-item-courses {
-            text-align: center;
-        }
-        .stat-number-courses {
-            font-size: 2rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #f6e27a, #d4af37, #b8962a, #f6e27a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: all 0.5s ease;
-        }
-        .stat-label-courses {
-            color: var(--text-subtitle);
-            font-size: 0.8rem;
-            transition: color 0.5s ease;
-        }
-        .categories-courses {
-            display: flex;
-            justify-content: center;
             gap: 10px;
-            margin: 25px 0;
             flex-wrap: wrap;
+            justify-content: center;
         }
-        .category-item-courses {
-            background: var(--bg-category);
-            border: 2px solid var(--border-category);
-            border-radius: 60px;
-            padding: 10px 22px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text-category);
-            cursor: pointer;
+        .badge {
+            background: var(--bg-badge);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-badge);
+            padding: 5px 14px;
+            border-radius: 30px;
+            color: var(--text-badge);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-category);
-            position: relative;
-            min-width: 120px;
-            text-align: center;
         }
-        .category-item-courses:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-category), var(--glow-shadow);
-            background: var(--bg-category);
+        .badge:hover {
             border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
         }
-        .category-item-courses.active {
-            background: var(--bg-category-active);
-            color: var(--text-category-active);
-            border-color: white;
-            box-shadow: var(--shadow-category-active);
-        }
-        .dropdown-icon-courses {
-            display: inline-block;
-            transition: transform 0.3s ease;
-            margin-right: 5px;
-            font-size: 0.6rem;
-        }
-        .category-item-courses.active .dropdown-icon-courses {
-            transform: rotate(180deg);
-        }
-        .main-dropdown-courses {
-            background: var(--bg-dropdown-menu);
-            border: 2px solid var(--border-dropdown-menu);
-            border-radius: 25px;
-            margin-top: 12px;
-            padding: 20px 15px;
-            display: none;
-            animation: slideDown 0.3s ease;
-            box-shadow: var(--shadow-dropdown-menu);
-            transition: all 0.5s ease;
-        }
-        .main-dropdown-courses.show {
-            display: block;
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .course-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 12px;
-        }
-        .course-item-courses {
-            background: var(--bg-course);
-            border-radius: 14px;
+        .teaching-banner {
+            background: var(--bg-teaching);
+            border: 2px solid var(--border-teaching);
+            border-radius: 16px;
             padding: 12px 15px;
-            border: 1px solid var(--border-course);
-            transition: all 0.3s ease;
-        }
-        .course-item-courses:hover {
-            transform: translateX(-4px);
-            border-color: var(--border-category);
-            box-shadow: var(--shadow-course-hover), var(--glow-shadow);
-        }
-        .course-header-courses {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 4px;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
-        .course-name-courses {
-            color: var(--text-course);
-            font-weight: 700;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-        .course-type-courses {
-            color: var(--text-type);
-            font-size: 0.7rem;
-            margin-bottom: 6px;
-            transition: color 0.3s ease;
-        }
-        .reserve-btn-courses {
-            background: var(--btn-reserve);
-            border: none;
-            color: var(--text-btn);
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 1px solid var(--border-category);
-            width: 100%;
-        }
-        .reserve-btn-courses:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 25px var(--glow-shadow);
-        }
-        .offer-section-courses {
-            background: var(--bg-offer);
-            border-radius: 25px;
-            padding: 30px 20px;
-            margin: 30px 0;
-            border: 3px solid var(--border-offer);
+            margin: 15px 0;
             text-align: center;
-            box-shadow: var(--shadow-offer);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.5s ease;
         }
-        .offer-section-courses:hover {
-            box-shadow: var(--shadow-offer), var(--glow-shadow);
-        }
-        .offer-section-courses::before {
-            content: "🎁🎁🎁";
-            position: absolute;
-            top: -20px;
-            left: 0;
-            width: 100%;
-            font-size: 4rem;
-            opacity: 0.1;
-            transform: rotate(-5deg);
-            white-space: nowrap;
-        }
-        .offer-title-courses {
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: var(--text-offer-title);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            position: relative;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            transition: all 0.5s ease;
-        }
-        .offer-checklist-courses {
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 25px;
-            padding: 20px;
-            margin: 15px 0;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            transition: all 0.5s ease;
-        }
-        [data-theme="light"] .offer-checklist-courses {
-            background: rgba(255, 248, 235, 0.5);
-            border: 2px solid rgba(212, 175, 55, 0.3);
-        }
-        .check-item-courses {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin: 15px 0;
-            padding: 12px 18px;
-            background: var(--bg-check);
-            border-radius: 50px;
-            border: 1px solid var(--border-check);
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            color: var(--text-check);
-            text-align: right;
-        }
-        .check-item-courses:hover {
-            transform: translateX(-8px) scale(1.02);
-            box-shadow: var(--shadow-check-hover), var(--glow-shadow);
-            background: var(--bg-check);
+        .teaching-banner:hover {
             border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
         }
-        .check-icon-courses {
-            font-size: 1.5rem;
-            background: var(--btn-reserve);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
+        .teaching-text {
+            color: var(--text-teaching);
+            font-size: 1rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-btn);
-            font-weight: 900;
+            gap: 8px;
+            flex-wrap: wrap;
+            transition: color 0.5s ease;
+        }
+        .teaching-icon {
+            font-size: 1.5rem;
+            background: rgba(212, 175, 55, 0.08);
+            padding: 4px 12px;
+            border-radius: 50px;
+        }
+        .education-box {
+            background: var(--bg-education);
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--border-education);
+            border-radius: 16px;
+            padding: 12px 15px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.5s ease;
+        }
+        .education-box:hover {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+        .education-icon {
+            font-size: 1.5rem;
+            background: rgba(212, 175, 55, 0.08);
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
         }
-        .highlight-courses {
-            color: var(--text-course);
+        .education-text {
+            color: var(--text-white);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            transition: color 0.5s ease;
+        }
+        .highlight {
+            color: var(--text-gold);
             font-weight: 700;
-            font-size: 1.1rem;
         }
-        .special-gift-courses {
-            background: var(--bg-gift);
-            border: 2px solid var(--border-gift);
-            border-radius: 25px;
-            padding: 25px 20px;
-            margin: 20px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-gift);
-            transition: all 0.5s ease;
-        }
-        .special-gift-courses:hover {
-            box-shadow: var(--shadow-gift), var(--glow-shadow);
-            border-color: var(--text-gold);
-        }
-        .special-gift-courses::before {
-            content: "👥🎁";
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 6rem;
-            opacity: 0.08;
-            transform: rotate(-10deg);
-            white-space: nowrap;
-        }
-        .gift-title-courses {
-            font-size: 1.6rem;
-            font-weight: 900;
-            background: var(--text-gift-title);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-            position: relative;
-            transition: all 0.5s ease;
-        }
-        .gift-description-courses {
-            font-size: 1.1rem;
-            color: var(--text-gift-desc);
-            line-height: 2;
-            position: relative;
-            transition: color 0.5s ease;
-        }
-        .gift-highlight-courses {
-            color: var(--text-gift-highlight);
-            font-weight: 900;
-            font-size: 1.5rem;
-            background: var(--bg-gift-highlight);
-            padding: 6px 22px;
-            border-radius: 60px;
-            display: inline-block;
-            margin: 10px 0;
-            border: 2px solid var(--border-gift-highlight);
-            box-shadow: var(--shadow-gift-highlight);
-            transition: all 0.5s ease;
-        }
-        .gift-note-courses {
-            font-size: 1rem;
-            color: var(--text-gift-note);
-            margin-top: 15px;
-            font-style: italic;
-            transition: color 0.5s ease;
-        }
-        .offer-message-courses {
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: var(--text-offer-message);
-            margin: 20px 0 15px;
-            text-shadow: 0 0 15px #ff8c00;
-            transition: color 0.5s ease;
-        }
-        .offer-contact-courses {
-            background: var(--btn-offer);
-            color: var(--text-btn-offer);
-            font-size: 1.5rem;
-            font-weight: 900;
-            padding: 14px 32px;
-            border-radius: 100px;
-            display: inline-block;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 8px;
             margin: 15px 0;
-            direction: ltr;
-            border: 3px solid var(--border-btn-offer);
-            box-shadow: var(--shadow-btn-offer);
-            animation: pulse 2s infinite;
-            text-decoration: none;
-            cursor: pointer;
+        }
+        .stat-box {
+            background: var(--bg-stat);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-stat);
+            border-radius: 12px;
+            padding: 12px 5px;
+            text-align: center;
             transition: all 0.3s ease;
         }
-        .offer-contact-courses:hover {
-            transform: scale(1.06);
-            box-shadow: var(--shadow-btn-offer-hover), var(--glow-shadow);
+        .stat-box:hover {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
         }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); box-shadow: var(--shadow-btn-offer-hover); }
-            100% { transform: scale(1); }
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--text-stat-number);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 3px;
+            transition: all 0.5s ease;
         }
-        .offer-footer-courses {
-            font-size: 1rem;
-            color: var(--text-offer-footer);
-            margin-top: 15px;
+        .stat-label {
+            color: var(--text-stat-label);
+            font-size: 0.7rem;
             transition: color 0.5s ease;
         }
-        .contact-info-courses {
+        .price-tag {
+            background: var(--bg-price);
+            color: var(--text-price);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            margin-top: 3px;
+            transition: all 0.5s ease;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 15px 0;
+        }
+        .feature-card {
+            background: var(--bg-feature);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--border-feature);
+            border-radius: 16px;
+            padding: 12px;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+        .feature-icon {
+            font-size: 1.2rem;
+            background: rgba(212, 175, 55, 0.08);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .feature-title {
+            font-size: 0.85rem;
+            color: var(--text-feature-title);
+            font-weight: 700;
+            transition: color 0.5s ease;
+        }
+        .feature-desc {
+            color: var(--text-feature-desc);
+            font-size: 0.7rem;
+            margin-bottom: 6px;
+            transition: color 0.5s ease;
+        }
+        .feature-list {
+            list-style: none;
+        }
+        .feature-list li {
+            color: var(--text-feature-list);
+            margin-bottom: 3px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.5s ease;
+        }
+        .feature-list li::before {
+            content: '✦';
+            color: var(--text-gold);
+            font-size: 0.6rem;
+        }
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 15px 0;
+        }
+        .subject-category {
+            background: var(--bg-subject);
+            border: 2px solid var(--border-subject);
+            border-radius: 16px;
+            padding: 12px;
+            transition: all 0.3s ease;
+        }
+        .subject-category:hover {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+        .category-title {
+            color: var(--text-subject-title);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+            transition: color 0.5s ease;
+        }
+        .category-items {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .category-item {
+            color: var(--text-subject-item);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.5s ease;
+        }
+        .category-item::before {
+            content: '•';
+            color: var(--text-gold);
+            font-size: 1rem;
+        }
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin: 18px 0 12px;
+        }
+        .action-btn {
+            background: var(--bg-action);
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--border-action);
+            border-radius: 12px;
+            padding: 10px 5px;
+            color: var(--text-action);
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-decoration: none;
+        }
+        .action-btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-action-hover);
+            box-shadow: var(--glow-shadow);
+            background: var(--bg-action-hover);
+            color: var(--text-gold);
+        }
+        .action-icon {
+            font-size: 1.2rem;
+        }
+        .contact-bar {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin: 25px 0;
-            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+            padding: 12px;
             background: var(--bg-contact);
-            padding: 18px;
+            backdrop-filter: blur(5px);
             border-radius: 50px;
             border: 1px solid var(--border-contact);
             transition: all 0.5s ease;
+            flex-wrap: wrap;
         }
-        .contact-info-courses:hover {
-            box-shadow: var(--glow-shadow);
+        .contact-bar:hover {
             border-color: var(--text-gold);
         }
-        .contact-item-courses {
-            color: var(--text-contact);
-            font-size: 0.9rem;
+        .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 4px 12px;
-            background: var(--bg-contact-hover);
-            border-radius: 30px;
-            transition: all 0.3s ease;
+            gap: 6px;
+            color: var(--text-contact);
+            font-size: 0.8rem;
             text-decoration: none;
             cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .contact-item-courses:hover {
-            transform: translateY(-2px);
-            border: 1px solid var(--border-contact-hover);
-            box-shadow: var(--shadow-contact-hover), var(--glow-shadow);
+        .contact-item:hover {
             color: var(--text-contact-hover);
-        }
-        .contact-item-courses span {
-            color: var(--text-course);
-            font-size: 1.2rem;
-        }
-        .contact-item-courses .ltr {
-            direction: ltr;
-            unicode-bidi: embed;
-        }
-        .footer-courses {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-footer);
-            color: var(--text-footer);
-            transition: all 0.5s ease;
-        }
-        .watermark-courses {
-            font-size: 0.7rem;
-            color: var(--text-watermark);
-            margin-top: 6px;
-            transition: color 0.5s ease;
-        }
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--bg-container);
-            backdrop-filter: blur(20px);
-            border: 2px solid var(--text-gold);
-            border-radius: 16px;
-            padding: 15px 25px;
-            box-shadow: var(--shadow-container);
-            z-index: 99999;
-            opacity: 0;
-            transition: all 0.5s ease;
-            max-width: 90%;
-            text-align: center;
-        }
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-        .toast .toast-title {
-            color: var(--text-gold);
-            font-weight: 900;
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-        .toast .toast-message {
-            color: var(--text-white);
-            font-size: 0.9rem;
-        }
-        .toast .toast-btn {
-            margin-top: 10px;
-            padding: 6px 20px;
-            background: var(--btn-reserve);
-            border: none;
-            border-radius: 60px;
-            color: var(--text-btn);
-            font-weight: 700;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .toast .toast-btn:hover {
             transform: scale(1.05);
         }
-        .user-welcome {
-            display: none;
-            align-items: center;
-            gap: 12px;
-            color: var(--text-gold);
-            font-weight: 700;
-            font-size: 0.85rem;
-            background: rgba(212, 175, 55, 0.08);
-            padding: 4px 16px 4px 8px;
-            border-radius: 50px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
-        }
-        .user-welcome.show {
+        .contact-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(184, 150, 42, 0.08));
+            border-radius: 10px;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.06);
         }
-        .user-welcome .logout-btn {
-            background: rgba(212, 175, 55, 0.15);
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-cta);
             border: none;
-            color: var(--text-gold);
-            padding: 4px 12px;
-            border-radius: 30px;
+            border-radius: 50px;
+            color: var(--text-cta);
+            font-size: 1rem;
+            font-weight: 900;
             cursor: pointer;
-            font-size: 0.7rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            margin-top: 12px;
+            box-shadow: var(--shadow-cta);
         }
-        .user-welcome .logout-btn:hover {
-            background: rgba(212, 175, 55, 0.25);
+        .cta-button:hover {
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: var(--shadow-cta-hover);
         }
         .modal-overlay {
             position: fixed;
@@ -844,7 +754,7 @@
             height: 100%;
             background: var(--bg-modal-overlay);
             backdrop-filter: blur(8px);
-            z-index: 99999;
+            z-index: 9999;
             display: none;
             justify-content: center;
             align-items: center;
@@ -866,7 +776,7 @@
             border: 2px solid var(--border-modal);
             border-radius: 30px;
             padding: 30px 25px;
-            box-shadow: var(--shadow-container);
+            box-shadow: var(--shadow-card);
             transition: all 0.5s ease;
             position: relative;
             max-height: 90vh;
@@ -957,7 +867,8 @@
             color: var(--error-color);
             margin-right: 3px;
         }
-        .form-group input {
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 10px 14px;
             background: var(--bg-input);
@@ -973,7 +884,8 @@
         .form-group input[type="password"] {
             direction: ltr;
         }
-        .form-group input:focus {
+        .form-group input:focus,
+        .form-group select:focus {
             border-color: var(--text-gold);
             box-shadow: var(--glow-shadow);
         }
@@ -981,7 +893,16 @@
             color: var(--text-muted);
             opacity: 0.5;
         }
+        .form-group select option {
+            background: var(--bg-modal);
+            color: var(--text-white);
+        }
         .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+        .form-row-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
@@ -1007,7 +928,7 @@
             background: var(--bg-btn);
             border: none;
             border-radius: 60px;
-            color: var(--text-btn-modal);
+            color: var(--text-btn);
             font-size: 1rem;
             font-weight: 900;
             cursor: pointer;
@@ -1065,6 +986,34 @@
             font-weight: 700;
             cursor: pointer;
         }
+        .user-welcome {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-gold);
+            font-weight: 700;
+            font-size: 0.85rem;
+            background: rgba(212, 175, 55, 0.08);
+            padding: 4px 16px 4px 8px;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .user-welcome.show {
+            display: flex;
+        }
+        .user-welcome .logout-btn {
+            background: rgba(212, 175, 55, 0.15);
+            border: none;
+            color: var(--text-gold);
+            padding: 4px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            transition: all 0.3s ease;
+        }
+        .user-welcome .logout-btn:hover {
+            background: rgba(212, 175, 55, 0.25);
+        }
         @media (max-width: 768px) {
             body { padding: 8px; }
             .navbar {
@@ -1075,19 +1024,20 @@
             }
             .logo { font-size: 0.95rem; width: 100%; text-align: center; }
             .logo span { font-size: 0.55rem; }
+            .nav-auth-buttons { width: 100%; justify-content: center; }
             .menu { justify-content: center; gap: 12px; width: 100%; }
             .menu-item { font-size: 0.75rem; padding: 4px 0; }
-            .nav-auth-buttons { width: 100%; justify-content: center; }
-            .neuro-container { padding: 18px 14px; border-radius: 24px; }
-            .logo-courses { font-size: 2.5rem; }
-            .categories-courses { gap: 6px; }
-            .category-item-courses { font-size: 0.7rem; padding: 6px 12px; min-width: 70px; }
-            .course-list { grid-template-columns: 1fr; }
-            .offer-section-courses { padding: 20px 15px; }
-            .offer-title-courses { font-size: 1.4rem; }
-            .offer-contact-courses { font-size: 1.2rem; padding: 10px 24px; }
+            .premium-card { padding: 18px; border-radius: 24px; }
+            .name { font-size: 1.6rem; }
+            .subtitle-home { font-size: 0.85rem; }
+            .badge { font-size: 0.7rem; padding: 4px 10px; }
+            .stats-grid { grid-template-columns: repeat(3, 1fr); }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .subjects-grid { grid-template-columns: 1fr; }
+            .action-buttons { grid-template-columns: 1fr 1fr; }
             .modal-box { padding: 25px 18px; border-radius: 24px; }
-            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .form-row { grid-template-columns: 1fr 1fr; }
+            .form-row-2 { grid-template-columns: 1fr; }
             .user-welcome { font-size: 0.7rem; padding: 4px 10px; }
         }
         @media (max-width: 400px) {
@@ -1096,10 +1046,11 @@
             .logo { font-size: 0.8rem; }
             .menu-item { font-size: 0.65rem; }
             .nav-auth-btn { padding: 3px 10px; font-size: 0.6rem; }
-            .logo-courses { font-size: 2rem; }
-            .category-item-courses { font-size: 0.6rem; padding: 4px 8px; min-width: 50px; }
-            .offer-contact-courses { font-size: 1rem; padding: 8px 16px; }
+            .name { font-size: 1.3rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: 1fr; }
             .modal-box { padding: 20px 15px; border-radius: 18px; }
+            .form-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1132,128 +1083,101 @@
         </div>
     </nav>
 
-    <div class="neuro-container">
-        <div class="header-courses">
-            <div class="logo-courses">آموزشگاه مجازی نورولرن</div>
-            <div class="logo-sub-courses">✨ NeuroLearn Academy ✨</div>
-            <div class="subtitle-courses">آموزش با رویکرد علوم شناختی</div>
-        </div>
-        <div class="stats-courses">
-            <div class="stat-item-courses"><div class="stat-number-courses">۹۸٪</div><div class="stat-label-courses">رضایت دانش‌آموزان</div></div>
-            <div class="stat-item-courses"><div class="stat-number-courses">۵۰۰+</div><div class="stat-label-courses">دانش‌آموز موفق</div></div>
-        </div>
-        <div class="categories-courses">
-            <div class="category-item-courses" onclick="toggleMainDropdown('canada')"><span>🍁 مدارس کانادا</span><span class="dropdown-icon-courses">▼</span></div>
-            <div class="category-item-courses" onclick="toggleMainDropdown('iran')"><span>🇮🇷 مدارس ایران</span><span class="dropdown-icon-courses">▼</span></div>
-            <div class="category-item-courses" onclick="toggleMainDropdown('iranEn')"><span>🇮🇷🇬🇧 مدارس ایران (EN)</span><span class="dropdown-icon-courses">▼</span></div>
-            <div class="category-item-courses" onclick="toggleMainDropdown('generalEnglish')"><span>🇬🇧 کلاس زبان عمومی</span><span class="dropdown-icon-courses">▼</span></div>
-            <div class="category-item-courses" onclick="toggleMainDropdown('kidsBilingual')"><span>🧒 کودکان دو زبانه</span><span class="dropdown-icon-courses">▼</span></div>
-            <div class="category-item-courses" onclick="toggleMainDropdown('celpip')"><span>📝 آزمون CELPIP</span><span class="dropdown-icon-courses">▼</span></div>
-            <div class="category-item-courses" onclick="toggleMainDropdown('aeas')"><span>📝 آزمون AEAS</span><span class="dropdown-icon-courses">▼</span></div>
-        </div>
-
-        <div id="canada-dropdown" class="main-dropdown-courses">
-            <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">Primary (JK - GR 3)</span></div><div class="course-type-courses">Language Arts, Math, Science</div><button class="reserve-btn-courses" onclick="reserveCourse('Primary (JK - GR 3)', 'مدارس کانادا')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">Junior (GR 4-6)</span></div><div class="course-type-courses">Language Arts, Math, Science</div><button class="reserve-btn-courses" onclick="reserveCourse('Junior (GR 4-6)', 'مدارس کانادا')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">Intermediate (GR 7-8)</span></div><div class="course-type-courses">Pre-Algebra, Science, Literacy</div><button class="reserve-btn-courses" onclick="reserveCourse('Intermediate (GR 7-8)', 'مدارس کانادا')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">High School (GR 9-12)</span></div><div class="course-type-courses">Math, Sciences, English, Social Studies</div><button class="reserve-btn-courses" onclick="reserveCourse('High School (GR 9-12)', 'مدارس کانادا')">رزرو کلاس</button></div>
+    <div class="showcase-card">
+        <div class="card-glow"></div>
+        <div class="premium-card">
+            <div class="consult-banner">
+                <span class="consult-text">📞 مشاوره رایگان</span>
+                <a href="tel:09174123428" class="consult-number">۰۹۱۷۴۱۲۳۴۲۸</a>
             </div>
-        </div>
-
-        <div id="iran-dropdown" class="main-dropdown-courses">
-            <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">دبستان (GR 1-6)</span></div><div class="course-type-courses">ریاضی، علوم، فارسی، دینی</div><button class="reserve-btn-courses" onclick="reserveCourse('دبستان (GR 1-6)', 'مدارس ایران')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">راهنمایی (GR 7-9)</span></div><div class="course-type-courses">ریاضی، علوم، فارسی، عربی</div><button class="reserve-btn-courses" onclick="reserveCourse('راهنمایی (GR 7-9)', 'مدارس ایران')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">دبیرستان (GR 10-12)</span></div><div class="course-type-courses">ریاضی، فیزیک، شیمی، ادبیات</div><button class="reserve-btn-courses" onclick="reserveCourse('دبیرستان (GR 10-12)', 'مدارس ایران')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">آمادگی کنکور</span></div><div class="course-type-courses">ریاضی، فیزیک، شیمی، زیست، ادبیات</div><button class="reserve-btn-courses" onclick="reserveCourse('آمادگی کنکور', 'مدارس ایران')">رزرو کلاس</button></div>
-            </div>
-        </div>
-
-        <div id="iranEn-dropdown" class="main-dropdown-courses">
-            <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">Elementary (GR 1-6)</span></div><div class="course-type-courses">Math, Science, Persian (in English)</div><button class="reserve-btn-courses" onclick="reserveCourse('Elementary (GR 1-6)', 'مدارس ایران (EN)')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">Middle School (GR 7-9)</span></div><div class="course-type-courses">Math, Science, Persian (in English)</div><button class="reserve-btn-courses" onclick="reserveCourse('Middle School (GR 7-9)', 'مدارس ایران (EN)')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">High School (GR 10-12)</span></div><div class="course-type-courses">Math, Physics, Chemistry, Literature (in English)</div><button class="reserve-btn-courses" onclick="reserveCourse('High School (GR 10-12)', 'مدارس ایران (EN)')">رزرو کلاس</button></div>
-            </div>
-        </div>
-
-        <div id="generalEnglish-dropdown" class="main-dropdown-courses">
-            <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🎧 Listening (شنیداری)</span></div><div class="course-type-courses">تقویت مهارت شنیداری</div><button class="reserve-btn-courses" onclick="reserveCourse('Listening', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🗣️ Speaking (گفتاری)</span></div><div class="course-type-courses">تقویت مهارت مکالمه</div><button class="reserve-btn-courses" onclick="reserveCourse('Speaking', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">📖 Reading (خواندن)</span></div><div class="course-type-courses">تقویت مهارت خواندن</div><button class="reserve-btn-courses" onclick="reserveCourse('Reading', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">✍️ Writing (نوشتار)</span></div><div class="course-type-courses">تقویت مهارت نوشتاری</div><button class="reserve-btn-courses" onclick="reserveCourse('Writing', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🎯 دوره جامع (۴ مهارت)</span></div><div class="course-type-courses">همه مهارت‌ها در یک دوره</div><button class="reserve-btn-courses" onclick="reserveCourse('دوره جامع ۴ مهارت', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">👶 آموزش زبان کودکان</span></div><div class="course-type-courses">زبان انگلیسی برای کودکان</div><button class="reserve-btn-courses" onclick="reserveCourse('آموزش زبان کودکان', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-            </div>
-        </div>
-
-        <div id="kidsBilingual-dropdown" class="main-dropdown-courses">
-            <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🗣️ مکالمه فارسی</span></div><div class="course-type-courses">آموزش مکالمه روزمره فارسی</div><button class="reserve-btn-courses" onclick="reserveCourse('مکالمه فارسی', 'کودکان دو زبانه')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">📖 خواندن و نوشتن فارسی</span></div><div class="course-type-courses">آموزش الفبا، خواندن و نوشتن</div><button class="reserve-btn-courses" onclick="reserveCourse('خواندن و نوشتن فارسی', 'کودکان دو زبانه')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🧒 دوره جامع کودکان</span></div><div class="course-type-courses">مکالمه + خواندن + نوشتن</div><button class="reserve-btn-courses" onclick="reserveCourse('دوره جامع کودکان', 'کودکان دو زبانه')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🎨 کلاس داستان‌خوانی</span></div><div class="course-type-courses">تقویت مهارت شنیداری و گفتاری</div><button class="reserve-btn-courses" onclick="reserveCourse('کلاس داستان‌خوانی', 'کودکان دو زبانه')">رزرو کلاس</button></div>
-            </div>
-        </div>
-
-        <div id="celpip-dropdown" class="main-dropdown-courses">
-            <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">آمادگی CELPIP General</span></div><div class="course-type-courses">Reading, Writing, Listening, Speaking</div><button class="reserve-btn-courses" onclick="reserveCourse('CELPIP General', 'آزمون CELPIP')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">آمادگی CELPIP LS</span></div><div class="course-type-courses">Listening, Speaking (for citizenship)</div><button class="reserve-btn-courses" onclick="reserveCourse('CELPIP LS', 'آزمون CELPIP')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">کلاس رفع اشکال CELPIP</span></div><div class="course-type-courses">Speaking Practice, Writing Feedback</div><button class="reserve-btn-courses" onclick="reserveCourse('رفع اشکال CELPIP', 'آزمون CELPIP')">رزرو کلاس</button></div>
-            </div>
-        </div>
-
-        <div id="aeas-dropdown" class="main-dropdown-courses">
-            <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">آمادگی AEAS (مقطع ابتدایی)</span></div><div class="course-type-courses">English, Math, General Ability</div><button class="reserve-btn-courses" onclick="reserveCourse('AEAS ابتدایی', 'آزمون AEAS')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">آمادگی AEAS (مقطع متوسطه)</span></div><div class="course-type-courses">English, Math, General Ability</div><button class="reserve-btn-courses" onclick="reserveCourse('AEAS متوسطه', 'آزمون AEAS')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">کلاس رفع اشکال AEAS</span></div><div class="course-type-courses">Mock Test, Speaking Practice</div><button class="reserve-btn-courses" onclick="reserveCourse('رفع اشکال AEAS', 'آزمون AEAS')">رزرو کلاس</button></div>
-            </div>
-        </div>
-
-        <div class="offer-section-courses">
-            <div class="offer-title-courses">🎁 پیشنهاد ویژه نورولرن 🎁</div>
-            <div class="offer-checklist-courses">
-                <div class="check-item-courses"><div class="check-icon-courses">✅</div><div class="check-text-courses"><span class="highlight-courses">دو فرزند</span> دارید که قصد ثبت نام دارند؟</div></div>
-                <div class="check-item-courses"><div class="check-icon-courses">✅</div><div class="check-text-courses">آیا می‌خواهید <span class="highlight-courses">۳ جلسه یا بیشتر</span> رزرو کنید؟</div></div>
-                <div class="check-item-courses"><div class="check-icon-courses">✅</div><div class="check-text-courses">برنده <span class="highlight-courses">قرعه‌کشی ماهانه</span> شدید؟</div></div>
-                <div class="check-item-courses"><div class="check-icon-courses">✅</div><div class="check-text-courses">قصد دارید در <span class="highlight-courses">۲ دوره یا بیشتر</span> ثبت‌نام کنید؟</div></div>
-                <div class="check-item-courses"><div class="check-icon-courses">✅</div><div class="check-text-courses">این <span class="highlight-courses">اولین جلسه</span> شماست؟</div></div>
-            </div>
-            <div class="special-gift-courses">
-                <div class="gift-title-courses">✨ هدیه همراهان وفادار ✨</div>
-                <div class="gift-description-courses">
-                    اگر دوست یا آشنای شما پس از معرفی شما،
-                    <span class="gift-highlight-courses">۳ جلسه</span>
-                    ثبت نام کند،
-                    <div class="gift-highlight-courses">۲ جلسه رایگان</div>
-                    هدیه می‌گیرید.
+            <div class="card-header">
+                <div class="title-section">
+                    <div class="name">آموزشگاه مجازی نورولرن</div>
+                    <div class="subtitle-home">ارائه‌دهنده خدمات آموزشی در ایران، کانادا، آمریکا و استرالیا</div>
+                    <div class="badge-container">
+                        <span class="badge">ایران</span>
+                        <span class="badge">کانادا</span>
+                        <span class="badge">آمریکا</span>
+                        <span class="badge">استرالیا</span>
+                    </div>
                 </div>
-                <div class="gift-note-courses">💫 تقدیر از اعتماد شما 💫</div>
             </div>
-            <div class="offer-message-courses">✨ حتی اگر فقط یکی از موارد بالا صدق کند ✨</div>
-            <a href="sms:09174123428?body=سلام%20من%20واجد%20شرایط%20تخفیف%20ویژه%20هستم." class="offer-contact-courses">📱 ۰۹۱۷۴۱۲۳۴۲۸</a>
-            <div class="offer-footer-courses">👈 با کلیک روی شماره، پیامک تخفیف ارسال می‌شود</div>
+            <div class="teaching-banner">
+                <div class="teaching-text">
+                    <span class="teaching-icon">🌍</span>
+                    <span>آموزش مجازی در سراسر جهان</span>
+                    <span class="teaching-icon">🎓</span>
+                </div>
+            </div>
+            <div class="education-box">
+                <div class="education-icon">🧠</div>
+                <div class="education-text">
+                    <span class="highlight">آموزشگاه مجازی نورولرن</span> با بهره‌گیری از روش‌های نوین آموزشی، خدمات خود را در <span class="highlight">ایران، کانادا، آمریکا و استرالیا</span> ارائه می‌دهد.
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box"><div class="stat-number">۹۸٪</div><div class="stat-label">رضایت</div></div>
+                <div class="stat-box"><div class="stat-number">۵۰۰+</div><div class="stat-label">دانش‌آموز</div></div>
+                <div class="stat-box"><div class="stat-number">۴</div><div class="stat-label">کشور</div></div>
+                <div class="stat-box"><div class="stat-number">۵</div><div class="stat-label">سال سابقه</div></div>
+                <div class="stat-box"><div class="stat-number">💰</div><div class="stat-label">قیمت</div><div class="price-tag">مناسب</div></div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-header"><div class="feature-icon">📐</div><div class="feature-title">دروس تخصصی</div></div>
+                    <div class="feature-desc">ریاضی، علوم، فیزیک، شیمی</div>
+                    <ul class="feature-list"><li>تمام پایه‌ها</li><li>آمادگی کنکور</li><li>کلاس‌های آنلاین</li></ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header"><div class="feature-icon">📚</div><div class="feature-title">دروس عمومی</div></div>
+                    <div class="feature-desc">فارسی، عربی، انگلیسی، دینی</div>
+                    <ul class="feature-list"><li>مدارس ایران</li><li>مدارس کانادا</li><li>آمادگی آزمون</li></ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header"><div class="feature-icon">📝</div><div class="feature-title">آزمون‌های بین‌المللی</div></div>
+                    <div class="feature-desc">CELPIP، AEAS، IELTS</div>
+                    <ul class="feature-list"><li>آمادگی کامل</li><li>کلاس رفع اشکال</li><li>آزمون آزمایشی</li></ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header"><div class="feature-icon">📊</div><div class="feature-title">گزارش ماهانه</div></div>
+                    <div class="feature-desc">به والدین</div>
+                    <ul class="feature-list"><li>کارنامه پیشرفت</li><li>نقاط قوت و ضعف</li><li>برنامه ماه آینده</li></ul>
+                </div>
+            </div>
+            <div class="subjects-grid">
+                <div class="subject-category">
+                    <div class="category-title">💻 کامپیوتر مبتدی تا پیشرفته</div>
+                    <div class="category-items">
+                        <span class="category-item">برنامه‌نویسی پایتون</span>
+                        <span class="category-item">HTML و طراحی وبسایت</span>
+                        <span class="category-item">ICDL</span>
+                    </div>
+                </div>
+                <div class="subject-category">
+                    <div class="category-title">🎯 خدمات ویژه</div>
+                    <div class="category-items">
+                        <span class="category-item">مشاوره تحصیلی</span>
+                        <span class="category-item">آمادگی آزمون</span>
+                        <span class="category-item">کلاس رفع اشکال</span>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <a href="#" class="action-btn" onclick="alert('📝 نظرات کاربران به زودی اضافه می‌شود.'); return false;">
+                    <span class="action-icon">📝</span><span>نظرات</span>
+                </a>
+                <a href="courses.html" class="action-btn">
+                    <span class="action-icon">📅</span><span>رزرو کلاس</span>
+                </a>
+            </div>
+            <div class="contact-bar">
+                <a href="tel:09174123428" class="contact-item"><div class="contact-icon">📞</div><span>تماس</span></a>
+                <a href="sms:09174123428?body=سلام%2C%20من%20علاقه%E2%80%8Cمند%20به%20دریافت%20مشاوره%20تحصیلی%20هستم." class="contact-item"><div class="contact-icon">💬</div><span>پیامک</span></a>
+                <a href="https://wa.me/989174123428?text=سلام%20من%20علاقه%E2%80%8Cمند%20به%20دریافت%20مشاوره%20تحصیلی%20هستم." target="_blank" class="contact-item"><div class="contact-icon">📱</div><span>واتساپ</span></a>
+                <a href="#" id="emailLink" class="contact-item"><div class="contact-icon">📧</div><span>جیمیل</span></a>
+            </div>
+            <a href="tel:09174123428" class="cta-button">⭐ جلسه اول رایگان - همین حالا تماس بگیر ⭐</a>
         </div>
-
-        <div class="contact-info-courses">
-            <a href="sms:09174123428?body=سلام%20مایل%20به%20رزرو%20کلاس%20هستم." class="contact-item-courses"><span>📱</span> <span class="ltr">۰۹۱۷۴۱۲۳۴۲۸</span></a>
-            <a href="mailto:avinlangroodi4@gmail.com?subject=رزرو%20کلاس" class="contact-item-courses"><span>📧</span> <span class="ltr">avinlangroodi4@gmail.com</span></a>
-            <div class="contact-item-courses"><span>⏰</span> ۲۴ ساعته</div>
-        </div>
-        <div class="footer-courses">
-            <div>🧠 NeuroLearn Academy</div>
-            <div class="watermark-courses">Science Meets Education</div>
-        </div>
-    </div>
-
-    <div class="toast" id="toast">
-        <div class="toast-title" id="toastTitle">🔒 نیاز به ورود</div>
-        <div class="toast-message" id="toastMessage">لطفاً ابتدا ثبت نام کنید یا وارد شوید تا بتوانید دوره مورد نظر را رزرو کنید.</div>
-        <button class="toast-btn" onclick="closeToast()">متوجه شدم</button>
     </div>
 
     <div class="modal-overlay" id="authModal">
@@ -1268,14 +1192,21 @@
                 <button class="modal-tab" data-tab="register" onclick="switchTab('register')">ثبت‌نام</button>
             </div>
             <div id="modalLoginForm" class="modal-form active">
-                <div class="form-group"><label>شماره تلفن <span class="required">*</span></label><input type="tel" id="loginPhone" placeholder="مثال: 09123456789" /></div>
-                <div class="form-group password-toggle"><label>رمز عبور <span class="required">*</span></label><input type="password" id="loginPassword" placeholder="••••••••" /><button type="button" class="toggle-btn" onclick="togglePassword('loginPassword', this)">👁️</button></div>
+                <div class="form-group">
+                    <label>شماره تلفن <span class="required">*</span></label>
+                    <input type="tel" id="loginPhone" placeholder="مثال: 09123456789" />
+                </div>
+                <div class="form-group password-toggle">
+                    <label>رمز عبور <span class="required">*</span></label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" />
+                    <button type="button" class="toggle-btn" onclick="togglePassword('loginPassword', this)">👁️</button>
+                </div>
                 <button class="auth-btn" onclick="loginUser()">ورود</button>
                 <div class="auth-message" id="loginMessage"></div>
                 <div class="auth-footer">حساب ندارید؟ <a onclick="switchTab('register')">ثبت‌نام کنید</a></div>
             </div>
             <div id="modalRegisterForm" class="modal-form">
-                <div class="form-row">
+                <div class="form-row-2">
                     <div class="form-group"><label>نام <span class="required">*</span></label><input type="text" id="registerFirstName" placeholder="سارا" /></div>
                     <div class="form-group"><label>نام‌خانوادگی <span class="required">*</span></label><input type="text" id="registerLastName" placeholder="احمدی" /></div>
                 </div>
@@ -1305,11 +1236,23 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label>تاریخ تولد (شمسی) <span style="color:var(--text-muted);font-size:0.75rem;">(اختیاری)</span></label>
+                    <input type="text" id="registerBirthDatePersian" placeholder="مثال: ۱۳۷۰/۰۱/۰۱" />
+                </div>
+                <div class="form-group">
                     <label>شماره تلفن <span class="required">*</span></label>
                     <input type="tel" id="registerPhone" placeholder="مثال: 09123456789" />
                 </div>
-                <div class="form-group password-toggle"><label>رمز عبور <span class="required">*</span></label><input type="password" id="registerPassword" placeholder="حداقل ۶ کاراکتر" /><button type="button" class="toggle-btn" onclick="togglePassword('registerPassword', this)">👁️</button></div>
-                <div class="form-group password-toggle"><label>تکرار رمز عبور <span class="required">*</span></label><input type="password" id="registerConfirmPassword" placeholder="دوباره وارد کنید" /><button type="button" class="toggle-btn" onclick="togglePassword('registerConfirmPassword', this)">👁️</button></div>
+                <div class="form-group password-toggle">
+                    <label>رمز عبور <span class="required">*</span></label>
+                    <input type="password" id="registerPassword" placeholder="حداقل ۶ کاراکتر" />
+                    <button type="button" class="toggle-btn" onclick="togglePassword('registerPassword', this)">👁️</button>
+                </div>
+                <div class="form-group password-toggle">
+                    <label>تکرار رمز عبور <span class="required">*</span></label>
+                    <input type="password" id="registerConfirmPassword" placeholder="دوباره وارد کنید" />
+                    <button type="button" class="toggle-btn" onclick="togglePassword('registerConfirmPassword', this)">👁️</button>
+                </div>
                 <button class="auth-btn" onclick="registerUser()">ثبت‌نام</button>
                 <div class="auth-message" id="registerMessage"></div>
                 <div class="auth-footer">حساب دارید؟ <a onclick="switchTab('login')">وارد شوید</a></div>
@@ -1325,7 +1268,7 @@
         var supabaseKey = 'sb_publishable_ihnDHeIdKlXF3LCwtVD2IQ_yCHdGmnM';
         var supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-        console.log('✅ Supabase connected - Courses Page');
+        console.log('✅ Supabase connected');
 
         // ============================================================
         // ===== THEME TOGGLE =====
@@ -1498,6 +1441,7 @@
             var day = document.getElementById('registerBirthDay').value;
             var month = document.getElementById('registerBirthMonth').value;
             var year = document.getElementById('registerBirthYear').value;
+            var birthDatePersian = document.getElementById('registerBirthDatePersian').value.trim();
             var phone = document.getElementById('registerPhone').value.trim();
             var password = document.getElementById('registerPassword').value;
             var confirmPassword = document.getElementById('registerConfirmPassword').value;
@@ -1560,6 +1504,7 @@
                         last_name: lastName,
                         full_name: fullName,
                         birth_date: birthDate,
+                        birth_date_persian: birthDatePersian || null,
                         phone: phone,
                         password: password,
                         is_active: true
@@ -1594,6 +1539,7 @@
                     document.getElementById('registerBirthDay').value = '';
                     document.getElementById('registerBirthMonth').value = '';
                     document.getElementById('registerBirthYear').value = '';
+                    document.getElementById('registerBirthDatePersian').value = '';
                     document.getElementById('registerPhone').value = '';
                     document.getElementById('registerPassword').value = '';
                     document.getElementById('registerConfirmPassword').value = '';
@@ -1671,135 +1617,28 @@
         }
 
         // ============================================================
-        // ===== RESERVE COURSE =====
+        // ===== EMAIL LINK =====
         // ============================================================
-        async function reserveCourse(courseName, category) {
-            try {
-                var userData = JSON.parse(localStorage.getItem('neurolearn-user'));
-
-                if (!userData || !userData.phone) {
-                    showToast('لطفاً ابتدا ثبت نام کنید یا وارد شوید تا بتوانید دوره مورد نظر را رزرو کنید.');
-                    return;
-                }
-
-                showToast('⏳ در حال ثبت رزرو...', '📝 ثبت رزرو');
-
-                var { data, error } = await supabase
-                    .from('reservations')
-                    .insert([{
-                        user_id: userData.id,
-                        user_name: userData.fullName || userData.firstName + ' ' + userData.lastName,
-                        user_phone: userData.phone,
-                        course_name: courseName,
-                        category: category,
-                        status: 'pending'
-                    }])
-                    .select();
-
-                if (error) {
-                    console.error('Supabase Error:', error);
-                    throw new Error(error.message);
-                }
-
-                showToast(
-                    '✅ رزرو شما با موفقیت ثبت شد!\n' +
-                    'دوره: ' + courseName + '\n' +
-                    'دسته‌بندی: ' + category + '\n' +
-                    'به زودی با شما تماس گرفته می‌شود.',
-                    '🎉 رزرو موفق'
-                );
-
-            } catch (error) {
-                console.error('Error:', error);
-                showToast('خطا در ثبت رزرو: ' + (error.message || 'لطفاً دوباره تلاش کنید.'), '❌ خطا');
-            }
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") ||
+                (navigator.userAgent.indexOf('IEMobile') !== -1) ||
+                (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
         }
 
-        // ============================================================
-        // ===== TOAST =====
-        // ============================================================
-        var toastTimeout;
-
-        function showToast(message, title) {
-            if (title === undefined) title = '🔒 نیاز به ورود';
-            var toast = document.getElementById('toast');
-            if (!toast) return;
-            var titleEl = document.getElementById('toastTitle');
-            var msgEl = document.getElementById('toastMessage');
-            if (titleEl) titleEl.textContent = title;
-            if (msgEl) msgEl.textContent = message;
-            toast.classList.add('show');
-            clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(closeToast, 8000);
-        }
-
-        function closeToast() {
-            var toast = document.getElementById('toast');
-            if (toast) toast.classList.remove('show');
-            clearTimeout(toastTimeout);
-        }
-
-        // ============================================================
-        // ===== TOGGLE DROPDOWN =====
-        // ============================================================
-        function toggleMainDropdown(category) {
-            var dropdowns = {
-                canada: document.getElementById('canada-dropdown'),
-                iran: document.getElementById('iran-dropdown'),
-                iranEn: document.getElementById('iranEn-dropdown'),
-                generalEnglish: document.getElementById('generalEnglish-dropdown'),
-                kidsBilingual: document.getElementById('kidsBilingual-dropdown'),
-                celpip: document.getElementById('celpip-dropdown'),
-                aeas: document.getElementById('aeas-dropdown')
-            };
-            var allItems = document.querySelectorAll('.category-item-courses');
-
-            for (var key in dropdowns) {
-                if (dropdowns[key]) dropdowns[key].classList.remove('show');
-            }
-            for (var i = 0; i < allItems.length; i++) {
-                allItems[i].classList.remove('active');
-            }
-
-            var target = dropdowns[category];
-            if (target) {
-                target.classList.add('show');
-                var btns = document.querySelectorAll('.category-item-courses');
-                var categoryMap = {
-                    'canada': 'کانادا',
-                    'iran': 'ایران',
-                    'iranEn': 'ایران (EN)',
-                    'generalEnglish': 'زبان عمومی',
-                    'kidsBilingual': 'کودکان دو زبانه',
-                    'celpip': 'CELPIP',
-                    'aeas': 'AEAS'
-                };
-                for (var j = 0; j < btns.length; j++) {
-                    var btn = btns[j];
-                    var text = btn.textContent.trim();
-                    if (text.includes(categoryMap[category])) {
-                        btn.classList.add('active');
-                    }
-                }
+        function setEmailLink() {
+            var emailLink = document.getElementById('emailLink');
+            if (!emailLink) return;
+            var email = 'avinlangroodi4@gmail.com';
+            var subject = 'درخواست مشاوره تحصیلی';
+            var body = 'سلام، من علاقه‌مند به دریافت مشاوره تحصیلی هستم.';
+            if (isMobileDevice()) {
+                emailLink.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+            } else {
+                emailLink.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + email + '&su=' + encodeURIComponent(subject) +
+                    '&body=' + encodeURIComponent(body);
+                emailLink.target = '_blank';
             }
         }
-
-        // ============================================================
-        // ===== CLOSE DROPDOWNS ON CLICK OUTSIDE =====
-        // ============================================================
-        document.addEventListener('click', function(e) {
-            var container = document.querySelector('.neuro-container');
-            if (container && !container.contains(e.target)) {
-                var dropdowns = document.querySelectorAll('.main-dropdown-courses');
-                for (var i = 0; i < dropdowns.length; i++) {
-                    dropdowns[i].classList.remove('show');
-                }
-                var items = document.querySelectorAll('.category-item-courses');
-                for (var j = 0; j < items.length; j++) {
-                    items[j].classList.remove('active');
-                }
-            }
-        });
 
         // ============================================================
         // ===== KEYBOARD SUPPORT =====
@@ -1814,10 +1653,15 @@
         // ===== INIT =====
         // ============================================================
         window.onload = function() {
+            setEmailLink();
             checkUserSession();
-            console.log('🧠 آموزشگاه مجازی نورولرن - صفحه رزرو کلاس‌ها');
-            console.log('📌 ورود یکپارچه با صفحه اصلی');
+            console.log('🧠 آموزشگاه مجازی نورولرن - صفحه اصلی');
         };
+
+        window.addEventListener('resize', function() {
+            clearTimeout(window.resizedFinished);
+            window.resizedFinished = setTimeout(setEmailLink, 100);
+        });
     </script>
 </body>
 </html>
