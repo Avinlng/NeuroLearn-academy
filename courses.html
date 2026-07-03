@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>آموزشگاه مجازی نورولرن | رزرو کلاس‌ها</title>
+    
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap');
 
@@ -326,7 +330,6 @@
             display: flex;
             gap: 8px;
             align-items: center;
-            margin-right: auto;
         }
 
         .nav-auth-btn {
@@ -915,7 +918,38 @@
             transform: scale(1.05);
         }
 
-        /* ===== MODAL STYLES ===== */
+        .user-welcome {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-gold);
+            font-weight: 700;
+            font-size: 0.85rem;
+            background: rgba(212, 175, 55, 0.08);
+            padding: 4px 16px 4px 8px;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .user-welcome.show {
+            display: flex;
+        }
+
+        .user-welcome .logout-btn {
+            background: rgba(212, 175, 55, 0.15);
+            border: none;
+            color: var(--text-gold);
+            padding: 4px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            transition: all 0.3s ease;
+        }
+
+        .user-welcome .logout-btn:hover {
+            background: rgba(212, 175, 55, 0.25);
+        }
+
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -1193,7 +1227,7 @@
             .logo span { font-size: 0.55rem; }
             .menu { justify-content: center; gap: 12px; width: 100%; }
             .menu-item { font-size: 0.75rem; padding: 4px 0; }
-            .nav-auth-buttons { width: 100%; justify-content: center; margin-right: 0; }
+            .nav-auth-buttons { width: 100%; justify-content: center; }
             .neuro-container { padding: 18px 14px; border-radius: 24px; }
             .logo-courses { font-size: 2.5rem; }
             .categories-courses { gap: 6px; }
@@ -1204,6 +1238,7 @@
             .offer-contact-courses { font-size: 1.2rem; padding: 10px 24px; }
             .modal-box { padding: 25px 18px; border-radius: 24px; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
+            .user-welcome { font-size: 0.7rem; padding: 4px 10px; }
         }
 
         @media (max-width: 400px) {
@@ -1241,8 +1276,12 @@
         </ul>
 
         <div class="nav-auth-buttons">
-            <button type="button" class="nav-auth-btn login-btn" onclick="openLoginModal()">🔐 ورود</button>
-            <button type="button" class="nav-auth-btn register-btn" onclick="openRegisterModal()">📝 ثبت‌نام</button>
+            <div class="user-welcome" id="userWelcome">
+                <span id="userNameDisplay">👤 کاربر</span>
+                <button class="logout-btn" onclick="logoutUser()">خروج</button>
+            </div>
+            <button type="button" class="nav-auth-btn login-btn" id="loginBtn" onclick="openLoginModal()">ورود</button>
+            <button type="button" class="nav-auth-btn register-btn" id="registerBtn" onclick="openRegisterModal()">ثبت‌نام</button>
         </div>
     </nav>
 
@@ -1264,7 +1303,6 @@
             </div>
         </div>
 
-        <!-- ===== Categories ===== -->
         <div class="categories-courses">
             <div class="category-item-courses" onclick="toggleMainDropdown('canada')">
                 <span>🍁 مدارس کانادا</span>
@@ -1296,7 +1334,6 @@
             </div>
         </div>
 
-        <!-- 1️⃣ مدارس کانادا -->
         <div id="canada-dropdown" class="main-dropdown-courses">
             <div class="course-list">
                 <div class="course-item-courses">
@@ -1330,7 +1367,6 @@
             </div>
         </div>
 
-        <!-- 2️⃣ مدارس ایران -->
         <div id="iran-dropdown" class="main-dropdown-courses">
             <div class="course-list">
                 <div class="course-item-courses">
@@ -1364,7 +1400,6 @@
             </div>
         </div>
 
-        <!-- 3️⃣ مدارس ایران (EN) -->
         <div id="iranEn-dropdown" class="main-dropdown-courses">
             <div class="course-list">
                 <div class="course-item-courses">
@@ -1391,7 +1426,6 @@
             </div>
         </div>
 
-        <!-- 4️⃣ کلاس زبان عمومی -->
         <div id="generalEnglish-dropdown" class="main-dropdown-courses">
             <div class="course-list">
                 <div class="course-item-courses">
@@ -1439,7 +1473,6 @@
             </div>
         </div>
 
-        <!-- 5️⃣ کودکان دو زبانه -->
         <div id="kidsBilingual-dropdown" class="main-dropdown-courses">
             <div class="course-list">
                 <div class="course-item-courses">
@@ -1473,7 +1506,6 @@
             </div>
         </div>
 
-        <!-- 6️⃣ آزمون CELPIP -->
         <div id="celpip-dropdown" class="main-dropdown-courses">
             <div class="course-list">
                 <div class="course-item-courses">
@@ -1500,7 +1532,6 @@
             </div>
         </div>
 
-        <!-- 7️⃣ آزمون AEAS -->
         <div id="aeas-dropdown" class="main-dropdown-courses">
             <div class="course-list">
                 <div class="course-item-courses">
@@ -1527,7 +1558,6 @@
             </div>
         </div>
 
-        <!-- ===== OFFER SECTION ===== -->
         <div class="offer-section-courses">
             <div class="offer-title-courses">🎁 پیشنهاد ویژه نورولرن 🎁</div>
 
@@ -1575,7 +1605,6 @@
             <div class="offer-footer-courses">👈 با کلیک روی شماره، پیامک تخفیف ارسال می‌شود</div>
         </div>
 
-        <!-- ===== CONTACT INFO ===== -->
         <div class="contact-info-courses">
             <a href="sms:09174123428?body=سلام%20مایل%20به%20رزرو%20کلاس%20هستم." class="contact-item-courses">
                 <span>📱</span> <span class="ltr">۰۹۱۷۴۱۲۳۴۲۸</span>
@@ -1586,21 +1615,18 @@
             <div class="contact-item-courses"><span>⏰</span> ۲۴ ساعته</div>
         </div>
 
-        <!-- ===== FOOTER ===== -->
         <div class="footer-courses">
             <div>🧠 NeuroLearn Academy</div>
             <div class="watermark-courses">Science Meets Education</div>
         </div>
     </div>
 
-    <!-- ===== TOAST ===== -->
     <div class="toast" id="toast">
         <div class="toast-title" id="toastTitle">🔒 نیاز به ورود</div>
         <div class="toast-message" id="toastMessage">لطفاً ابتدا ثبت نام کنید یا وارد شوید تا بتوانید دوره مورد نظر را رزرو کنید.</div>
         <button class="toast-btn" onclick="closeToast()">متوجه شدم</button>
     </div>
 
-    <!-- ===== MODAL ===== -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box">
             <button class="modal-close" onclick="document.getElementById('authModal').classList.remove('active')">✕</button>
@@ -1611,64 +1637,62 @@
             </div>
 
             <div class="modal-tabs">
-                <button class="modal-tab active" data-tab="login" onclick="switchTab('login')">🔐 ورود</button>
-                <button class="modal-tab" data-tab="register" onclick="switchTab('register')">📝 ثبت‌نام</button>
+                <button class="modal-tab active" data-tab="login" onclick="switchTab('login')">ورود</button>
+                <button class="modal-tab" data-tab="register" onclick="switchTab('register')">ثبت‌نام</button>
             </div>
 
-            <!-- ===== LOGIN FORM ===== -->
             <div id="modalLoginForm" class="modal-form active">
                 <div class="form-group">
-                    <label>📱 شماره تلفن <span class="required">*</span></label>
+                    <label>شماره تلفن <span class="required">*</span></label>
                     <input type="tel" id="loginPhone" placeholder="مثال: 09123456789" />
                 </div>
                 <div class="form-group password-toggle">
-                    <label>🔒 رمز عبور <span class="required">*</span></label>
+                    <label>رمز عبور <span class="required">*</span></label>
                     <input type="password" id="loginPassword" placeholder="••••••••" />
                     <button type="button" class="toggle-btn" onclick="togglePassword('loginPassword', this)">👁️</button>
                 </div>
-                <button class="auth-btn" onclick="loginUser()">🚀 ورود</button>
+                <button class="auth-btn" onclick="loginUser()">ورود</button>
                 <div class="auth-message" id="loginMessage"></div>
                 <div class="auth-footer">
                     حساب ندارید؟ <a onclick="switchTab('register')">ثبت‌نام کنید</a>
                 </div>
             </div>
 
-            <!-- ===== REGISTER FORM ===== -->
             <div id="modalRegisterForm" class="modal-form">
                 <div class="form-row">
                     <div class="form-group">
-                        <label>👤 نام <span class="required">*</span></label>
+                        <label>نام <span class="required">*</span></label>
                         <input type="text" id="registerFirstName" placeholder="سارا" />
                     </div>
                     <div class="form-group">
-                        <label>👤 نام‌خانوادگی <span class="required">*</span></label>
+                        <label>نام‌خانوادگی <span class="required">*</span></label>
                         <input type="text" id="registerLastName" placeholder="احمدی" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>🎂 سن <span class="required">*</span></label>
+                    <label>سن <span class="required">*</span></label>
                     <input type="number" id="registerAge" placeholder="مثال: ۲۵" min="6" max="100" />
                 </div>
 
                 <div class="form-group">
-                    <label>📱 شماره تلفن <span class="required">*</span></label>
+                    <label>شماره تلفن <span class="required">*</span></label>
                     <input type="tel" id="registerPhone" placeholder="مثال: 09123456789" />
                 </div>
 
                 <div class="form-group password-toggle">
-                    <label>🔒 رمز عبور <span class="required">*</span></label>
+                    <label>رمز عبور <span class="required">*</span></label>
                     <input type="password" id="registerPassword" placeholder="حداقل ۶ کاراکتر" />
                     <button type="button" class="toggle-btn" onclick="togglePassword('registerPassword', this)">👁️</button>
                 </div>
 
                 <div class="form-group password-toggle">
-                    <label>🔒 تکرار رمز عبور <span class="required">*</span></label>
+                    <label>تکرار رمز عبور <span class="required">*</span></label>
                     <input type="password" id="registerConfirmPassword" placeholder="دوباره وارد کنید" />
                     <button type="button" class="toggle-btn" onclick="togglePassword('registerConfirmPassword', this)">👁️</button>
                 </div>
 
-                <button class="auth-btn" onclick="registerUser()">✨ ثبت‌نام</button>
+                <button class="auth-btn" onclick="registerUser()">ثبت‌نام</button>
                 <div class="auth-message" id="registerMessage"></div>
                 <div class="auth-footer">
                     حساب دارید؟ <a onclick="switchTab('login')">وارد شوید</a>
@@ -1678,6 +1702,13 @@
     </div>
 
     <script>
+        // ============================================================
+        // ===== SUPABASE CONFIGURATION =====
+        // ============================================================
+        const supabaseUrl = 'https://ofloiccfucbhlktspdly.supabase.co';
+        const supabaseKey = 'sb_publishable_ihnDHeIdKlXF3LCwtVD2IQ_yCHdGmnM';
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
         // ============================================================
         // ===== THEME TOGGLE =====
         // ============================================================
@@ -1706,6 +1737,37 @@
             var current = document.documentElement.getAttribute('data-theme');
             setTheme(current === 'dark' ? 'light' : 'dark');
         });
+
+        // ============================================================
+        // ===== CHECK USER SESSION =====
+        // ============================================================
+        function checkUserSession() {
+            var userData = JSON.parse(localStorage.getItem('neurolearn-user'));
+            var welcomeDiv = document.getElementById('userWelcome');
+            var userNameDisplay = document.getElementById('userNameDisplay');
+            var loginBtn = document.getElementById('loginBtn');
+            var registerBtn = document.getElementById('registerBtn');
+
+            if (userData && userData.phone) {
+                welcomeDiv.classList.add('show');
+                userNameDisplay.textContent = '👤 ' + (userData.firstName || 'کاربر');
+                loginBtn.style.display = 'none';
+                registerBtn.style.display = 'none';
+            } else {
+                welcomeDiv.classList.remove('show');
+                loginBtn.style.display = 'inline-block';
+                registerBtn.style.display = 'inline-block';
+            }
+        }
+
+        // ============================================================
+        // ===== LOGOUT =====
+        // ============================================================
+        function logoutUser() {
+            localStorage.removeItem('neurolearn-user');
+            checkUserSession();
+            alert('شما با موفقیت خارج شدید.');
+        }
 
         // ============================================================
         // ===== MODAL FUNCTIONS =====
@@ -1753,53 +1815,9 @@
         }
 
         // ============================================================
-        // ===== LOGIN =====
+        // ===== REGISTER USER =====
         // ============================================================
-        function loginUser() {
-            var phone = document.getElementById('loginPhone').value.trim();
-            var password = document.getElementById('loginPassword').value;
-            var message = document.getElementById('loginMessage');
-
-            if (!phone) {
-                message.className = 'auth-message error';
-                message.textContent = 'لطفاً شماره تلفن را وارد کنید.';
-                return;
-            }
-            if (phone.length < 11) {
-                message.className = 'auth-message error';
-                message.textContent = 'شماره تلفن باید ۱۱ رقم باشد.';
-                return;
-            }
-            if (!password) {
-                message.className = 'auth-message error';
-                message.textContent = 'لطفاً رمز عبور را وارد کنید.';
-                return;
-            }
-            if (password.length < 6) {
-                message.className = 'auth-message error';
-                message.textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
-                return;
-            }
-
-            localStorage.setItem('neurolearn-user', JSON.stringify({ phone: phone }));
-
-            message.className = 'auth-message success';
-            message.textContent = '✅ ورود با موفقیت انجام شد!';
-
-            setTimeout(function() {
-                document.getElementById('authModal').classList.remove('active');
-                alert('🔐 خوش آمدید!\nشماره تلفن: ' + phone);
-                document.getElementById('loginPhone').value = '';
-                document.getElementById('loginPassword').value = '';
-                message.className = 'auth-message';
-                message.textContent = '';
-            }, 1000);
-        }
-
-        // ============================================================
-        // ===== REGISTER =====
-        // ============================================================
-        function registerUser() {
+        async function registerUser() {
             var firstName = document.getElementById('registerFirstName').value.trim();
             var lastName = document.getElementById('registerLastName').value.trim();
             var age = document.getElementById('registerAge').value.trim();
@@ -1808,72 +1826,164 @@
             var confirmPassword = document.getElementById('registerConfirmPassword').value;
             var message = document.getElementById('registerMessage');
 
-            if (!firstName) {
+            if (!firstName || !lastName || !age || !phone || !password || !confirmPassword) {
                 message.className = 'auth-message error';
-                message.textContent = 'لطفاً نام خود را وارد کنید.';
+                message.textContent = 'لطفاً تمام فیلدهای ضروری را پر کنید.';
                 return;
             }
-            if (!lastName) {
-                message.className = 'auth-message error';
-                message.textContent = 'لطفاً نام‌خانوادگی خود را وارد کنید.';
-                return;
-            }
-            if (!age) {
-                message.className = 'auth-message error';
-                message.textContent = 'لطفاً سن خود را وارد کنید.';
-                return;
-            }
+
             var ageNum = parseInt(age);
             if (isNaN(ageNum) || ageNum < 6 || ageNum > 100) {
                 message.className = 'auth-message error';
                 message.textContent = 'سن باید بین ۶ تا ۱۰۰ سال باشد.';
                 return;
             }
-            if (!phone) {
-                message.className = 'auth-message error';
-                message.textContent = 'لطفاً شماره تلفن را وارد کنید.';
-                return;
-            }
-            if (phone.length < 11) {
-                message.className = 'auth-message error';
-                message.textContent = 'شماره تلفن باید ۱۱ رقم باشد.';
-                return;
-            }
+
             if (password.length < 6) {
                 message.className = 'auth-message error';
                 message.textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
                 return;
             }
+
             if (password !== confirmPassword) {
                 message.className = 'auth-message error';
                 message.textContent = 'رمز عبور و تکرار آن مطابقت ندارند.';
                 return;
             }
 
-            var fullName = firstName + ' ' + lastName;
-            localStorage.setItem('neurolearn-user', JSON.stringify({
-                firstName: firstName,
-                lastName: lastName,
-                age: age,
-                phone: phone
-            }));
+            if (phone.length < 11) {
+                message.className = 'auth-message error';
+                message.textContent = 'شماره تلفن باید ۱۱ رقم باشد.';
+                return;
+            }
 
-            message.className = 'auth-message success';
-            message.textContent = '✅ ثبت‌نام با موفقیت انجام شد!';
+            try {
+                message.className = 'auth-message info';
+                message.textContent = '⏳ در حال ثبت‌نام...';
 
-            setTimeout(function() {
-                document.getElementById('authModal').classList.remove('active');
-                alert('📝 ثبت‌نام شما با موفقیت انجام شد!\n\n👤 نام: ' + fullName + '\n🎂 سن: ' + age +
-                    '\n📱 تلفن: ' + phone);
-                document.getElementById('registerFirstName').value = '';
-                document.getElementById('registerLastName').value = '';
-                document.getElementById('registerAge').value = '';
-                document.getElementById('registerPhone').value = '';
-                document.getElementById('registerPassword').value = '';
-                document.getElementById('registerConfirmPassword').value = '';
-                message.className = 'auth-message';
-                message.textContent = '';
-            }, 1000);
+                const { data: existingUser, error: checkError } = await supabase
+                    .from('users')
+                    .select('phone')
+                    .eq('phone', phone)
+                    .maybeSingle();
+
+                if (existingUser) {
+                    message.className = 'auth-message error';
+                    message.textContent = 'این شماره تلفن قبلاً ثبت‌نام کرده است.';
+                    return;
+                }
+
+                const { data, error } = await supabase
+                    .from('users')
+                    .insert([
+                        {
+                            first_name: firstName,
+                            last_name: lastName,
+                            full_name: firstName + ' ' + lastName,
+                            age: ageNum,
+                            phone: phone,
+                            password: password
+                        }
+                    ])
+                    .select();
+
+                if (error) {
+                    console.error('Supabase Error:', error);
+                    throw new Error(error.message);
+                }
+
+                localStorage.setItem('neurolearn-user', JSON.stringify({
+                    id: data[0].id,
+                    firstName: firstName,
+                    lastName: lastName,
+                    age: ageNum,
+                    phone: phone
+                }));
+
+                message.className = 'auth-message success';
+                message.textContent = 'ثبت‌نام با موفقیت انجام شد!';
+
+                setTimeout(function() {
+                    document.getElementById('authModal').classList.remove('active');
+                    alert('ثبت‌نام شما با موفقیت انجام شد!\n\n' +
+                          'نام: ' + firstName + ' ' + lastName + '\n' +
+                          'سن: ' + ageNum + '\n' +
+                          'تلفن: ' + phone);
+                    document.getElementById('registerFirstName').value = '';
+                    document.getElementById('registerLastName').value = '';
+                    document.getElementById('registerAge').value = '';
+                    document.getElementById('registerPhone').value = '';
+                    document.getElementById('registerPassword').value = '';
+                    document.getElementById('registerConfirmPassword').value = '';
+                    message.className = 'auth-message';
+                    message.textContent = '';
+                    checkUserSession();
+                }, 1500);
+
+            } catch (error) {
+                console.error('Error:', error);
+                message.className = 'auth-message error';
+                message.textContent = 'خطا در ثبت‌نام: ' + (error.message || 'لطفاً دوباره تلاش کنید.');
+            }
+        }
+
+        // ============================================================
+        // ===== LOGIN USER =====
+        // ============================================================
+        async function loginUser() {
+            var phone = document.getElementById('loginPhone').value.trim();
+            var password = document.getElementById('loginPassword').value;
+            var message = document.getElementById('loginMessage');
+
+            if (!phone || !password) {
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً تمام فیلدها را پر کنید.';
+                return;
+            }
+
+            try {
+                message.className = 'auth-message info';
+                message.textContent = '⏳ در حال ورود...';
+
+                const { data, error } = await supabase
+                    .from('users')
+                    .select('*')
+                    .eq('phone', phone)
+                    .eq('password', password)
+                    .maybeSingle();
+
+                if (error || !data) {
+                    message.className = 'auth-message error';
+                    message.textContent = 'شماره تلفن یا رمز عبور اشتباه است.';
+                    return;
+                }
+
+                localStorage.setItem('neurolearn-user', JSON.stringify({
+                    id: data.id,
+                    firstName: data.first_name,
+                    lastName: data.last_name,
+                    age: data.age,
+                    phone: data.phone
+                }));
+
+                message.className = 'auth-message success';
+                message.textContent = 'ورود با موفقیت انجام شد!';
+
+                setTimeout(function() {
+                    document.getElementById('authModal').classList.remove('active');
+                    alert('خوش آمدید ' + data.first_name + '!');
+                    document.getElementById('loginPhone').value = '';
+                    document.getElementById('loginPassword').value = '';
+                    message.className = 'auth-message';
+                    message.textContent = '';
+                    checkUserSession();
+                }, 1500);
+
+            } catch (error) {
+                console.error('Error:', error);
+                message.className = 'auth-message error';
+                message.textContent = 'خطا در ورود. لطفاً دوباره تلاش کنید.';
+            }
         }
 
         // ============================================================
@@ -1971,9 +2081,15 @@
             }
         });
 
-        console.log('🧠 آموزشگاه مجازی نورولرن - صفحه رزرو کلاس‌ها');
-        console.log('📌 دکمه ورود → فرم ورود (شماره تلفن و رمز عبور)');
-        console.log('📌 دکمه ثبت‌نام → فرم ثبت‌نام کامل');
+        // ============================================================
+        // ===== INIT =====
+        // ============================================================
+        window.onload = function() {
+            checkUserSession();
+        };
+
+        console.log('🧠 آموزشگاه مجازی نورولرن - صفحه رزرو کلاس‌ها متصل به Supabase');
+        console.log('📌 ورود یکپارچه با صفحه اصلی');
         console.log('📌 دکمه رزرو کلاس → پیام نیاز به ورود');
     </script>
 </body>
