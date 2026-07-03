@@ -586,118 +586,6 @@
             box-shadow: 0 0 25px var(--glow-shadow);
         }
 
-        .questions-section {
-            background: var(--bg-questions);
-            border: 2px solid var(--border-questions);
-            border-radius: 20px;
-            padding: 25px 20px;
-            margin: 25px 0;
-            transition: all 0.5s ease;
-        }
-
-        .questions-title {
-            color: var(--text-gold);
-            font-size: 1.4rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .question-item {
-            background: var(--bg-question-input);
-            border: 1px solid var(--border-question-input);
-            border-radius: 16px;
-            padding: 15px 18px;
-            margin: 12px 0;
-            transition: all 0.3s ease;
-        }
-
-        .question-item:hover {
-            border-color: var(--text-gold);
-            box-shadow: var(--glow-shadow);
-        }
-
-        .question-item label {
-            color: var(--text-question-label);
-            font-weight: 700;
-            font-size: 0.95rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .question-item .options {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .question-item .options label {
-            color: var(--text-questions);
-            font-weight: 400;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            margin-bottom: 0;
-        }
-
-        .question-item .options input[type="radio"],
-        .question-item .options input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--text-gold);
-            cursor: pointer;
-        }
-
-        .question-item input[type="text"],
-        .question-item input[type="number"] {
-            width: 100%;
-            padding: 10px 14px;
-            background: var(--bg-question-input);
-            border: 1px solid var(--border-question-input);
-            border-radius: 12px;
-            color: var(--text-questions);
-            font-size: 0.95rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .question-item input[type="text"]:focus,
-        .question-item input[type="number"]:focus {
-            border-color: var(--text-gold);
-            box-shadow: var(--glow-shadow);
-        }
-
-        .question-item input[type="text"]::placeholder {
-            color: var(--text-muted);
-            opacity: 0.5;
-        }
-
-        .submit-questions-btn {
-            width: 100%;
-            padding: 14px;
-            background: var(--btn-reserve);
-            border: none;
-            border-radius: 60px;
-            color: var(--text-btn);
-            font-size: 1rem;
-            font-weight: 900;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-category);
-            margin-top: 10px;
-        }
-
-        .submit-questions-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px var(--glow-shadow);
-        }
-
-        .submit-questions-btn:active {
-            transform: scale(0.95);
-        }
-
         .offer-section-courses {
             background: var(--bg-offer);
             border-radius: 25px;
@@ -1314,10 +1202,6 @@
             .offer-section-courses { padding: 20px 15px; }
             .offer-title-courses { font-size: 1.4rem; }
             .offer-contact-courses { font-size: 1.2rem; padding: 10px 24px; }
-            .questions-section { padding: 18px 14px; }
-            .questions-title { font-size: 1.2rem; }
-            .question-item { padding: 12px 14px; }
-            .question-item .options { gap: 12px; }
             .modal-box { padding: 25px 18px; border-radius: 24px; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
         }
@@ -1331,7 +1215,6 @@
             .logo-courses { font-size: 2rem; }
             .category-item-courses { font-size: 0.6rem; padding: 4px 8px; min-width: 50px; }
             .offer-contact-courses { font-size: 1rem; padding: 8px 16px; }
-            .question-item .options { flex-direction: column; gap: 6px; }
             .modal-box { padding: 20px 15px; border-radius: 18px; }
         }
     </style>
@@ -1379,55 +1262,6 @@
                 <div class="stat-number-courses">۵۰۰+</div>
                 <div class="stat-label-courses">دانش‌آموز موفق</div>
             </div>
-        </div>
-
-        <!-- ===== Questions Section ===== -->
-        <div class="questions-section">
-            <div class="questions-title">📋 اطلاعات تکمیلی</div>
-
-            <div class="question-item">
-                <label>آیا می‌خواهید در دو دوره یا بیشتر ثبت‌نام کنید؟</label>
-                <div class="options">
-                    <label><input type="radio" name="multiCourse" value="yes"> بله</label>
-                    <label><input type="radio" name="multiCourse" value="no"> خیر</label>
-                </div>
-            </div>
-
-            <div class="question-item">
-                <label>آیا در قرعه‌کشی ماهانه برنده شده‌اید؟</label>
-                <div class="options">
-                    <label><input type="radio" name="lottery" value="yes"> بله</label>
-                    <label><input type="radio" name="lottery" value="no"> خیر</label>
-                </div>
-            </div>
-
-            <div class="question-item">
-                <label>آیا این اولین جلسه شماست؟</label>
-                <div class="options">
-                    <label><input type="radio" name="firstSession" value="yes"> بله</label>
-                    <label><input type="radio" name="firstSession" value="no"> خیر</label>
-                </div>
-            </div>
-
-            <div class="question-item">
-                <label>آیا دو فرزند (خواهر یا برادر) دارید که در کلاس ثبت‌نام کنند؟</label>
-                <div class="options">
-                    <label><input type="radio" name="siblings" value="yes"> بله</label>
-                    <label><input type="radio" name="siblings" value="no"> خیر</label>
-                </div>
-            </div>
-
-            <div class="question-item">
-                <label>چند جلسه قصد رزرو دارید؟</label>
-                <input type="number" id="sessionCount" placeholder="تعداد جلسات را وارد کنید..." min="1" max="50" />
-            </div>
-
-            <div class="question-item">
-                <label>کد تخفیف دارید؟ (در صورت وجود وارد کنید)</label>
-                <input type="text" id="discountCode" placeholder="مثال: NEURO100" />
-            </div>
-
-            <button class="submit-questions-btn" onclick="submitQuestions()">✅ ثبت اطلاعات و ادامه</button>
         </div>
 
         <!-- ===== Categories ===== -->
@@ -2064,28 +1898,6 @@
 
         function showLoginRequired() {
             showToast('لطفاً ابتدا ثبت‌نام یا وارد شوید تا بتوانید دوره مورد نظر را رزرو کنید.');
-        }
-
-        // ============================================================
-        // ===== SUBMIT QUESTIONS =====
-        // ============================================================
-        function submitQuestions() {
-            var multiCourse = document.querySelector('input[name="multiCourse"]:checked');
-            var lottery = document.querySelector('input[name="lottery"]:checked');
-            var firstSession = document.querySelector('input[name="firstSession"]:checked');
-            var siblings = document.querySelector('input[name="siblings"]:checked');
-            var sessionCount = document.getElementById('sessionCount').value;
-            var discountCode = document.getElementById('discountCode').value;
-
-            var message = '📋 اطلاعات شما با موفقیت ثبت شد!\n\n';
-            if (multiCourse) message += '✅ ثبت‌نام در دو دوره یا بیشتر: ' + (multiCourse.value === 'yes' ? 'بله' : 'خیر') + '\n';
-            if (lottery) message += '✅ برنده قرعه‌کشی ماهانه: ' + (lottery.value === 'yes' ? 'بله' : 'خیر') + '\n';
-            if (firstSession) message += '✅ اولین جلسه: ' + (firstSession.value === 'yes' ? 'بله' : 'خیر') + '\n';
-            if (siblings) message += '✅ دارای دو فرزند: ' + (siblings.value === 'yes' ? 'بله' : 'خیر') + '\n';
-            if (sessionCount) message += '✅ تعداد جلسات: ' + sessionCount + '\n';
-            if (discountCode) message += '✅ کد تخفیف: ' + discountCode;
-
-            alert(message);
         }
 
         // ============================================================
