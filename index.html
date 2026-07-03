@@ -1157,8 +1157,8 @@
         </ul>
 
         <div class="nav-auth-buttons">
-            <button class="nav-auth-btn login-btn" onclick="openLoginModal()">🔐 ورود</button>
-            <button class="nav-auth-btn register-btn" onclick="openRegisterModal()">📝 ثبت‌نام</button>
+            <button type="button" class="nav-auth-btn login-btn" onclick="openLoginModal()">🔐 ورود</button>
+            <button type="button" class="nav-auth-btn register-btn" onclick="openRegisterModal()">📝 ثبت‌نام</button>
         </div>
     </nav>
 
@@ -1343,12 +1343,12 @@
             </div>
 
             <div class="modal-tabs">
-                <button class="modal-tab" data-tab="login" onclick="document.getElementById('modalLoginForm').classList.add('active'); document.getElementById('modalRegisterForm').classList.remove('active'); this.classList.add('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.remove('active');">🔐 ورود</button>
+                <button class="modal-tab active" data-tab="login" onclick="document.getElementById('modalLoginForm').classList.add('active'); document.getElementById('modalRegisterForm').classList.remove('active'); this.classList.add('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.remove('active');">🔐 ورود</button>
                 <button class="modal-tab" data-tab="register" onclick="document.getElementById('modalRegisterForm').classList.add('active'); document.getElementById('modalLoginForm').classList.remove('active'); this.classList.add('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.remove('active');">📝 ثبت‌نام</button>
             </div>
 
             <!-- ===== LOGIN FORM ===== -->
-            <div id="modalLoginForm" class="modal-form">
+            <div id="modalLoginForm" class="modal-form active">
                 <div class="form-group">
                     <label>📱 شماره تلفن <span class="required">*</span></label>
                     <input type="tel" id="loginPhone" placeholder="مثال: 09123456789" />
@@ -1443,32 +1443,34 @@
         // ===== OPEN LOGIN MODAL =====
         // ============================================================
         function openLoginModal() {
-            // نمایش مودال
-            document.getElementById('authModal').classList.add('active');
+            var modal = document.getElementById('authModal');
+            var loginForm = document.getElementById('modalLoginForm');
+            var registerForm = document.getElementById('modalRegisterForm');
+            var loginTab = document.querySelector('.modal-tab[data-tab="login"]');
+            var registerTab = document.querySelector('.modal-tab[data-tab="register"]');
             
-            // نمایش فرم ورود
-            document.getElementById('modalLoginForm').classList.add('active');
-            document.getElementById('modalRegisterForm').classList.remove('active');
-            
-            // تنظیم تب‌ها
-            document.querySelector('.modal-tab[data-tab="login"]').classList.add('active');
-            document.querySelector('.modal-tab[data-tab="register"]').classList.remove('active');
+            modal.classList.add('active');
+            loginForm.classList.add('active');
+            registerForm.classList.remove('active');
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
         }
 
         // ============================================================
         // ===== OPEN REGISTER MODAL =====
         // ============================================================
         function openRegisterModal() {
-            // نمایش مودال
-            document.getElementById('authModal').classList.add('active');
+            var modal = document.getElementById('authModal');
+            var loginForm = document.getElementById('modalLoginForm');
+            var registerForm = document.getElementById('modalRegisterForm');
+            var loginTab = document.querySelector('.modal-tab[data-tab="login"]');
+            var registerTab = document.querySelector('.modal-tab[data-tab="register"]');
             
-            // نمایش فرم ثبت‌نام
-            document.getElementById('modalRegisterForm').classList.add('active');
-            document.getElementById('modalLoginForm').classList.remove('active');
-            
-            // تنظیم تب‌ها
-            document.querySelector('.modal-tab[data-tab="register"]').classList.add('active');
-            document.querySelector('.modal-tab[data-tab="login"]').classList.remove('active');
+            modal.classList.add('active');
+            registerForm.classList.add('active');
+            loginForm.classList.remove('active');
+            registerTab.classList.add('active');
+            loginTab.classList.remove('active');
         }
 
         // ============================================================
@@ -1500,7 +1502,6 @@
                 return;
             }
 
-            // ذخیره اطلاعات کاربر در localStorage
             localStorage.setItem('neurolearn-user', JSON.stringify({ phone: phone }));
 
             message.className = 'auth-message success';
@@ -1509,7 +1510,6 @@
             setTimeout(function() {
                 document.getElementById('authModal').classList.remove('active');
                 alert('🔐 خوش آمدید!\nشماره تلفن: ' + phone);
-                // پاک کردن فرم
                 document.getElementById('loginPhone').value = '';
                 document.getElementById('loginPassword').value = '';
                 message.className = 'auth-message';
@@ -1571,7 +1571,6 @@
                 return;
             }
 
-            // ذخیره اطلاعات کاربر در localStorage
             var fullName = firstName + ' ' + lastName;
             localStorage.setItem('neurolearn-user', JSON.stringify({ 
                 firstName: firstName,
@@ -1587,7 +1586,6 @@
                 document.getElementById('authModal').classList.remove('active');
                 alert('📝 ثبت‌نام شما با موفقیت انجام شد!\n\n👤 نام: ' + fullName + '\n🎂 سن: ' + age +
                     '\n📱 تلفن: ' + phone);
-                // پاک کردن فرم
                 document.getElementById('registerFirstName').value = '';
                 document.getElementById('registerLastName').value = '';
                 document.getElementById('registerAge').value = '';
