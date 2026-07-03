@@ -90,6 +90,15 @@
             --bg-question-input: rgba(255, 255, 255, 0.05);
             --border-question-input: rgba(212, 175, 55, 0.15);
             --text-question-label: #c9a84c;
+            --bg-modal-overlay: rgba(0, 0, 0, 0.7);
+            --bg-modal: rgba(18, 15, 12, 0.95);
+            --border-modal: rgba(212, 175, 55, 0.15);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --border-input: rgba(212, 175, 55, 0.12);
+            --bg-btn: linear-gradient(135deg, #d4af37, #b8962a);
+            --text-btn-modal: #0a0806;
+            --error-color: #ff6b6b;
+            --success-color: #51cf66;
         }
 
         [data-theme="light"] {
@@ -174,6 +183,12 @@
             --bg-question-input: rgba(255, 255, 255, 0.5);
             --border-question-input: rgba(184, 150, 42, 0.15);
             --text-question-label: #8a7a5a;
+            --bg-modal-overlay: rgba(0, 0, 0, 0.4);
+            --bg-modal: rgba(255, 252, 245, 0.95);
+            --border-modal: rgba(184, 150, 42, 0.1);
+            --bg-input: rgba(0, 0, 0, 0.03);
+            --border-input: rgba(184, 150, 42, 0.1);
+            --text-btn-modal: #ffffff;
         }
 
         * {
@@ -972,7 +987,7 @@
             border: 2px solid var(--text-gold);
             border-radius: 16px;
             padding: 15px 25px;
-            box-shadow: var(--shadow-card);
+            box-shadow: var(--shadow-container);
             z-index: 99999;
             opacity: 0;
             transition: all 0.5s ease;
@@ -1014,6 +1029,272 @@
             transform: scale(1.05);
         }
 
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-modal-overlay);
+            backdrop-filter: blur(8px);
+            z-index: 99999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            animation: fadeInModal 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeInModal {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .modal-box {
+            max-width: 450px;
+            width: 100%;
+            background: var(--bg-modal);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--border-modal);
+            border-radius: 30px;
+            padding: 30px 25px;
+            box-shadow: var(--shadow-container);
+            transition: all 0.5s ease;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            left: 15px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: var(--text-gold);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f6e27a, #d4af37, #b8962a, #f6e27a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        .modal-subtitle {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .modal-tabs {
+            display: flex;
+            border-radius: 60px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 2px solid var(--border-modal);
+        }
+
+        .modal-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+        }
+
+        .modal-tab.active {
+            background: linear-gradient(135deg, #d4af37, #b8962a);
+            color: #0a0806;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .modal-tab:hover:not(.active) {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .modal-form {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-form.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-white);
+            font-weight: 500;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .form-group label .required {
+            color: var(--error-color);
+            margin-right: 3px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-input);
+            border: 2px solid var(--border-input);
+            border-radius: 14px;
+            color: var(--text-white);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            outline: none;
+            direction: rtl;
+        }
+
+        .form-group input[type="tel"],
+        .form-group input[type="password"] {
+            direction: ltr;
+        }
+
+        .form-group input:focus {
+            border-color: var(--text-gold);
+            box-shadow: var(--glow-shadow);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .password-toggle {
+            position: relative;
+        }
+
+        .password-toggle .toggle-btn {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 4px;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-btn);
+            border: none;
+            border-radius: 60px;
+            color: var(--text-btn-modal);
+            font-size: 1rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            margin-top: 8px;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .auth-btn:active {
+            transform: scale(0.97);
+        }
+
+        .auth-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .auth-message {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            padding: 8px;
+            border-radius: 12px;
+            display: none;
+        }
+
+        .auth-message.error {
+            display: block;
+            color: var(--error-color);
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+        }
+
+        .auth-message.success {
+            display: block;
+            color: var(--success-color);
+            background: rgba(81, 207, 102, 0.1);
+            border: 1px solid rgba(81, 207, 102, 0.2);
+        }
+
+        .auth-message.info {
+            display: block;
+            color: var(--text-gold);
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .auth-footer a {
+            color: var(--text-gold);
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
             body { padding: 8px; }
             .navbar {
@@ -1039,6 +1320,8 @@
             .questions-title { font-size: 1.2rem; }
             .question-item { padding: 12px 14px; }
             .question-item .options { gap: 12px; }
+            .modal-box { padding: 25px 18px; border-radius: 24px; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
         }
 
         @media (max-width: 400px) {
@@ -1051,6 +1334,7 @@
             .category-item-courses { font-size: 0.6rem; padding: 4px 8px; min-width: 50px; }
             .offer-contact-courses { font-size: 1rem; padding: 8px 16px; }
             .question-item .options { flex-direction: column; gap: 6px; }
+            .modal-box { padding: 20px 15px; border-radius: 18px; }
         }
     </style>
 </head>
@@ -1076,8 +1360,8 @@
         </ul>
 
         <div class="nav-auth-buttons">
-            <button class="nav-auth-btn login-btn" onclick="document.getElementById('toast').classList.add('show')">🔐 ورود</button>
-            <button class="nav-auth-btn register-btn" onclick="document.getElementById('toast').classList.add('show')">📝 ثبت‌نام</button>
+            <button type="button" class="nav-auth-btn login-btn" onclick="openLoginModal()">🔐 ورود</button>
+            <button type="button" class="nav-auth-btn register-btn" onclick="openRegisterModal()">📝 ثبت‌نام</button>
         </div>
     </nav>
 
@@ -1484,6 +1768,83 @@
         <button class="toast-btn" onclick="closeToast()">متوجه شدم</button>
     </div>
 
+    <!-- ===== MODAL ===== -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="document.getElementById('authModal').classList.remove('active')">✕</button>
+
+            <div class="modal-header">
+                <div class="modal-logo">🧠 نورولرن</div>
+                <div class="modal-subtitle">✦ NeuroLearn Academy ✦</div>
+            </div>
+
+            <div class="modal-tabs">
+                <button class="modal-tab active" data-tab="login" onclick="document.getElementById('modalLoginForm').classList.add('active'); document.getElementById('modalRegisterForm').classList.remove('active'); this.classList.add('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.remove('active');">🔐 ورود</button>
+                <button class="modal-tab" data-tab="register" onclick="document.getElementById('modalRegisterForm').classList.add('active'); document.getElementById('modalLoginForm').classList.remove('active'); this.classList.add('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.remove('active');">📝 ثبت‌نام</button>
+            </div>
+
+            <!-- ===== LOGIN FORM ===== -->
+            <div id="modalLoginForm" class="modal-form active">
+                <div class="form-group">
+                    <label>📱 شماره تلفن <span class="required">*</span></label>
+                    <input type="tel" id="loginPhone" placeholder="مثال: 09123456789" />
+                </div>
+                <div class="form-group password-toggle">
+                    <label>🔒 رمز عبور <span class="required">*</span></label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" />
+                    <button type="button" class="toggle-btn" onclick="var input=document.getElementById('loginPassword'); if(input.type==='password'){input.type='text';this.textContent='🙈'}else{input.type='password';this.textContent='👁️'}">👁️</button>
+                </div>
+                <button class="auth-btn" onclick="loginUser()">🚀 ورود</button>
+                <div class="auth-message" id="loginMessage"></div>
+                <div class="auth-footer">
+                    حساب ندارید؟ <a onclick="document.getElementById('modalRegisterForm').classList.add('active'); document.getElementById('modalLoginForm').classList.remove('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.add('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.remove('active');">ثبت‌نام کنید</a>
+                </div>
+            </div>
+
+            <!-- ===== REGISTER FORM ===== -->
+            <div id="modalRegisterForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>👤 نام <span class="required">*</span></label>
+                        <input type="text" id="registerFirstName" placeholder="سارا" />
+                    </div>
+                    <div class="form-group">
+                        <label>👤 نام‌خانوادگی <span class="required">*</span></label>
+                        <input type="text" id="registerLastName" placeholder="احمدی" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>🎂 سن <span class="required">*</span></label>
+                    <input type="number" id="registerAge" placeholder="مثال: ۲۵" min="6" max="100" />
+                </div>
+
+                <div class="form-group">
+                    <label>📱 شماره تلفن <span class="required">*</span></label>
+                    <input type="tel" id="registerPhone" placeholder="مثال: 09123456789" />
+                </div>
+
+                <div class="form-group password-toggle">
+                    <label>🔒 رمز عبور <span class="required">*</span></label>
+                    <input type="password" id="registerPassword" placeholder="حداقل ۶ کاراکتر" />
+                    <button type="button" class="toggle-btn" onclick="var input=document.getElementById('registerPassword'); if(input.type==='password'){input.type='text';this.textContent='🙈'}else{input.type='password';this.textContent='👁️'}">👁️</button>
+                </div>
+
+                <div class="form-group password-toggle">
+                    <label>🔒 تکرار رمز عبور <span class="required">*</span></label>
+                    <input type="password" id="registerConfirmPassword" placeholder="دوباره وارد کنید" />
+                    <button type="button" class="toggle-btn" onclick="var input=document.getElementById('registerConfirmPassword'); if(input.type==='password'){input.type='text';this.textContent='🙈'}else{input.type='password';this.textContent='👁️'}">👁️</button>
+                </div>
+
+                <button class="auth-btn" onclick="registerUser()">✨ ثبت‌نام</button>
+                <div class="auth-message" id="registerMessage"></div>
+                <div class="auth-footer">
+                    حساب دارید؟ <a onclick="document.getElementById('modalLoginForm').classList.add('active'); document.getElementById('modalRegisterForm').classList.remove('active'); document.querySelector('.modal-tab[data-tab=\'login\']').classList.add('active'); document.querySelector('.modal-tab[data-tab=\'register\']').classList.remove('active');">وارد شوید</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const themeToggle = document.getElementById('themeToggle');
         const toggleDot = document.getElementById('toggleDot');
@@ -1510,6 +1871,164 @@
             const current = document.documentElement.getAttribute('data-theme');
             setTheme(current === 'dark' ? 'light' : 'dark');
         });
+
+        // ============================================================
+        // ===== OPEN LOGIN MODAL =====
+        // ============================================================
+        function openLoginModal() {
+            var modal = document.getElementById('authModal');
+            var loginForm = document.getElementById('modalLoginForm');
+            var registerForm = document.getElementById('modalRegisterForm');
+            var loginTab = document.querySelector('.modal-tab[data-tab="login"]');
+            var registerTab = document.querySelector('.modal-tab[data-tab="register"]');
+            
+            modal.classList.add('active');
+            loginForm.classList.add('active');
+            registerForm.classList.remove('active');
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
+        }
+
+        // ============================================================
+        // ===== OPEN REGISTER MODAL =====
+        // ============================================================
+        function openRegisterModal() {
+            var modal = document.getElementById('authModal');
+            var loginForm = document.getElementById('modalLoginForm');
+            var registerForm = document.getElementById('modalRegisterForm');
+            var loginTab = document.querySelector('.modal-tab[data-tab="login"]');
+            var registerTab = document.querySelector('.modal-tab[data-tab="register"]');
+            
+            modal.classList.add('active');
+            registerForm.classList.add('active');
+            loginForm.classList.remove('active');
+            registerTab.classList.add('active');
+            loginTab.classList.remove('active');
+        }
+
+        // ============================================================
+        // ===== LOGIN =====
+        // ============================================================
+        function loginUser() {
+            var phone = document.getElementById('loginPhone').value.trim();
+            var password = document.getElementById('loginPassword').value;
+            var message = document.getElementById('loginMessage');
+
+            if (!phone) {
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً شماره تلفن را وارد کنید.';
+                return;
+            }
+            if (phone.length < 11) {
+                message.className = 'auth-message error';
+                message.textContent = 'شماره تلفن باید ۱۱ رقم باشد.';
+                return;
+            }
+            if (!password) {
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً رمز عبور را وارد کنید.';
+                return;
+            }
+            if (password.length < 6) {
+                message.className = 'auth-message error';
+                message.textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
+                return;
+            }
+
+            localStorage.setItem('neurolearn-user', JSON.stringify({ phone: phone }));
+
+            message.className = 'auth-message success';
+            message.textContent = '✅ ورود با موفقیت انجام شد!';
+
+            setTimeout(function() {
+                document.getElementById('authModal').classList.remove('active');
+                alert('🔐 خوش آمدید!\nشماره تلفن: ' + phone);
+                document.getElementById('loginPhone').value = '';
+                document.getElementById('loginPassword').value = '';
+                message.className = 'auth-message';
+                message.textContent = '';
+            }, 1000);
+        }
+
+        // ============================================================
+        // ===== REGISTER =====
+        // ============================================================
+        function registerUser() {
+            var firstName = document.getElementById('registerFirstName').value.trim();
+            var lastName = document.getElementById('registerLastName').value.trim();
+            var age = document.getElementById('registerAge').value.trim();
+            var phone = document.getElementById('registerPhone').value.trim();
+            var password = document.getElementById('registerPassword').value;
+            var confirmPassword = document.getElementById('registerConfirmPassword').value;
+            var message = document.getElementById('registerMessage');
+
+            if (!firstName) {
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً نام خود را وارد کنید.';
+                return;
+            }
+            if (!lastName) {
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً نام‌خانوادگی خود را وارد کنید.';
+                return;
+            }
+            if (!age) {
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً سن خود را وارد کنید.';
+                return;
+            }
+            var ageNum = parseInt(age);
+            if (isNaN(ageNum) || ageNum < 6 || ageNum > 100) {
+                message.className = 'auth-message error';
+                message.textContent = 'سن باید بین ۶ تا ۱۰۰ سال باشد.';
+                return;
+            }
+            if (!phone) {
+                message.className = 'auth-message error';
+                message.textContent = 'لطفاً شماره تلفن را وارد کنید.';
+                return;
+            }
+            if (phone.length < 11) {
+                message.className = 'auth-message error';
+                message.textContent = 'شماره تلفن باید ۱۱ رقم باشد.';
+                return;
+            }
+            if (password.length < 6) {
+                message.className = 'auth-message error';
+                message.textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد.';
+                return;
+            }
+            if (password !== confirmPassword) {
+                message.className = 'auth-message error';
+                message.textContent = 'رمز عبور و تکرار آن مطابقت ندارند.';
+                return;
+            }
+
+            var fullName = firstName + ' ' + lastName;
+            localStorage.setItem('neurolearn-user', JSON.stringify({ 
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                phone: phone
+            }));
+
+            message.className = 'auth-message success';
+            message.textContent = '✅ ثبت‌نام با موفقیت انجام شد!';
+
+            setTimeout(function() {
+                document.getElementById('authModal').classList.remove('active');
+                alert('📝 ثبت‌نام شما با موفقیت انجام شد!\n\n👤 نام: ' + fullName + '\n🎂 سن: ' + age +
+                    '\n📱 تلفن: ' + phone);
+                document.getElementById('registerFirstName').value = '';
+                document.getElementById('registerLastName').value = '';
+                document.getElementById('registerAge').value = '';
+                document.getElementById('registerPhone').value = '';
+                document.getElementById('registerPassword').value = '';
+                document.getElementById('registerConfirmPassword').value = '';
+                message.className = 'auth-message';
+                message.textContent = '';
+            }, 1000);
+        }
 
         let toastTimeout;
 
@@ -1597,9 +2116,15 @@
             }
         });
 
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('authModal').classList.remove('active');
+            }
+        });
+
         console.log('🧠 آموزشگاه مجازی نورولرن - صفحه رزرو کلاس‌ها');
-        console.log('📌 قیمت‌ها از صفحه حذف شدند.');
-        console.log('📌 برای رزرو کلاس باید وارد شوید.');
+        console.log('📌 دکمه ورود → فرم ورود (شماره تلفن و رمز عبور)');
+        console.log('📌 دکمه ثبت‌نام → فرم ثبت‌نام کامل');
     </script>
 </body>
 </html>
