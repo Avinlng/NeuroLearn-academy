@@ -54,7 +54,6 @@
             --text-btn-offer: #1a0f00;
             --border-btn-offer: white;
             --text-offer-footer: #ffb347;
-            --shadow-container: 0 0 50px rgba(255, 215, 0, 0.2);
             --shadow-category: 0 5px 20px rgba(255, 215, 0, 0.2);
             --shadow-dropdown-menu: 0 20px 60px rgba(255, 215, 0, 0.3);
             --shadow-offer: 0 0 50px rgba(255, 215, 0, 0.3);
@@ -147,7 +146,6 @@
             --text-btn-offer: #ffffff;
             --border-btn-offer: #f6e27a;
             --text-offer-footer: #8a7a5a;
-            --shadow-container: 0 0 60px rgba(212, 175, 55, 0.1);
             --shadow-category: 0 5px 25px rgba(212, 175, 55, 0.08);
             --shadow-dropdown-menu: 0 20px 60px rgba(212, 175, 55, 0.08);
             --shadow-offer: 0 0 60px rgba(212, 175, 55, 0.06);
@@ -1029,7 +1027,7 @@
             transform: scale(1.05);
         }
 
-        /* ===== MODAL ===== */
+        /* ===== MODAL STYLES ===== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -1846,11 +1844,14 @@
     </div>
 
     <script>
-        const themeToggle = document.getElementById('themeToggle');
-        const toggleDot = document.getElementById('toggleDot');
+        // ============================================================
+        // ===== THEME TOGGLE =====
+        // ============================================================
+        var themeToggle = document.getElementById('themeToggle');
+        var toggleDot = document.getElementById('toggleDot');
 
         function getInitialTheme() {
-            const saved = localStorage.getItem('neurolearn-theme');
+            var saved = localStorage.getItem('neurolearn-theme');
             if (saved) return saved;
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
                 return 'light';
@@ -1864,11 +1865,11 @@
             toggleDot.textContent = theme === 'dark' ? '🌙' : '☀️';
         }
 
-        const initialTheme = getInitialTheme();
+        var initialTheme = getInitialTheme();
         setTheme(initialTheme);
 
-        themeToggle.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme');
+        themeToggle.addEventListener('click', function() {
+            var current = document.documentElement.getAttribute('data-theme');
             setTheme(current === 'dark' ? 'light' : 'dark');
         });
 
@@ -2030,10 +2031,14 @@
             }, 1000);
         }
 
-        let toastTimeout;
+        // ============================================================
+        // ===== TOAST =====
+        // ============================================================
+        var toastTimeout;
 
-        function showToast(message, title = '🔒 نیاز به ورود') {
-            const toast = document.getElementById('toast');
+        function showToast(message, title) {
+            if (title === undefined) title = '🔒 نیاز به ورود';
+            var toast = document.getElementById('toast');
             document.getElementById('toastTitle').textContent = title;
             document.getElementById('toastMessage').textContent = message;
             toast.classList.add('show');
@@ -2050,15 +2055,18 @@
             showToast('لطفاً ابتدا ثبت‌نام یا وارد شوید تا بتوانید دوره مورد نظر را رزرو کنید.');
         }
 
+        // ============================================================
+        // ===== SUBMIT QUESTIONS =====
+        // ============================================================
         function submitQuestions() {
-            const multiCourse = document.querySelector('input[name="multiCourse"]:checked');
-            const lottery = document.querySelector('input[name="lottery"]:checked');
-            const firstSession = document.querySelector('input[name="firstSession"]:checked');
-            const siblings = document.querySelector('input[name="siblings"]:checked');
-            const sessionCount = document.getElementById('sessionCount').value;
-            const discountCode = document.getElementById('discountCode').value;
+            var multiCourse = document.querySelector('input[name="multiCourse"]:checked');
+            var lottery = document.querySelector('input[name="lottery"]:checked');
+            var firstSession = document.querySelector('input[name="firstSession"]:checked');
+            var siblings = document.querySelector('input[name="siblings"]:checked');
+            var sessionCount = document.getElementById('sessionCount').value;
+            var discountCode = document.getElementById('discountCode').value;
 
-            let message = '📋 اطلاعات شما با موفقیت ثبت شد!\n\n';
+            var message = '📋 اطلاعات شما با موفقیت ثبت شد!\n\n';
             if (multiCourse) message += '✅ ثبت‌نام در دو دوره یا بیشتر: ' + (multiCourse.value === 'yes' ? 'بله' : 'خیر') + '\n';
             if (lottery) message += '✅ برنده قرعه‌کشی ماهانه: ' + (lottery.value === 'yes' ? 'بله' : 'خیر') + '\n';
             if (firstSession) message += '✅ اولین جلسه: ' + (firstSession.value === 'yes' ? 'بله' : 'خیر') + '\n';
@@ -2069,8 +2077,11 @@
             alert(message);
         }
 
+        // ============================================================
+        // ===== TOGGLE DROPDOWN =====
+        // ============================================================
         function toggleMainDropdown(category) {
-            const dropdowns = {
+            var dropdowns = {
                 canada: document.getElementById('canada-dropdown'),
                 iran: document.getElementById('iran-dropdown'),
                 iranEn: document.getElementById('iranEn-dropdown'),
@@ -2079,43 +2090,58 @@
                 celpip: document.getElementById('celpip-dropdown'),
                 aeas: document.getElementById('aeas-dropdown')
             };
-            const allItems = document.querySelectorAll('.category-item-courses');
+            var allItems = document.querySelectorAll('.category-item-courses');
 
-            Object.values(dropdowns).forEach(d => {
-                if (d) d.classList.remove('show');
-            });
-            allItems.forEach(item => item.classList.remove('active'));
+            for (var key in dropdowns) {
+                if (dropdowns[key]) dropdowns[key].classList.remove('show');
+            }
+            for (var i = 0; i < allItems.length; i++) {
+                allItems[i].classList.remove('active');
+            }
 
-            const target = dropdowns[category];
+            var target = dropdowns[category];
             if (target) {
                 target.classList.add('show');
-                const btns = document.querySelectorAll('.category-item-courses');
-                btns.forEach(btn => {
-                    const text = btn.textContent.trim();
-                    const categoryMap = {
-                        'canada': 'کانادا',
-                        'iran': 'ایران',
-                        'iranEn': 'ایران (EN)',
-                        'generalEnglish': 'زبان عمومی',
-                        'kidsBilingual': 'کودکان دو زبانه',
-                        'celpip': 'CELPIP',
-                        'aeas': 'AEAS'
-                    };
+                var btns = document.querySelectorAll('.category-item-courses');
+                var categoryMap = {
+                    'canada': 'کانادا',
+                    'iran': 'ایران',
+                    'iranEn': 'ایران (EN)',
+                    'generalEnglish': 'زبان عمومی',
+                    'kidsBilingual': 'کودکان دو زبانه',
+                    'celpip': 'CELPIP',
+                    'aeas': 'AEAS'
+                };
+                for (var j = 0; j < btns.length; j++) {
+                    var btn = btns[j];
+                    var text = btn.textContent.trim();
                     if (text.includes(categoryMap[category])) {
                         btn.classList.add('active');
                     }
-                });
+                }
             }
         }
 
+        // ============================================================
+        // ===== CLOSE DROPDOWNS ON CLICK OUTSIDE =====
+        // ============================================================
         document.addEventListener('click', function(e) {
-            const container = document.querySelector('.neuro-container');
+            var container = document.querySelector('.neuro-container');
             if (container && !container.contains(e.target)) {
-                document.querySelectorAll('.main-dropdown-courses').forEach(d => d.classList.remove('show'));
-                document.querySelectorAll('.category-item-courses').forEach(i => i.classList.remove('active'));
+                var dropdowns = document.querySelectorAll('.main-dropdown-courses');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    dropdowns[i].classList.remove('show');
+                }
+                var items = document.querySelectorAll('.category-item-courses');
+                for (var j = 0; j < items.length; j++) {
+                    items[j].classList.remove('active');
+                }
             }
         });
 
+        // ============================================================
+        // ===== KEYBOARD SUPPORT =====
+        // ============================================================
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 document.getElementById('authModal').classList.remove('active');
