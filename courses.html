@@ -33,6 +33,7 @@
             --border-course: rgba(255, 215, 0, 0.3);
             --text-course: #ffd700;
             --text-type: #ffb347;
+            --text-price: #00ff88;
             --btn-reserve: linear-gradient(135deg, #ffd700, #ff8c00);
             --text-btn: #1a0f00;
             --bg-offer: linear-gradient(135deg, #2a1a00, #1a0f00);
@@ -118,6 +119,7 @@
             --border-course: rgba(212, 175, 55, 0.2);
             --text-course: #b8962a;
             --text-type: #8a7a5a;
+            --text-price: #2b8a4a;
             --btn-reserve: linear-gradient(135deg, #d4af37, #b8962a);
             --text-btn: #ffffff;
             --bg-offer: linear-gradient(135deg, #ffffff, #f5ede0);
@@ -463,15 +465,17 @@
         }
         .course-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 15px;
         }
         .course-item-courses {
             background: var(--bg-course);
             border-radius: 14px;
-            padding: 12px 15px;
+            padding: 15px 16px;
             border: 1px solid var(--border-course);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         .course-item-courses:hover {
             transform: translateX(-4px);
@@ -489,27 +493,43 @@
         .course-name-courses {
             color: var(--text-course);
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
         .course-type-courses {
             color: var(--text-type);
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             margin-bottom: 6px;
             transition: color 0.3s ease;
+        }
+        .course-price-courses {
+            color: var(--text-price);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin: 6px 0;
+            padding: 4px 10px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            text-align: center;
+        }
+        .course-price-courses::before {
+            content: "💰 ";
         }
         .reserve-btn-courses {
             background: var(--btn-reserve);
             border: none;
             color: var(--text-btn);
-            padding: 5px 12px;
+            padding: 8px 12px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.3s;
             border: 1px solid var(--border-category);
             width: 100%;
+            margin-top: 6px;
         }
         .reserve-btn-courses:hover {
             transform: scale(1.02);
@@ -1152,68 +1172,265 @@
             <div class="category-item-courses" onclick="toggleMainDropdown('aeas')"><span>📝 آزمون AEAS</span><span class="dropdown-icon-courses">▼</span></div>
         </div>
 
+        <!-- ===== 1️⃣ مدارس کانادا ===== -->
         <div id="canada-dropdown" class="main-dropdown-courses">
             <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">Primary (JK - GR 3)</span></div><div class="course-type-courses">Language Arts, Math, Science</div><button class="reserve-btn-courses" onclick="reserveCourse('Primary (JK - GR 3)', 'مدارس کانادا')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">Junior (GR 4-6)</span></div><div class="course-type-courses">Language Arts, Math, Science</div><button class="reserve-btn-courses" onclick="reserveCourse('Junior (GR 4-6)', 'مدارس کانادا')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">Intermediate (GR 7-8)</span></div><div class="course-type-courses">Pre-Algebra, Science, Literacy</div><button class="reserve-btn-courses" onclick="reserveCourse('Intermediate (GR 7-8)', 'مدارس کانادا')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">High School (GR 9-12)</span></div><div class="course-type-courses">Math, Sciences, English, Social Studies</div><button class="reserve-btn-courses" onclick="reserveCourse('High School (GR 9-12)', 'مدارس کانادا')">رزرو کلاس</button></div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">Primary (JK - GR 3)</span>
+                    </div>
+                    <div class="course-type-courses">Language Arts, Math, Science</div>
+                    <div class="course-price-courses">۷۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('Primary (JK - GR 3)', 'مدارس کانادا', 750000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">Junior (GR 4-6)</span>
+                    </div>
+                    <div class="course-type-courses">Language Arts, Math, Science</div>
+                    <div class="course-price-courses">۸۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('Junior (GR 4-6)', 'مدارس کانادا', 850000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">Intermediate (GR 7-8)</span>
+                    </div>
+                    <div class="course-type-courses">Pre-Algebra, Science, Literacy</div>
+                    <div class="course-price-courses">۹۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('Intermediate (GR 7-8)', 'مدارس کانادا', 950000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">High School (GR 9-12)</span>
+                    </div>
+                    <div class="course-type-courses">Math, Sciences, English, Social Studies</div>
+                    <div class="course-price-courses">۱,۱۰۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('High School (GR 9-12)', 'مدارس کانادا', 1100000)">رزرو کلاس</button>
+                </div>
             </div>
         </div>
 
+        <!-- ===== 2️⃣ مدارس ایران ===== -->
         <div id="iran-dropdown" class="main-dropdown-courses">
             <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">دبستان (GR 1-6)</span></div><div class="course-type-courses">ریاضی، علوم، فارسی، دینی</div><button class="reserve-btn-courses" onclick="reserveCourse('دبستان (GR 1-6)', 'مدارس ایران')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">راهنمایی (GR 7-9)</span></div><div class="course-type-courses">ریاضی، علوم، فارسی، عربی</div><button class="reserve-btn-courses" onclick="reserveCourse('راهنمایی (GR 7-9)', 'مدارس ایران')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">دبیرستان (GR 10-12)</span></div><div class="course-type-courses">ریاضی، فیزیک، شیمی، ادبیات</div><button class="reserve-btn-courses" onclick="reserveCourse('دبیرستان (GR 10-12)', 'مدارس ایران')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">آمادگی کنکور</span></div><div class="course-type-courses">ریاضی، فیزیک، شیمی، زیست، ادبیات</div><button class="reserve-btn-courses" onclick="reserveCourse('آمادگی کنکور', 'مدارس ایران')">رزرو کلاس</button></div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">دبستان (GR 1-6)</span>
+                    </div>
+                    <div class="course-type-courses">ریاضی، علوم، فارسی، دینی</div>
+                    <div class="course-price-courses">۵۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('دبستان (GR 1-6)', 'مدارس ایران', 550000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">راهنمایی (GR 7-9)</span>
+                    </div>
+                    <div class="course-type-courses">ریاضی، علوم، فارسی، عربی</div>
+                    <div class="course-price-courses">۶۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('راهنمایی (GR 7-9)', 'مدارس ایران', 650000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">دبیرستان (GR 10-12)</span>
+                    </div>
+                    <div class="course-type-courses">ریاضی، فیزیک، شیمی، ادبیات</div>
+                    <div class="course-price-courses">۷۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('دبیرستان (GR 10-12)', 'مدارس ایران', 750000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">آمادگی کنکور</span>
+                    </div>
+                    <div class="course-type-courses">ریاضی، فیزیک، شیمی، زیست، ادبیات</div>
+                    <div class="course-price-courses">۹۰۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('آمادگی کنکور', 'مدارس ایران', 900000)">رزرو کلاس</button>
+                </div>
             </div>
         </div>
 
+        <!-- ===== 3️⃣ مدارس ایران (EN) ===== -->
         <div id="iranEn-dropdown" class="main-dropdown-courses">
             <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">Elementary (GR 1-6)</span></div><div class="course-type-courses">Math, Science, Persian (in English)</div><button class="reserve-btn-courses" onclick="reserveCourse('Elementary (GR 1-6)', 'مدارس ایران (EN)')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">Middle School (GR 7-9)</span></div><div class="course-type-courses">Math, Science, Persian (in English)</div><button class="reserve-btn-courses" onclick="reserveCourse('Middle School (GR 7-9)', 'مدارس ایران (EN)')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">High School (GR 10-12)</span></div><div class="course-type-courses">Math, Physics, Chemistry, Literature (in English)</div><button class="reserve-btn-courses" onclick="reserveCourse('High School (GR 10-12)', 'مدارس ایران (EN)')">رزرو کلاس</button></div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">Elementary (GR 1-6)</span>
+                    </div>
+                    <div class="course-type-courses">Math, Science, Persian (in English)</div>
+                    <div class="course-price-courses">۶۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('Elementary (GR 1-6)', 'مدارس ایران (EN)', 650000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">Middle School (GR 7-9)</span>
+                    </div>
+                    <div class="course-type-courses">Math, Science, Persian (in English)</div>
+                    <div class="course-price-courses">۷۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('Middle School (GR 7-9)', 'مدارس ایران (EN)', 750000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">High School (GR 10-12)</span>
+                    </div>
+                    <div class="course-type-courses">Math, Physics, Chemistry, Literature (in English)</div>
+                    <div class="course-price-courses">۸۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('High School (GR 10-12)', 'مدارس ایران (EN)', 850000)">رزرو کلاس</button>
+                </div>
             </div>
         </div>
 
+        <!-- ===== 4️⃣ کلاس زبان عمومی ===== -->
         <div id="generalEnglish-dropdown" class="main-dropdown-courses">
             <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🎧 Listening (شنیداری)</span></div><div class="course-type-courses">تقویت مهارت شنیداری</div><button class="reserve-btn-courses" onclick="reserveCourse('Listening', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🗣️ Speaking (گفتاری)</span></div><div class="course-type-courses">تقویت مهارت مکالمه</div><button class="reserve-btn-courses" onclick="reserveCourse('Speaking', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">📖 Reading (خواندن)</span></div><div class="course-type-courses">تقویت مهارت خواندن</div><button class="reserve-btn-courses" onclick="reserveCourse('Reading', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">✍️ Writing (نوشتار)</span></div><div class="course-type-courses">تقویت مهارت نوشتاری</div><button class="reserve-btn-courses" onclick="reserveCourse('Writing', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🎯 دوره جامع (۴ مهارت)</span></div><div class="course-type-courses">همه مهارت‌ها در یک دوره</div><button class="reserve-btn-courses" onclick="reserveCourse('دوره جامع ۴ مهارت', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">👶 آموزش زبان کودکان</span></div><div class="course-type-courses">زبان انگلیسی برای کودکان</div><button class="reserve-btn-courses" onclick="reserveCourse('آموزش زبان کودکان', 'کلاس زبان عمومی')">رزرو کلاس</button></div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">🎧 Listening (شنیداری)</span>
+                    </div>
+                    <div class="course-type-courses">تقویت مهارت شنیداری</div>
+                    <div class="course-price-courses">۵۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('Listening', 'کلاس زبان عمومی', 550000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">🗣️ Speaking (گفتاری)</span>
+                    </div>
+                    <div class="course-type-courses">تقویت مهارت مکالمه</div>
+                    <div class="course-price-courses">۵۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('Speaking', 'کلاس زبان عمومی', 550000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">📖 Reading (خواندن)</span>
+                    </div>
+                    <div class="course-type-courses">تقویت مهارت خواندن</div>
+                    <div class="course-price-courses">۵۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('Reading', 'کلاس زبان عمومی', 550000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">✍️ Writing (نوشتار)</span>
+                    </div>
+                    <div class="course-type-courses">تقویت مهارت نوشتاری</div>
+                    <div class="course-price-courses">۵۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('Writing', 'کلاس زبان عمومی', 550000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">🎯 دوره جامع (۴ مهارت)</span>
+                    </div>
+                    <div class="course-type-courses">همه مهارت‌ها در یک دوره</div>
+                    <div class="course-price-courses">۱,۲۰۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('دوره جامع ۴ مهارت', 'کلاس زبان عمومی', 1200000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">👶 آموزش زبان کودکان</span>
+                    </div>
+                    <div class="course-type-courses">زبان انگلیسی برای کودکان</div>
+                    <div class="course-price-courses">۵۰۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('آموزش زبان کودکان', 'کلاس زبان عمومی', 500000)">رزرو کلاس</button>
+                </div>
             </div>
         </div>
 
+        <!-- ===== 5️⃣ کودکان دو زبانه ===== -->
         <div id="kidsBilingual-dropdown" class="main-dropdown-courses">
             <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🗣️ مکالمه فارسی</span></div><div class="course-type-courses">آموزش مکالمه روزمره فارسی</div><button class="reserve-btn-courses" onclick="reserveCourse('مکالمه فارسی', 'کودکان دو زبانه')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">📖 خواندن و نوشتن فارسی</span></div><div class="course-type-courses">آموزش الفبا، خواندن و نوشتن</div><button class="reserve-btn-courses" onclick="reserveCourse('خواندن و نوشتن فارسی', 'کودکان دو زبانه')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🧒 دوره جامع کودکان</span></div><div class="course-type-courses">مکالمه + خواندن + نوشتن</div><button class="reserve-btn-courses" onclick="reserveCourse('دوره جامع کودکان', 'کودکان دو زبانه')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">🎨 کلاس داستان‌خوانی</span></div><div class="course-type-courses">تقویت مهارت شنیداری و گفتاری</div><button class="reserve-btn-courses" onclick="reserveCourse('کلاس داستان‌خوانی', 'کودکان دو زبانه')">رزرو کلاس</button></div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">🗣️ مکالمه فارسی</span>
+                    </div>
+                    <div class="course-type-courses">آموزش مکالمه روزمره فارسی</div>
+                    <div class="course-price-courses">۵۰۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('مکالمه فارسی', 'کودکان دو زبانه', 500000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">📖 خواندن و نوشتن فارسی</span>
+                    </div>
+                    <div class="course-type-courses">آموزش الفبا، خواندن و نوشتن</div>
+                    <div class="course-price-courses">۵۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('خواندن و نوشتن فارسی', 'کودکان دو زبانه', 550000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">🧒 دوره جامع کودکان</span>
+                    </div>
+                    <div class="course-type-courses">مکالمه + خواندن + نوشتن</div>
+                    <div class="course-price-courses">۹۰۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('دوره جامع کودکان', 'کودکان دو زبانه', 900000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">🎨 کلاس داستان‌خوانی</span>
+                    </div>
+                    <div class="course-type-courses">تقویت مهارت شنیداری و گفتاری</div>
+                    <div class="course-price-courses">۵۰۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('کلاس داستان‌خوانی', 'کودکان دو زبانه', 500000)">رزرو کلاس</button>
+                </div>
             </div>
         </div>
 
+        <!-- ===== 6️⃣ آزمون CELPIP ===== -->
         <div id="celpip-dropdown" class="main-dropdown-courses">
             <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">آمادگی CELPIP General</span></div><div class="course-type-courses">Reading, Writing, Listening, Speaking</div><button class="reserve-btn-courses" onclick="reserveCourse('CELPIP General', 'آزمون CELPIP')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">آمادگی CELPIP LS</span></div><div class="course-type-courses">Listening, Speaking (for citizenship)</div><button class="reserve-btn-courses" onclick="reserveCourse('CELPIP LS', 'آزمون CELPIP')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">کلاس رفع اشکال CELPIP</span></div><div class="course-type-courses">Speaking Practice, Writing Feedback</div><button class="reserve-btn-courses" onclick="reserveCourse('رفع اشکال CELPIP', 'آزمون CELPIP')">رزرو کلاس</button></div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">آمادگی CELPIP General</span>
+                    </div>
+                    <div class="course-type-courses">Reading, Writing, Listening, Speaking</div>
+                    <div class="course-price-courses">۱,۳۰۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('CELPIP General', 'آزمون CELPIP', 1300000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">آمادگی CELPIP LS</span>
+                    </div>
+                    <div class="course-type-courses">Listening, Speaking (for citizenship)</div>
+                    <div class="course-price-courses">۹۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('CELPIP LS', 'آزمون CELPIP', 950000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">کلاس رفع اشکال CELPIP</span>
+                    </div>
+                    <div class="course-type-courses">Speaking Practice, Writing Feedback</div>
+                    <div class="course-price-courses">۶۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('رفع اشکال CELPIP', 'آزمون CELPIP', 650000)">رزرو کلاس</button>
+                </div>
             </div>
         </div>
 
+        <!-- ===== 7️⃣ آزمون AEAS ===== -->
         <div id="aeas-dropdown" class="main-dropdown-courses">
             <div class="course-list">
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">آمادگی AEAS (مقطع ابتدایی)</span></div><div class="course-type-courses">English, Math, General Ability</div><button class="reserve-btn-courses" onclick="reserveCourse('AEAS ابتدایی', 'آزمون AEAS')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">آمادگی AEAS (مقطع متوسطه)</span></div><div class="course-type-courses">English, Math, General Ability</div><button class="reserve-btn-courses" onclick="reserveCourse('AEAS متوسطه', 'آزمون AEAS')">رزرو کلاس</button></div>
-                <div class="course-item-courses"><div class="course-header-courses"><span class="course-name-courses">کلاس رفع اشکال AEAS</span></div><div class="course-type-courses">Mock Test, Speaking Practice</div><button class="reserve-btn-courses" onclick="reserveCourse('رفع اشکال AEAS', 'آزمون AEAS')">رزرو کلاس</button></div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">آمادگی AEAS (مقطع ابتدایی)</span>
+                    </div>
+                    <div class="course-type-courses">English, Math, General Ability</div>
+                    <div class="course-price-courses">۹۰۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('AEAS ابتدایی', 'آزمون AEAS', 900000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">آمادگی AEAS (مقطع متوسطه)</span>
+                    </div>
+                    <div class="course-type-courses">English, Math, General Ability</div>
+                    <div class="course-price-courses">۱,۰۵۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('AEAS متوسطه', 'آزمون AEAS', 1050000)">رزرو کلاس</button>
+                </div>
+                <div class="course-item-courses">
+                    <div class="course-header-courses">
+                        <span class="course-name-courses">کلاس رفع اشکال AEAS</span>
+                    </div>
+                    <div class="course-type-courses">Mock Test, Speaking Practice</div>
+                    <div class="course-price-courses">۷۰۰,۰۰۰ تومان</div>
+                    <button class="reserve-btn-courses" onclick="reserveCourse('رفع اشکال AEAS', 'آزمون AEAS', 700000)">رزرو کلاس</button>
+                </div>
             </div>
         </div>
 
+        <!-- ===== OFFER SECTION ===== -->
         <div class="offer-section-courses">
             <div class="offer-title-courses">🎁 پیشنهاد ویژه نورولرن 🎁</div>
             <div class="offer-checklist-courses">
@@ -1239,6 +1456,7 @@
             <div class="offer-footer-courses">👈 با کلیک روی شماره، پیامک تخفیف ارسال می‌شود</div>
         </div>
 
+        <!-- ===== CONTACT INFO ===== -->
         <div class="contact-info-courses">
             <a href="sms:09174123428?body=سلام%20مایل%20به%20رزرو%20کلاس%20هستم." class="contact-item-courses"><span>📱</span> <span class="ltr">۰۹۱۷۴۱۲۳۴۲۸</span></a>
             <a href="mailto:avinlangroodi4@gmail.com?subject=رزرو%20کلاس" class="contact-item-courses"><span>📧</span> <span class="ltr">avinlangroodi4@gmail.com</span></a>
@@ -1250,12 +1468,14 @@
         </div>
     </div>
 
+    <!-- ===== TOAST ===== -->
     <div class="toast" id="toast">
         <div class="toast-title" id="toastTitle">🔒 نیاز به ورود</div>
         <div class="toast-message" id="toastMessage">لطفاً ابتدا ثبت نام کنید یا وارد شوید تا بتوانید دوره مورد نظر را رزرو کنید.</div>
         <button class="toast-btn" onclick="closeToast()">متوجه شدم</button>
     </div>
 
+    <!-- ===== MODAL ===== -->
     <div class="modal-overlay" id="authModal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal()">✕</button>
@@ -1673,12 +1893,23 @@
         // ============================================================
         // ===== RESERVE COURSE =====
         // ============================================================
-        async function reserveCourse(courseName, category) {
+        async function reserveCourse(courseName, category, price) {
             try {
                 var userData = JSON.parse(localStorage.getItem('neurolearn-user'));
 
                 if (!userData || !userData.phone) {
                     showToast('لطفاً ابتدا ثبت نام کنید یا وارد شوید تا بتوانید دوره مورد نظر را رزرو کنید.');
+                    return;
+                }
+
+                var priceFormatted = price.toLocaleString('fa-IR') + ' تومان';
+                var confirmMessage = 'آیا از ثبت رزرو دوره زیر مطمئن هستید؟\n\n' +
+                    '📚 دوره: ' + courseName + '\n' +
+                    '📂 دسته‌بندی: ' + category + '\n' +
+                    '💰 قیمت: ' + priceFormatted + '\n\n' +
+                    '✅ پس از تایید، با شما تماس گرفته می‌شود.';
+
+                if (!confirm(confirmMessage)) {
                     return;
                 }
 
@@ -1692,6 +1923,7 @@
                         user_phone: userData.phone,
                         course_name: courseName,
                         category: category,
+                        price: price,
                         status: 'pending'
                     }])
                     .select();
@@ -1705,6 +1937,7 @@
                     '✅ رزرو شما با موفقیت ثبت شد!\n' +
                     'دوره: ' + courseName + '\n' +
                     'دسته‌بندی: ' + category + '\n' +
+                    '💰 قیمت: ' + priceFormatted + '\n' +
                     'به زودی با شما تماس گرفته می‌شود.',
                     '🎉 رزرو موفق'
                 );
@@ -1820,4 +2053,4 @@
         };
     </script>
 </body>
-</html>
+</html
